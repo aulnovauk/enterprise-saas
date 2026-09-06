@@ -1,0 +1,305 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  --deep-blue: #2955A0;
+  --deep-blue-light: #0089C9;
+  --solar-yellow: #E8A800;
+  --solar-yellow-light: #FFC72C;
+  --saffron: #F27B21;
+  
+  --gray-50: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-300: #CBD5E1;
+  --gray-400: #94A3B8;
+  --gray-500: #64748B;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1E293B;
+  --gray-900: #0F172A;
+  
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #2955A0;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #E8A800;
+  --accent-foreground: #0F172A;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --input-background: #FFFFFF;
+  --switch-background: #CBD5E1;
+  --ring: #2955A0;
+  
+  --success: #059669;
+  --success-light: #D1FAE5;
+  --warning: #D97706;
+  --warning-light: #FEF3C7;
+  --danger: #DC2626;
+  --danger-light: #FEE2E2;
+  --info: #2563EB;
+  --info-light: #DBEAFE;
+  
+  --chart-1: #2955A0;
+  --chart-2: #2563EB;
+  --chart-3: #059669;
+  --chart-4: #D97706;
+  --chart-5: #7C3AED;
+  --chart-6: #F27B21;
+  
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-5: 40px;
+  --spacing-6: 48px;
+  
+  --radius: 6px;
+  
+  --sidebar: #2955A0;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #E8A800;
+  --sidebar-primary-foreground: #0F172A;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #E8A800;
+}
+
+.dark {
+  --background: #0F172A;
+  --foreground: #E2E8F0;
+  --card: #1E293B;
+  --card-foreground: #E2E8F0;
+  --popover: #1E293B;
+  --popover-foreground: #E2E8F0;
+  --primary: #E8A800;
+  --primary-foreground: #0F172A;
+  --secondary: #334155;
+  --secondary-foreground: #E2E8F0;
+  --muted: #334155;
+  --muted-foreground: #94A3B8;
+  --accent: #E8A800;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #334155;
+  --input: #334155;
+  --input-background: #1E293B;
+  --switch-background: #475569;
+  --ring: #E8A800;
+
+  --gray-50: #1E293B;
+  --gray-100: #334155;
+  --gray-200: #475569;
+  --gray-300: #64748B;
+  --gray-400: #94A3B8;
+  --gray-500: #CBD5E1;
+  --gray-600: #E2E8F0;
+  --gray-700: #F1F5F9;
+  --gray-800: #F8FAFC;
+  --gray-900: #FFFFFF;
+}
+
+/* Dark mode overrides for hardcoded Tailwind utility classes */
+.dark .bg-white { background-color: #1E293B !important; }
+.dark .bg-slate-50 { background-color: #1E293B !important; }
+.dark .bg-slate-50\/80 { background-color: rgba(30,41,59,0.8) !important; }
+.dark .bg-slate-100 { background-color: #334155 !important; }
+.dark .bg-slate-200 { background-color: #475569 !important; }
+.dark .border-slate-100 { border-color: #334155 !important; }
+.dark .border-slate-200 { border-color: #475569 !important; }
+.dark .border-slate-300 { border-color: #64748B !important; }
+.dark .text-slate-900 { color: #F1F5F9 !important; }
+.dark .text-slate-800 { color: #E2E8F0 !important; }
+.dark .text-slate-700 { color: #CBD5E1 !important; }
+.dark .text-slate-600 { color: #94A3B8 !important; }
+.dark .text-slate-500 { color: #64748B !important; }
+.dark .divide-slate-200 > * + * { border-color: #475569 !important; }
+.dark td { color: #CBD5E1; border-color: #334155; }
+.dark th { color: #94A3B8; background-color: #334155; border-color: #475569; }
+.dark tr:hover td { background-color: #334155; }
+.dark h1, .dark h2, .dark h3, .dark h4 { color: #F1F5F9; }
+
+/* ── KPI card status tints (light mode) ────────────────────────────── */
+.kpi-card-green  { background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 60%); }
+.kpi-card-yellow { background: linear-gradient(135deg, #fffbeb 0%, #ffffff 60%); }
+.kpi-card-red    { background: linear-gradient(135deg, #fff1f2 0%, #ffffff 60%); }
+.kpi-card-stable { background: linear-gradient(135deg, #f8fafc 0%, #ffffff 60%); }
+
+/* ── KPI card tints — dark mode: remove the light gradient ─────────── */
+.dark .kpi-card-green,
+.dark .kpi-card-yellow,
+.dark .kpi-card-red,
+.dark .kpi-card-stable { background: #1E293B !important; }
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--gray-900);
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--gray-900);
+    letter-spacing: -0.015em;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--gray-900);
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--gray-700);
+  }
+
+  button {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  input, textarea, select {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray-600);
+    background-color: var(--gray-50);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--gray-200);
+  }
+  
+  td {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray-700);
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  
+  tr:hover td {
+    background-color: var(--gray-50);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--gray-300);
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--gray-400);
+  }
+}
