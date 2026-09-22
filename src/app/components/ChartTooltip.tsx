@@ -57,7 +57,7 @@ export function CustomChartTooltip({
 
   return (
     <div className="bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden min-w-[180px] max-w-[280px]">
-      <div className="h-[3px] bg-gradient-to-r from-[#2955A0] to-[#0089C9]" />
+      <div className="h-[3px] bg-gradient-to-r from-brand to-brand-500" />
 
       {displayLabel && (
         <div className="px-3 pt-2.5 pb-1.5 border-b border-slate-100">

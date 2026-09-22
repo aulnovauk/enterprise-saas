@@ -179,7 +179,7 @@ const rootCauseData = [
 ];
 
 export function WaterfallLossAnalytics() {
-  const [selectedPlant, setSelectedPlant] = useState("Latur Solar Station");
+  const [selectedPlant, setSelectedPlant] = useState("Solar Park 04");
   const [selectedMonth, setSelectedMonth] = useState("feb2026");
   const totalLosses = waterfallData
     .filter((d) => d.type === "loss")
@@ -193,7 +193,7 @@ export function WaterfallLossAnalytics() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <TrendingDown className="w-4 h-4 text-white" />
               </div>
               <div>

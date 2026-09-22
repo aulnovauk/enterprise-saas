@@ -25,34 +25,34 @@ import {
 } from "recharts";
 
 const vendorColors: Record<string, string> = {
-  "SolarCo India": "#2955A0",
-  "SunPower Tech": "#ef4444",
-  "Mega Solar Inc": "#f59e0b",
-  "Green Energy Ltd": "#10b981",
-  "TechSolar Pvt": "#8b5cf6",
+  "Vendor Bravo": "#2955A0",
+  "Vendor Alpha": "#ef4444",
+  "Vendor Charlie": "#f59e0b",
+  "Vendor Delta": "#10b981",
+  "Vendor Echo": "#8b5cf6",
 };
 
 const vendorRevenueData = [
-  { vendor: "SolarCo India", plants: "Sakri, Ahmednagar, Amravati", plantCount: 3, capacity: 51, budgeted: 12.17, actual: 10.94, realized: 10.55, collection: 89.9, ldExposure: 0.42, shortfall: 1.23, status: "warning" },
-  { vendor: "SunPower Tech", plants: "Sangli, Wardha, Buldhana, Chandrapur", plantCount: 4, capacity: 63, budgeted: 12.61, actual: 10.89, realized: 10.42, collection: 86.3, ldExposure: 0.54, shortfall: 1.72, status: "critical" },
-  { vendor: "Mega Solar Inc", plants: "Beed, Devdaithan, Bhandara", plantCount: 3, capacity: 56, budgeted: 13.44, actual: 12.19, realized: 11.65, collection: 90.7, ldExposure: 0.55, shortfall: 1.25, status: "warning" },
-  { vendor: "Green Energy Ltd", plants: "Osmanabad", plantCount: 1, capacity: 30, budgeted: 7.20, actual: 6.97, realized: 6.80, collection: 96.8, ldExposure: 0.00, shortfall: 0.23, status: "healthy" },
-  { vendor: "TechSolar Pvt", plants: "Latur", plantCount: 1, capacity: 20, budgeted: 4.80, actual: 4.60, realized: 4.48, collection: 95.8, ldExposure: 0.00, shortfall: 0.20, status: "healthy" },
+  { vendor: "Vendor Bravo", plants: "Park 01, 06, 08", plantCount: 3, capacity: 51, budgeted: 12.17, actual: 10.94, realized: 10.55, collection: 89.9, ldExposure: 0.42, shortfall: 1.23, status: "warning" },
+  { vendor: "Vendor Alpha", plants: "Park 02, 09, 10, 11", plantCount: 4, capacity: 63, budgeted: 12.61, actual: 10.89, realized: 10.42, collection: 86.3, ldExposure: 0.54, shortfall: 1.72, status: "critical" },
+  { vendor: "Vendor Charlie", plants: "Park 05, 07, 12", plantCount: 3, capacity: 56, budgeted: 13.44, actual: 12.19, realized: 11.65, collection: 90.7, ldExposure: 0.55, shortfall: 1.25, status: "warning" },
+  { vendor: "Vendor Delta", plants: "Park 03", plantCount: 1, capacity: 30, budgeted: 7.20, actual: 6.97, realized: 6.80, collection: 96.8, ldExposure: 0.00, shortfall: 0.23, status: "healthy" },
+  { vendor: "Vendor Echo", plants: "Park 04", plantCount: 1, capacity: 20, budgeted: 4.80, actual: 4.60, realized: 4.48, collection: 95.8, ldExposure: 0.00, shortfall: 0.20, status: "healthy" },
 ];
 
 const plantRevenueData = [
-  { plant: "Sakri Solar Park", district: "Dhule", vendor: "SolarCo India", capacity: 25, tariff: 2.00, budgetedGen: 5520, actualGen: 5180, revenue: 1.04, budgetedRev: 1.10, shortfall: 0.06, collectionPct: 94.2, invoiced: 1.10, collected: 1.04, pending: 0.06, overdue: 0.02, pr: 78.2, cuf: 23.5 },
-  { plant: "Sangli Solar Farm", district: "Sangli", vendor: "SunPower Tech", capacity: 15, tariff: 2.00, budgetedGen: 3250, actualGen: 2840, revenue: 0.57, budgetedRev: 0.65, shortfall: 0.08, collectionPct: 88.5, invoiced: 0.65, collected: 0.57, pending: 0.08, overdue: 0.02, pr: 74.8, cuf: 21.2 },
-  { plant: "Osmanabad Solar Plant", district: "Osmanabad", vendor: "Green Energy Ltd", capacity: 30, tariff: 2.00, budgetedGen: 6510, actualGen: 6360, revenue: 1.27, budgetedRev: 1.30, shortfall: 0.03, collectionPct: 97.5, invoiced: 1.30, collected: 1.27, pending: 0.03, overdue: 0.00, pr: 82.5, cuf: 24.1 },
-  { plant: "Latur Solar Station", district: "Latur", vendor: "TechSolar Pvt", capacity: 20, tariff: 2.00, budgetedGen: 4340, actualGen: 4240, revenue: 0.85, budgetedRev: 0.87, shortfall: 0.02, collectionPct: 98.0, invoiced: 0.87, collected: 0.85, pending: 0.02, overdue: 0.00, pr: 83.1, cuf: 23.8 },
-  { plant: "Beed Solar Park", district: "Beed", vendor: "Mega Solar Inc", capacity: 30, tariff: 2.00, budgetedGen: 6510, actualGen: 6180, revenue: 1.24, budgetedRev: 1.30, shortfall: 0.06, collectionPct: 94.8, invoiced: 1.30, collected: 1.24, pending: 0.06, overdue: 0.02, pr: 80.2, cuf: 24.5 },
-  { plant: "Ahmednagar Solar Plant", district: "Ahmednagar", vendor: "SolarCo India", capacity: 12, tariff: 2.00, budgetedGen: 2600, actualGen: 2450, revenue: 0.49, budgetedRev: 0.52, shortfall: 0.03, collectionPct: 94.0, invoiced: 0.52, collected: 0.49, pending: 0.03, overdue: 0.01, pr: 79.0, cuf: 23.2 },
-  { plant: "Devdaithan Solar Plant", district: "Ahmednagar", vendor: "Mega Solar Inc", capacity: 18, tariff: 2.00, budgetedGen: 3905, actualGen: 3690, revenue: 0.74, budgetedRev: 0.78, shortfall: 0.04, collectionPct: 95.0, invoiced: 0.78, collected: 0.74, pending: 0.04, overdue: 0.01, pr: 79.8, cuf: 19.5 },
-  { plant: "Amravati Solar Unit", district: "Amravati", vendor: "SolarCo India", capacity: 14, tariff: 2.00, budgetedGen: 3040, actualGen: 2740, revenue: 0.55, budgetedRev: 0.61, shortfall: 0.06, collectionPct: 89.8, invoiced: 0.61, collected: 0.55, pending: 0.06, overdue: 0.02, pr: 75.8, cuf: 18.5 },
-  { plant: "Wardha Solar Park", district: "Wardha", vendor: "SunPower Tech", capacity: 16, tariff: 2.00, budgetedGen: 3470, actualGen: 3180, revenue: 0.64, budgetedRev: 0.69, shortfall: 0.05, collectionPct: 91.5, invoiced: 0.69, collected: 0.64, pending: 0.05, overdue: 0.02, pr: 76.5, cuf: 20.8 },
-  { plant: "Buldhana Solar Farm", district: "Buldhana", vendor: "SunPower Tech", capacity: 10, tariff: 2.00, budgetedGen: 2170, actualGen: 1990, revenue: 0.40, budgetedRev: 0.43, shortfall: 0.03, collectionPct: 91.8, invoiced: 0.43, collected: 0.40, pending: 0.03, overdue: 0.01, pr: 77.0, cuf: 22.8 },
-  { plant: "Chandrapur Solar Project", district: "Chandrapur", vendor: "SunPower Tech", capacity: 22, tariff: 2.00, budgetedGen: 4770, actualGen: 4360, revenue: 0.87, budgetedRev: 0.95, shortfall: 0.08, collectionPct: 91.5, invoiced: 0.95, collected: 0.87, pending: 0.08, overdue: 0.02, pr: 77.2, cuf: 21.5 },
-  { plant: "Bhandara Solar Station", district: "Bhandara", vendor: "Mega Solar Inc", capacity: 8, tariff: 2.00, budgetedGen: 1740, actualGen: 1640, revenue: 0.33, budgetedRev: 0.35, shortfall: 0.02, collectionPct: 94.2, invoiced: 0.35, collected: 0.33, pending: 0.02, overdue: 0.01, pr: 79.5, cuf: 23.0 },
+  { plant: "Solar Park 01", district: "Zone 1", vendor: "Vendor Bravo", capacity: 25, tariff: 2.00, budgetedGen: 5520, actualGen: 5180, revenue: 1.04, budgetedRev: 1.10, shortfall: 0.06, collectionPct: 94.2, invoiced: 1.10, collected: 1.04, pending: 0.06, overdue: 0.02, pr: 78.2, cuf: 23.5 },
+  { plant: "Solar Park 02", district: "Zone 2", vendor: "Vendor Alpha", capacity: 15, tariff: 2.00, budgetedGen: 3250, actualGen: 2840, revenue: 0.57, budgetedRev: 0.65, shortfall: 0.08, collectionPct: 88.5, invoiced: 0.65, collected: 0.57, pending: 0.08, overdue: 0.02, pr: 74.8, cuf: 21.2 },
+  { plant: "Solar Park 03", district: "Zone 3", vendor: "Vendor Delta", capacity: 30, tariff: 2.00, budgetedGen: 6510, actualGen: 6360, revenue: 1.27, budgetedRev: 1.30, shortfall: 0.03, collectionPct: 97.5, invoiced: 1.30, collected: 1.27, pending: 0.03, overdue: 0.00, pr: 82.5, cuf: 24.1 },
+  { plant: "Solar Park 04", district: "Zone 4", vendor: "Vendor Echo", capacity: 20, tariff: 2.00, budgetedGen: 4340, actualGen: 4240, revenue: 0.85, budgetedRev: 0.87, shortfall: 0.02, collectionPct: 98.0, invoiced: 0.87, collected: 0.85, pending: 0.02, overdue: 0.00, pr: 83.1, cuf: 23.8 },
+  { plant: "Solar Park 05", district: "Zone 5", vendor: "Vendor Charlie", capacity: 30, tariff: 2.00, budgetedGen: 6510, actualGen: 6180, revenue: 1.24, budgetedRev: 1.30, shortfall: 0.06, collectionPct: 94.8, invoiced: 1.30, collected: 1.24, pending: 0.06, overdue: 0.02, pr: 80.2, cuf: 24.5 },
+  { plant: "Solar Park 06", district: "Zone 6", vendor: "Vendor Bravo", capacity: 12, tariff: 2.00, budgetedGen: 2600, actualGen: 2450, revenue: 0.49, budgetedRev: 0.52, shortfall: 0.03, collectionPct: 94.0, invoiced: 0.52, collected: 0.49, pending: 0.03, overdue: 0.01, pr: 79.0, cuf: 23.2 },
+  { plant: "Solar Park 07", district: "Zone 6", vendor: "Vendor Charlie", capacity: 18, tariff: 2.00, budgetedGen: 3905, actualGen: 3690, revenue: 0.74, budgetedRev: 0.78, shortfall: 0.04, collectionPct: 95.0, invoiced: 0.78, collected: 0.74, pending: 0.04, overdue: 0.01, pr: 79.8, cuf: 19.5 },
+  { plant: "Solar Park 08", district: "Zone 7", vendor: "Vendor Bravo", capacity: 14, tariff: 2.00, budgetedGen: 3040, actualGen: 2740, revenue: 0.55, budgetedRev: 0.61, shortfall: 0.06, collectionPct: 89.8, invoiced: 0.61, collected: 0.55, pending: 0.06, overdue: 0.02, pr: 75.8, cuf: 18.5 },
+  { plant: "Solar Park 09", district: "Zone 8", vendor: "Vendor Alpha", capacity: 16, tariff: 2.00, budgetedGen: 3470, actualGen: 3180, revenue: 0.64, budgetedRev: 0.69, shortfall: 0.05, collectionPct: 91.5, invoiced: 0.69, collected: 0.64, pending: 0.05, overdue: 0.02, pr: 76.5, cuf: 20.8 },
+  { plant: "Solar Park 10", district: "Zone 9", vendor: "Vendor Alpha", capacity: 10, tariff: 2.00, budgetedGen: 2170, actualGen: 1990, revenue: 0.40, budgetedRev: 0.43, shortfall: 0.03, collectionPct: 91.8, invoiced: 0.43, collected: 0.40, pending: 0.03, overdue: 0.01, pr: 77.0, cuf: 22.8 },
+  { plant: "Solar Park 11", district: "Zone 10", vendor: "Vendor Alpha", capacity: 22, tariff: 2.00, budgetedGen: 4770, actualGen: 4360, revenue: 0.87, budgetedRev: 0.95, shortfall: 0.08, collectionPct: 91.5, invoiced: 0.95, collected: 0.87, pending: 0.08, overdue: 0.02, pr: 77.2, cuf: 21.5 },
+  { plant: "Solar Park 12", district: "Zone 11", vendor: "Vendor Charlie", capacity: 8, tariff: 2.00, budgetedGen: 1740, actualGen: 1640, revenue: 0.33, budgetedRev: 0.35, shortfall: 0.02, collectionPct: 94.2, invoiced: 0.35, collected: 0.33, pending: 0.02, overdue: 0.01, pr: 79.5, cuf: 23.0 },
 ];
 
 const portfolioStats = {
@@ -63,18 +63,18 @@ const portfolioStats = {
 };
 
 const plants = [
-  { id: "PLT-001", name: "Sakri Solar Park", location: "Dhule, Maharashtra", capacity: "25 MW", commissionDate: "2020-04-15", technology: "Mono-crystalline", inverters: 10, modules: 73440, status: "operational", contractor: "SolarCo India" },
-  { id: "PLT-002", name: "Sangli Solar Farm", location: "Sangli, Maharashtra", capacity: "15 MW", commissionDate: "2019-11-20", technology: "Poly-crystalline", inverters: 6, modules: 43200, status: "operational", contractor: "SunPower Tech" },
-  { id: "PLT-003", name: "Osmanabad Solar Plant", location: "Osmanabad, Maharashtra", capacity: "30 MW", commissionDate: "2021-06-10", technology: "Mono-crystalline", inverters: 12, modules: 86400, status: "operational", contractor: "Green Energy Ltd" },
-  { id: "PLT-004", name: "Latur Solar Station", location: "Latur, Maharashtra", capacity: "20 MW", commissionDate: "2020-09-05", technology: "Bifacial", inverters: 8, modules: 57600, status: "operational", contractor: "TechSolar Pvt" },
-  { id: "PLT-005", name: "Beed Solar Park", location: "Beed, Maharashtra", capacity: "30 MW", commissionDate: "2020-03-12", technology: "Mono-crystalline", inverters: 12, modules: 86400, status: "operational", contractor: "Mega Solar Inc" },
-  { id: "PLT-006", name: "Ahmednagar Solar Plant", location: "Ahmednagar, Maharashtra", capacity: "12 MW", commissionDate: "2021-04-10", technology: "Mono-crystalline", inverters: 5, modules: 34560, status: "operational", contractor: "SolarCo India" },
-  { id: "PLT-007", name: "Devdaithan Solar Plant", location: "Ahmednagar, Maharashtra", capacity: "18 MW", commissionDate: "2020-08-22", technology: "Mono-crystalline", inverters: 7, modules: 51840, status: "operational", contractor: "Mega Solar Inc" },
-  { id: "PLT-008", name: "Amravati Solar Unit", location: "Amravati, Maharashtra", capacity: "14 MW", commissionDate: "2020-11-10", technology: "Poly-crystalline", inverters: 6, modules: 40320, status: "maintenance", contractor: "SolarCo India" },
-  { id: "PLT-009", name: "Wardha Solar Park", location: "Wardha, Maharashtra", capacity: "16 MW", commissionDate: "2021-01-18", technology: "Poly-crystalline", inverters: 6, modules: 46080, status: "maintenance", contractor: "SunPower Tech" },
-  { id: "PLT-010", name: "Buldhana Solar Farm", location: "Buldhana, Maharashtra", capacity: "10 MW", commissionDate: "2019-12-05", technology: "Poly-crystalline", inverters: 4, modules: 28800, status: "operational", contractor: "SunPower Tech" },
-  { id: "PLT-011", name: "Chandrapur Solar Project", location: "Chandrapur, Maharashtra", capacity: "22 MW", commissionDate: "2020-06-15", technology: "Mono-crystalline", inverters: 9, modules: 63360, status: "operational", contractor: "SunPower Tech" },
-  { id: "PLT-012", name: "Bhandara Solar Station", location: "Bhandara, Maharashtra", capacity: "8 MW", commissionDate: "2021-02-28", technology: "Bifacial", inverters: 3, modules: 23040, status: "operational", contractor: "Mega Solar Inc" },
+  { id: "PLT-001", name: "Solar Park 01", location: "Zone 1, Region North", capacity: "25 MW", commissionDate: "2020-04-15", technology: "Mono-crystalline", inverters: 10, modules: 73440, status: "operational", contractor: "Vendor Bravo" },
+  { id: "PLT-002", name: "Solar Park 02", location: "Zone 2, Region North", capacity: "15 MW", commissionDate: "2019-11-20", technology: "Poly-crystalline", inverters: 6, modules: 43200, status: "operational", contractor: "Vendor Alpha" },
+  { id: "PLT-003", name: "Solar Park 03", location: "Zone 3, Region North", capacity: "30 MW", commissionDate: "2021-06-10", technology: "Mono-crystalline", inverters: 12, modules: 86400, status: "operational", contractor: "Vendor Delta" },
+  { id: "PLT-004", name: "Solar Park 04", location: "Zone 4, Region North", capacity: "20 MW", commissionDate: "2020-09-05", technology: "Bifacial", inverters: 8, modules: 57600, status: "operational", contractor: "Vendor Echo" },
+  { id: "PLT-005", name: "Solar Park 05", location: "Zone 5, Region North", capacity: "30 MW", commissionDate: "2020-03-12", technology: "Mono-crystalline", inverters: 12, modules: 86400, status: "operational", contractor: "Vendor Charlie" },
+  { id: "PLT-006", name: "Solar Park 06", location: "Zone 6, Region North", capacity: "12 MW", commissionDate: "2021-04-10", technology: "Mono-crystalline", inverters: 5, modules: 34560, status: "operational", contractor: "Vendor Bravo" },
+  { id: "PLT-007", name: "Solar Park 07", location: "Zone 6, Region North", capacity: "18 MW", commissionDate: "2020-08-22", technology: "Mono-crystalline", inverters: 7, modules: 51840, status: "operational", contractor: "Vendor Charlie" },
+  { id: "PLT-008", name: "Solar Park 08", location: "Zone 7, Region North", capacity: "14 MW", commissionDate: "2020-11-10", technology: "Poly-crystalline", inverters: 6, modules: 40320, status: "maintenance", contractor: "Vendor Bravo" },
+  { id: "PLT-009", name: "Solar Park 09", location: "Zone 8, Region North", capacity: "16 MW", commissionDate: "2021-01-18", technology: "Poly-crystalline", inverters: 6, modules: 46080, status: "maintenance", contractor: "Vendor Alpha" },
+  { id: "PLT-010", name: "Solar Park 10", location: "Zone 9, Region North", capacity: "10 MW", commissionDate: "2019-12-05", technology: "Poly-crystalline", inverters: 4, modules: 28800, status: "operational", contractor: "Vendor Alpha" },
+  { id: "PLT-011", name: "Solar Park 11", location: "Zone 10, Region North", capacity: "22 MW", commissionDate: "2020-06-15", technology: "Mono-crystalline", inverters: 9, modules: 63360, status: "operational", contractor: "Vendor Alpha" },
+  { id: "PLT-012", name: "Solar Park 12", location: "Zone 11, Region North", capacity: "8 MW", commissionDate: "2021-02-28", technology: "Bifacial", inverters: 3, modules: 23040, status: "operational", contractor: "Vendor Charlie" },
 ];
 
 const radarData = [
@@ -120,7 +120,7 @@ export function SitePortfolioManagement() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <Building2 className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -129,7 +129,7 @@ export function SitePortfolioManagement() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button style={{ backgroundColor: "#2955A0" }} className="text-white h-7 px-3 text-xs">
+              <Button style={{ backgroundColor: "var(--brand)" }} className="text-white h-7 px-3 text-xs">
                 <Building2 className="w-4 h-4 mr-2" />
                 Add New Plant
               </Button>
@@ -144,7 +144,7 @@ export function SitePortfolioManagement() {
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-[#2955A0]" />
+                  <Building2 className="w-5 h-5 text-brand-fg" />
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-400 uppercase tracking-wide">Total Plants</p>
@@ -196,10 +196,10 @@ export function SitePortfolioManagement() {
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="bg-white border border-slate-200 mb-4">
-            <TabsTrigger value="inventory" className="data-[state=active]:bg-[#2955A0] data-[state=active]:text-white text-xs gap-1.5">
+            <TabsTrigger value="inventory" className="data-[state=active]:bg-brand data-[state=active]:text-white text-xs gap-1.5">
               <Building2 className="w-3.5 h-3.5" /> Plant Inventory
             </TabsTrigger>
-            <TabsTrigger value="performance" className="data-[state=active]:bg-[#2955A0] data-[state=active]:text-white text-xs gap-1.5">
+            <TabsTrigger value="performance" className="data-[state=active]:bg-brand data-[state=active]:text-white text-xs gap-1.5">
               <BarChart2 className="w-3.5 h-3.5" /> Performance Analytics
             </TabsTrigger>
           </TabsList>
@@ -208,7 +208,7 @@ export function SitePortfolioManagement() {
             <Card className="border-2 border-slate-200">
               <CardHeader className="border-b border-slate-100 pb-3">
                 <CardTitle className="text-base font-semibold">Plant Inventory</CardTitle>
-                <CardDescription>All solar plants across Maharashtra — {plants.length} plants</CardDescription>
+                <CardDescription>All solar plants across Region North — {plants.length} plants</CardDescription>
               </CardHeader>
               <CardContent className="p-0">
                 <Table>
@@ -285,10 +285,10 @@ export function SitePortfolioManagement() {
               <Card className="col-span-5 border-2 border-slate-200">
                 <CardHeader className="border-b border-slate-100 pb-3">
                   <CardTitle className="text-base flex items-center gap-2">
-                    <Target className="w-4 h-4 text-[#2955A0]" />
+                    <Target className="w-4 h-4 text-brand-fg" />
                     Vendor Performance Radar
                   </CardTitle>
-                  <CardDescription>Multi-dimensional vendor health comparison — FY 2025-26</CardDescription>
+                  <CardDescription>Multi-dimensional vendor health comparison — FY 2026-27</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-2">
                   <ResponsiveContainer width="100%" height={320}>
@@ -330,7 +330,7 @@ export function SitePortfolioManagement() {
               <Card className="col-span-7 border-2 border-slate-200">
                 <CardHeader className="border-b border-slate-100 pb-3">
                   <CardTitle className="text-base flex items-center gap-2">
-                    <CircleDollarSign className="w-4 h-4 text-[#2955A0]" />
+                    <CircleDollarSign className="w-4 h-4 text-brand-fg" />
                     Plant Performance Quadrant — PR% vs CUF%
                   </CardTitle>
                   <CardDescription>Bubble size = revenue (₹Cr), color = vendor — identify top and underperforming plants</CardDescription>
@@ -354,7 +354,7 @@ export function SitePortfolioManagement() {
                             <div className="space-y-0.5">
                               <p>PR: <span className="font-bold">{d?.x}%</span></p>
                               <p>CUF: <span className="font-bold">{d?.y}%</span></p>
-                              <p>Revenue: <span className="font-bold text-[#2955A0]">₹{d?.revenue?.toFixed(2)} Cr</span></p>
+                              <p>Revenue: <span className="font-bold text-brand-fg">₹{d?.revenue?.toFixed(2)} Cr</span></p>
                               <p>Collection: <span className="font-bold">{d?.collectionPct}%</span></p>
                             </div>
                           </div>
@@ -382,7 +382,7 @@ export function SitePortfolioManagement() {
             <Card className="border-2 border-slate-200">
               <CardHeader className="border-b border-slate-100 pb-3">
                 <CardTitle className="text-base flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-[#2955A0]" />
+                  <Zap className="w-4 h-4 text-brand-fg" />
                   Plant Performance Ranking
                 </CardTitle>
                 <CardDescription>All 12 plants ranked by realized revenue with budget baseline and collection breakdown</CardDescription>
@@ -423,7 +423,7 @@ export function SitePortfolioManagement() {
                             </div>
                           </div>
                           <div className="w-[60px] text-right flex-shrink-0">
-                            <div className="text-xs font-bold text-[#2955A0]">₹{p.revenue.toFixed(2)}</div>
+                            <div className="text-xs font-bold text-brand-fg">₹{p.revenue.toFixed(2)}</div>
                             <div className="text-[9px] text-slate-400">/ ₹{p.budgetedRev.toFixed(2)}</div>
                           </div>
                           <div className="w-[50px] text-right flex-shrink-0">
@@ -459,7 +459,7 @@ export function SitePortfolioManagement() {
                     <span className="w-4 h-2 rounded-sm bg-slate-200" /> Budgeted
                   </span>
                   <span className="flex items-center gap-1.5 text-[10px] text-slate-500">
-                    <span className="w-4 h-2 rounded-sm bg-[#2955A0]" /> Realized
+                    <span className="w-4 h-2 rounded-sm bg-brand" /> Realized
                   </span>
                   <span className="flex items-center gap-1.5 text-[10px] text-slate-500">
                     <span className="w-4 h-2 rounded-sm bg-emerald-400" /> Collected

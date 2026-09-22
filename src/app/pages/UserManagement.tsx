@@ -8,7 +8,7 @@ const users = [
   {
     id: 1,
     name: "Admin User",
-    email: "admin@eesl.gov.in",
+    email: "admin@solarops.io",
     role: "Admin",
     department: "IT & Operations",
     lastLogin: "2026-02-28 09:15",
@@ -17,7 +17,7 @@ const users = [
   {
     id: 2,
     name: "John Doe",
-    email: "john.doe@eesl.gov.in",
+    email: "john.doe@solarops.io",
     role: "Plant Manager",
     department: "Operations",
     lastLogin: "2026-02-28 08:30",
@@ -26,7 +26,7 @@ const users = [
   {
     id: 3,
     name: "Jane Smith",
-    email: "jane.smith@eesl.gov.in",
+    email: "jane.smith@solarops.io",
     role: "Data Analyst",
     department: "Analytics",
     lastLogin: "2026-02-27 17:45",
@@ -35,7 +35,7 @@ const users = [
   {
     id: 4,
     name: "Robert Wilson",
-    email: "robert.wilson@eesl.gov.in",
+    email: "robert.wilson@solarops.io",
     role: "Viewer",
     department: "Finance",
     lastLogin: "2026-02-26 14:20",
@@ -44,7 +44,7 @@ const users = [
   {
     id: 5,
     name: "Sarah Johnson",
-    email: "sarah.johnson@eesl.gov.in",
+    email: "sarah.johnson@solarops.io",
     role: "Plant Manager",
     department: "Operations",
     lastLogin: "2026-02-20 11:30",
@@ -66,7 +66,7 @@ export function UserManagement() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <Users className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -75,7 +75,7 @@ export function UserManagement() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button size="sm" className="h-7 px-3 text-xs text-white" style={{ backgroundColor: "#2955A0" }}>
+              <Button size="sm" className="h-7 px-3 text-xs text-white" style={{ backgroundColor: "var(--brand)" }}>
                 <UserPlus className="w-4 h-4 mr-2" />
                 Add User
               </Button>

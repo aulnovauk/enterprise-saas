@@ -91,7 +91,7 @@ export function KPIDetailView({ kpi, onEditFormula, period = "Monthly", clusterF
         <span className="font-semibold text-slate-500 uppercase tracking-wide text-[10px]">Viewing:</span>
         <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-medium">{fy}</span>
         <span className="px-2 py-0.5 bg-white border border-slate-200 rounded font-medium">{month}</span>
-        <span className="px-2 py-0.5 bg-[#2955A0] text-white rounded font-medium">{period}</span>
+        <span className="px-2 py-0.5 bg-brand text-white rounded font-medium">{period}</span>
         {clusterFilter !== "all" && (
           <span className="px-2 py-0.5 bg-amber-100 border border-amber-300 text-amber-800 rounded font-medium">{clusterFilter} Cluster</span>
         )}
@@ -127,7 +127,7 @@ export function KPIDetailView({ kpi, onEditFormula, period = "Monthly", clusterF
           <p className="text-slate-600 max-w-4xl text-sm leading-relaxed">{kpi.description}</p>
         </div>
         <div className="flex gap-2">
-           <Button onClick={onEditFormula} className="bg-[#2955A0] text-white hover:bg-[#1E4888] gap-2 shadow-sm h-9">
+           <Button onClick={onEditFormula} className="bg-brand text-white hover:bg-brand-hover gap-2 shadow-sm h-9">
              <Edit3 className="w-4 h-4" /> Edit Configuration
            </Button>
         </div>
@@ -146,7 +146,7 @@ export function KPIDetailView({ kpi, onEditFormula, period = "Monthly", clusterF
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {/* Current Value */}
             <Card className="border-none shadow-sm ring-1 ring-slate-200 bg-white relative overflow-hidden group">
-               <div className="absolute top-0 left-0 w-1 h-full bg-[#2955A0]" />
+               <div className="absolute top-0 left-0 w-1 h-full bg-brand" />
                <CardContent className="p-4">
                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">{periodLabel}</p>
                   <div className="flex items-baseline gap-1">

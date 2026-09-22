@@ -52,10 +52,10 @@ import { CustomChartTooltip } from "../components/ChartTooltip";
 // Site-wise LD exposure
 const sitewiseLD = [
   {
-    siteId: "EESL-MH-001",
-    siteName: "Sakri Solar Park",
+    siteId: "SOL-RN-001",
+    siteName: "Solar Park 01",
     capacity: 25,
-    vendor: "SolarCo India",
+    vendor: "Vendor Bravo",
     contractedGen: 2100,
     actualGen: 2150,
     shortfall: -50,
@@ -72,10 +72,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-002",
-    siteName: "Sangli Solar Farm",
+    siteId: "SOL-RN-002",
+    siteName: "Solar Park 02",
     capacity: 15,
-    vendor: "SunPower Tech",
+    vendor: "Vendor Alpha",
     contractedGen: 1260,
     actualGen: 1180,
     shortfall: 80,
@@ -92,10 +92,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-003",
-    siteName: "Osmanabad Solar Plant",
+    siteId: "SOL-RN-003",
+    siteName: "Solar Park 03",
     capacity: 30,
-    vendor: "Green Energy Ltd",
+    vendor: "Vendor Delta",
     contractedGen: 2450,
     actualGen: 2380,
     shortfall: 70,
@@ -112,10 +112,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-004",
-    siteName: "Latur Solar Station",
+    siteId: "SOL-RN-004",
+    siteName: "Solar Park 04",
     capacity: 20,
-    vendor: "TechSolar Pvt",
+    vendor: "Vendor Echo",
     contractedGen: 1680,
     actualGen: 1720,
     shortfall: -40,
@@ -132,10 +132,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-005",
-    siteName: "Beed Solar Park",
+    siteId: "SOL-RN-005",
+    siteName: "Solar Park 05",
     capacity: 30,
-    vendor: "Mega Solar Inc",
+    vendor: "Vendor Charlie",
     contractedGen: 1850,
     actualGen: 1920,
     shortfall: -70,
@@ -152,10 +152,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-006",
-    siteName: "Ahmednagar Solar Plant",
+    siteId: "SOL-RN-006",
+    siteName: "Solar Park 06",
     capacity: 12,
-    vendor: "SolarCo India",
+    vendor: "Vendor Bravo",
     contractedGen: 1480,
     actualGen: 1560,
     shortfall: -80,
@@ -172,10 +172,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-007",
-    siteName: "Devdaithan Solar Plant",
+    siteId: "SOL-RN-007",
+    siteName: "Solar Park 07",
     capacity: 18,
-    vendor: "Mega Solar Inc",
+    vendor: "Vendor Charlie",
     contractedGen: 1580,
     actualGen: 1310,
     shortfall: 270,
@@ -192,10 +192,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-008",
-    siteName: "Amravati Solar Unit",
+    siteId: "SOL-RN-008",
+    siteName: "Solar Park 08",
     capacity: 14,
-    vendor: "SolarCo India",
+    vendor: "Vendor Bravo",
     contractedGen: 1680,
     actualGen: 1140,
     shortfall: 540,
@@ -212,10 +212,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-009",
-    siteName: "Wardha Solar Park",
+    siteId: "SOL-RN-009",
+    siteName: "Solar Park 09",
     capacity: 16,
-    vendor: "SunPower Tech",
+    vendor: "Vendor Alpha",
     contractedGen: 2350,
     actualGen: 2120,
     shortfall: 230,
@@ -232,10 +232,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-010",
-    siteName: "Buldhana Solar Farm",
+    siteId: "SOL-RN-010",
+    siteName: "Solar Park 10",
     capacity: 10,
-    vendor: "SunPower Tech",
+    vendor: "Vendor Alpha",
     contractedGen: 700,
     actualGen: 720,
     shortfall: -20,
@@ -252,10 +252,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-011",
-    siteName: "Chandrapur Solar Project",
+    siteId: "SOL-RN-011",
+    siteName: "Solar Park 11",
     capacity: 22,
-    vendor: "SunPower Tech",
+    vendor: "Vendor Alpha",
     contractedGen: 630,
     actualGen: 580,
     shortfall: 50,
@@ -272,10 +272,10 @@ const sitewiseLD = [
     targetResponseTime: 4.0,
   },
   {
-    siteId: "EESL-MH-012",
-    siteName: "Bhandara Solar Station",
+    siteId: "SOL-RN-012",
+    siteName: "Solar Park 12",
     capacity: 8,
-    vendor: "Mega Solar Inc",
+    vendor: "Vendor Charlie",
     contractedGen: 620,
     actualGen: 640,
     shortfall: -20,
@@ -296,7 +296,7 @@ const sitewiseLD = [
 // Client / Procurer-wise LD data
 const clientwiseLD = [
   {
-    clientName: "SECI",
+    clientName: "Client Bravo",
     clientType: "Central PSU",
     procurerType: "Central Agency",
     sites: 2,
@@ -310,7 +310,7 @@ const clientwiseLD = [
     status: "critical",
   },
   {
-    clientName: "NTPC",
+    clientName: "Client Charlie",
     clientType: "Central PSU",
     procurerType: "Central Agency",
     sites: 1,
@@ -324,7 +324,7 @@ const clientwiseLD = [
     status: "critical",
   },
   {
-    clientName: "MP DISCOM",
+    clientName: "Client Delta",
     clientType: "State Utility",
     procurerType: "State Agency",
     sites: 1,
@@ -338,7 +338,7 @@ const clientwiseLD = [
     status: "warning",
   },
   {
-    clientName: "Maharashtra Urja Vikas",
+    clientName: "Client Echo",
     clientType: "State Utility",
     procurerType: "State Agency",
     sites: 1,
@@ -357,8 +357,8 @@ const clientwiseLD = [
 const escalationAlerts = [
   {
     id: "ESC-2026-008",
-    site: "Amravati Solar Unit",
-    vendor: "SolarCo India",
+    site: "Solar Park 08",
+    vendor: "Vendor Bravo",
     severity: "critical",
     issue: "Consistent availability below 93% for 3 consecutive months",
     ldExposure: 3.6,
@@ -367,8 +367,8 @@ const escalationAlerts = [
   },
   {
     id: "ESC-2026-007",
-    site: "Devdaithan Solar Plant",
-    vendor: "Mega Solar Inc",
+    site: "Solar Park 07",
+    vendor: "Vendor Charlie",
     severity: "high",
     issue: "Generation shortfall exceeds 5% threshold",
     ldExposure: 1.8,
@@ -377,8 +377,8 @@ const escalationAlerts = [
   },
   {
     id: "ESC-2026-006",
-    site: "Wardha Solar Park",
-    vendor: "SunPower Tech",
+    site: "Solar Park 09",
+    vendor: "Vendor Alpha",
     severity: "medium",
     issue: "CUF below guaranteed for 2 months",
     ldExposure: 1.0,
@@ -403,7 +403,7 @@ const monthlyLDTrend = [
 export function ContractLDAnalytics() {
   const [selectedSite, setSelectedSite] = useState<typeof sitewiseLD[0] | null>(null);
   const pageRef = useRef<HTMLDivElement>(null);
-  const [selectedFY, setSelectedFY] = useState("FY 2025-26");
+  const [selectedFY, setSelectedFY] = useState("FY 2026-27");
   const [selectedVendor, setSelectedVendor] = useState("all");
   const [selectedPlant, setSelectedPlant] = useState("all");
   const [durationToggle, setDurationToggle] = useState("MTD");
@@ -543,7 +543,7 @@ export function ContractLDAnalytics() {
   const [ldRateInput, setLdRateInput] = useState("0.018");
   const [ldCapPct, setLdCapPct] = useState("10");
   const [ldThresholdPct, setLdThresholdPct] = useState("2");
-  const [examplePlantIdx, setExamplePlantIdx] = useState(6); // Devdaithan Solar Plant default
+  const [examplePlantIdx, setExamplePlantIdx] = useState(6); // Solar Park 07 default
 
   // ── Live calculation derived values ────────────────────────────────
   const exPlant = sitewiseLD[examplePlantIdx];
@@ -604,7 +604,7 @@ export function ContractLDAnalytics() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <FileText className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -618,7 +618,7 @@ export function ContractLDAnalytics() {
                 contentRef={pageRef}
                 label="Export LD Report"
               />
-              <Button size="sm" style={{ backgroundColor: "#2955A0" }} className="text-white h-7 px-3 text-xs">
+              <Button size="sm" style={{ backgroundColor: "var(--brand)" }} className="text-white h-7 px-3 text-xs">
                 <Bell className="w-4 h-4 mr-2" />
                 Configure Alerts
               </Button>
@@ -635,6 +635,7 @@ export function ContractLDAnalytics() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="FY 2026-27">FY 2026-27</SelectItem>
                 <SelectItem value="FY 2025-26">FY 2025-26</SelectItem>
                 <SelectItem value="FY 2024-25">FY 2024-25</SelectItem>
                 <SelectItem value="FY 2023-24">FY 2023-24</SelectItem>
@@ -677,7 +678,7 @@ export function ContractLDAnalytics() {
                   onClick={() => setDurationToggle(duration)}
                   className={`px-4 py-1 text-xs font-semibold rounded transition-all ${
                     durationToggle === duration
-                      ? "bg-[#2955A0] text-white shadow-sm"
+                      ? "bg-brand text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
@@ -1211,7 +1212,7 @@ export function ContractLDAnalytics() {
 
       {/* ── Client / Procurer-wise LD Dashboard ─────────────────────────── */}
       <Card className="mb-6 border-2 border-slate-200">
-        <CardHeader className="border-b bg-gradient-to-r from-[#2955A0] to-[#2955A0]/80 py-3 rounded-t-xl">
+        <CardHeader className="border-b bg-gradient-to-r from-brand to-brand/80 py-3 rounded-t-xl">
           <div className="flex items-center gap-2">
             <Layers className="w-4 h-4 text-white" />
             <div>

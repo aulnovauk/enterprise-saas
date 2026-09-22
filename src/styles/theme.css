@@ -3,8 +3,34 @@
 :root {
   --font-size: 16px;
   
-  --deep-blue: #2955A0;
-  --deep-blue-light: #0089C9;
+  /* Brand scale — derived from the anchor #12307E = hsl(223, 75%, 28%).
+     --brand-800 is THE brand blue. Hover lifts to 700 (the anchor is already
+     dark, so darkening on hover would be invisible). */
+  --brand-50:  #EDF2FC;
+  --brand-100: #DBE4FA;
+  --brand-200: #B9C9F4;
+  --brand-300: #86A2EA;
+  --brand-400: #4973DF;
+  --brand-500: #2151CA;
+  --brand-600: #1841AA;
+  --brand-700: #14378F;
+  --brand-800: #12307E;
+  --brand-900: #0E2662;
+  --brand-950: #0A1A43;
+
+  /* Semantic brand aliases. UI code should use these, not the raw ramp:
+     --brand      solid fills (buttons, sidebar, headers)
+     --brand-fg   brand-coloured TEXT/ICONS on a light surface
+     They diverge in dark mode, where a solid fill and readable text
+     need different lightness. */
+  --brand: var(--brand-800);
+  --brand-hover: var(--brand-700);
+  --brand-foreground: #FFFFFF;
+  --brand-fg: var(--brand-800);
+  --brand-fg-hover: var(--brand-700);
+
+  --deep-blue: var(--brand-800);
+  --deep-blue-light: var(--brand-500);
   --solar-yellow: #E8A800;
   --solar-yellow-light: #FFC72C;
   --saffron: #F27B21;
@@ -26,7 +52,7 @@
   --card-foreground: #0F172A;
   --popover: #FFFFFF;
   --popover-foreground: #0F172A;
-  --primary: #2955A0;
+  --primary: var(--brand-800);
   --primary-foreground: #FFFFFF;
   --secondary: #F1F5F9;
   --secondary-foreground: #0F172A;
@@ -40,7 +66,7 @@
   --input: #E2E8F0;
   --input-background: #FFFFFF;
   --switch-background: #CBD5E1;
-  --ring: #2955A0;
+  --ring: var(--brand-800);
   
   --success: #059669;
   --success-light: #D1FAE5;
@@ -72,7 +98,7 @@
   
   --radius: 6px;
   
-  --sidebar: #2955A0;
+  --sidebar: var(--brand-800);
   --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #E8A800;
   --sidebar-primary-foreground: #0F172A;
@@ -89,8 +115,10 @@
   --card-foreground: #E2E8F0;
   --popover: #1E293B;
   --popover-foreground: #E2E8F0;
-  --primary: #E8A800;
-  --primary-foreground: #0F172A;
+  /* #12307E is only 1.49:1 on this background, so dark mode lifts the brand
+     to --brand-300 (7.1:1) and the focus ring to --brand-400 (4.1:1). */
+  --primary: var(--brand-300);
+  --primary-foreground: var(--brand-950);
   --secondary: #334155;
   --secondary-foreground: #E2E8F0;
   --muted: #334155;
@@ -103,7 +131,13 @@
   --input: #334155;
   --input-background: #1E293B;
   --switch-background: #475569;
-  --ring: #E8A800;
+  --ring: var(--brand-400);
+
+  /* On #0F172A the anchor is only 1.49:1, so dark mode lifts the brand. */
+  --brand: var(--brand-600);
+  --brand-hover: var(--brand-500);
+  --brand-fg: var(--brand-300);
+  --brand-fg-hover: var(--brand-200);
 
   --gray-50: #1E293B;
   --gray-100: #334155;
@@ -171,11 +205,28 @@
   --color-input-background: var(--input-background);
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --color-brand-950: var(--brand-950);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-fg: var(--brand-fg);
+  --color-brand-fg-hover: var(--brand-fg-hover);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);

@@ -80,7 +80,7 @@ import {
 const PORTFOLIO_CONFIG = {
   totalCapacity: 220, // MW
   totalPlants: 12,
-  states: ["Maharashtra"],
+  states: ["Region North"],
 };
 
 // Strategic KPI Cards Data
@@ -217,20 +217,20 @@ const strategicKPIs = [
   },
 ];
 
-// Plant Markers for India Map — All Maharashtra EESL Solar Sites
+// Plant Markers for India Map — All Region North Solar Sites
 const plantMarkers = [
-  { id: 1,  name: "Sakri Solar Park",          state: "Maharashtra", district: "Dhule",        lat: 20.98, lon: 74.15, capacity: 25, status: "compliant",     cuf: 23.5, generation: 2150, target: 2100, availability: 97.2, ldRisk: "none",   vendor: "SolarCo India" },
-  { id: 2,  name: "Sangli Solar Farm",          state: "Maharashtra", district: "Sangli",       lat: 16.85, lon: 74.56, capacity: 15, status: "warning",       cuf: 21.2, generation: 1180, target: 1260, availability: 94.5, ldRisk: "low",    vendor: "SunPower Tech" },
-  { id: 3,  name: "Osmanabad Solar Plant",      state: "Maharashtra", district: "Osmanabad",    lat: 18.18, lon: 76.04, capacity: 30, status: "compliant",     cuf: 24.1, generation: 2380, target: 2450, availability: 96.8, ldRisk: "none",   vendor: "Green Energy Ltd" },
-  { id: 4,  name: "Latur Solar Station",         state: "Maharashtra", district: "Latur",        lat: 18.40, lon: 76.57, capacity: 20, status: "compliant",     cuf: 23.8, generation: 1720, target: 1680, availability: 97.5, ldRisk: "none",   vendor: "TechSolar Pvt" },
-  { id: 5,  name: "Beed Solar Park",            state: "Maharashtra", district: "Beed",         lat: 18.99, lon: 75.76, capacity: 30, status: "compliant",     cuf: 24.5, generation: 1920, target: 1850, availability: 98.1, ldRisk: "none",   vendor: "Mega Solar Inc" },
-  { id: 6,  name: "Ahmednagar Solar Plant",     state: "Maharashtra", district: "Ahmednagar",   lat: 19.09, lon: 74.74, capacity: 12, status: "compliant",     cuf: 23.2, generation: 1560, target: 1480, availability: 96.4, ldRisk: "none",   vendor: "SolarCo India" },
-  { id: 7,  name: "Devdaithan Solar Plant",     state: "Maharashtra", district: "Ahmednagar",   lat: 19.20, lon: 74.28, capacity: 18, status: "curtailment",   cuf: 19.5, generation: 1310, target: 1580, availability: 91.2, ldRisk: "high",   vendor: "Mega Solar Inc" },
-  { id: 8,  name: "Amravati Solar Unit",        state: "Maharashtra", district: "Amravati",     lat: 20.93, lon: 77.75, capacity: 14, status: "non-compliant", cuf: 18.5, generation: 1140, target: 1680, availability: 88.3, ldRisk: "high",   vendor: "SolarCo India" },
-  { id: 9,  name: "Wardha Solar Park",          state: "Maharashtra", district: "Wardha",       lat: 20.73, lon: 78.60, capacity: 16, status: "warning",       cuf: 20.8, generation: 2120, target: 2350, availability: 93.5, ldRisk: "medium", vendor: "SunPower Tech" },
-  { id: 10, name: "Buldhana Solar Farm",        state: "Maharashtra", district: "Buldhana",     lat: 20.53, lon: 76.18, capacity: 10, status: "compliant",     cuf: 22.8, generation:  720, target:  700, availability: 97.0, ldRisk: "none",   vendor: "SunPower Tech" },
-  { id: 11, name: "Chandrapur Solar Project",   state: "Maharashtra", district: "Chandrapur",   lat: 19.95, lon: 79.30, capacity: 22, status: "warning",       cuf: 21.5, generation:  580, target:  630, availability: 93.8, ldRisk: "low",    vendor: "SunPower Tech" },
-  { id: 12, name: "Bhandara Solar Station",     state: "Maharashtra", district: "Bhandara",     lat: 21.17, lon: 79.65, capacity: 8,  status: "compliant",     cuf: 23.0, generation:  640, target:  620, availability: 96.5, ldRisk: "none",   vendor: "Mega Solar Inc" },
+  { id: 1,  name: "Solar Park 01",          state: "Region North", district: "Zone 1",        lat: 20.98, lon: 74.15, capacity: 25, status: "compliant",     cuf: 23.5, generation: 2150, target: 2100, availability: 97.2, ldRisk: "none",   vendor: "Vendor Bravo" },
+  { id: 2,  name: "Solar Park 02",          state: "Region North", district: "Zone 2",       lat: 16.85, lon: 74.56, capacity: 15, status: "warning",       cuf: 21.2, generation: 1180, target: 1260, availability: 94.5, ldRisk: "low",    vendor: "Vendor Alpha" },
+  { id: 3,  name: "Solar Park 03",      state: "Region North", district: "Zone 3",    lat: 18.18, lon: 76.04, capacity: 30, status: "compliant",     cuf: 24.1, generation: 2380, target: 2450, availability: 96.8, ldRisk: "none",   vendor: "Vendor Delta" },
+  { id: 4,  name: "Solar Park 04",         state: "Region North", district: "Zone 4",        lat: 18.40, lon: 76.57, capacity: 20, status: "compliant",     cuf: 23.8, generation: 1720, target: 1680, availability: 97.5, ldRisk: "none",   vendor: "Vendor Echo" },
+  { id: 5,  name: "Solar Park 05",            state: "Region North", district: "Zone 5",         lat: 18.99, lon: 75.76, capacity: 30, status: "compliant",     cuf: 24.5, generation: 1920, target: 1850, availability: 98.1, ldRisk: "none",   vendor: "Vendor Charlie" },
+  { id: 6,  name: "Solar Park 06",     state: "Region North", district: "Zone 6",   lat: 19.09, lon: 74.74, capacity: 12, status: "compliant",     cuf: 23.2, generation: 1560, target: 1480, availability: 96.4, ldRisk: "none",   vendor: "Vendor Bravo" },
+  { id: 7,  name: "Solar Park 07",     state: "Region North", district: "Zone 6",   lat: 19.20, lon: 74.28, capacity: 18, status: "curtailment",   cuf: 19.5, generation: 1310, target: 1580, availability: 91.2, ldRisk: "high",   vendor: "Vendor Charlie" },
+  { id: 8,  name: "Solar Park 08",        state: "Region North", district: "Zone 7",     lat: 20.93, lon: 77.75, capacity: 14, status: "non-compliant", cuf: 18.5, generation: 1140, target: 1680, availability: 88.3, ldRisk: "high",   vendor: "Vendor Bravo" },
+  { id: 9,  name: "Solar Park 09",          state: "Region North", district: "Zone 8",       lat: 20.73, lon: 78.60, capacity: 16, status: "warning",       cuf: 20.8, generation: 2120, target: 2350, availability: 93.5, ldRisk: "medium", vendor: "Vendor Alpha" },
+  { id: 10, name: "Solar Park 10",        state: "Region North", district: "Zone 9",     lat: 20.53, lon: 76.18, capacity: 10, status: "compliant",     cuf: 22.8, generation:  720, target:  700, availability: 97.0, ldRisk: "none",   vendor: "Vendor Alpha" },
+  { id: 11, name: "Solar Park 11",   state: "Region North", district: "Zone 10",   lat: 19.95, lon: 79.30, capacity: 22, status: "warning",       cuf: 21.5, generation:  580, target:  630, availability: 93.8, ldRisk: "low",    vendor: "Vendor Alpha" },
+  { id: 12, name: "Solar Park 12",     state: "Region North", district: "Zone 11",     lat: 21.17, lon: 79.65, capacity: 8,  status: "compliant",     cuf: 23.0, generation:  640, target:  620, availability: 96.5, ldRisk: "none",   vendor: "Vendor Charlie" },
 ];
 
 // Risk & Alert Data
@@ -243,9 +243,9 @@ const riskData = {
   ldExposureCr: 1.24,
   riskScore: 62,
   topUnderperforming: [
-    { plant: "Amravati Solar Unit", state: "Maharashtra", cuf: 18.5, gap: -5.5 },
-    { plant: "Devdaithan Solar Plant", state: "Maharashtra", cuf: 19.5, gap: -4.5 },
-    { plant: "Wardha Solar Park", state: "Maharashtra", cuf: 20.8, gap: -3.2 },
+    { plant: "Solar Park 08", state: "Region North", cuf: 18.5, gap: -5.5 },
+    { plant: "Solar Park 07", state: "Region North", cuf: 19.5, gap: -4.5 },
+    { plant: "Solar Park 09", state: "Region North", cuf: 20.8, gap: -3.2 },
   ],
   complianceTrend: [
     { month: "Sep", nonCompliant: 10 },
@@ -258,27 +258,27 @@ const riskData = {
     { month: "Apr", nonCompliant: 6 },
   ],
   recentAlerts: [
-    { id: 1, category: "Non-Compliant", plant: "Amravati Solar Unit",      state: "Maharashtra",   daysOpen: 2,  severity: "critical", detail: "CUF 18.5% — 5.5% below target" },
-    { id: 2, category: "Curtailment",   plant: "Devdaithan Solar Plant",   state: "Maharashtra",   daysOpen: 5,  severity: "high",     detail: "Grid curtailment — 18.8% generation loss" },
-    { id: 3, category: "JMR Overdue",   plant: "Sangli Solar Farm",        state: "Maharashtra",   daysOpen: 9,  severity: "high",     detail: "JMR submission pending — SLA breached" },
-    { id: 4, category: "Warning",       plant: "Wardha Solar Park",        state: "Maharashtra",   daysOpen: 1,  severity: "medium",   detail: "CUF trending below threshold for 3 days" },
-    { id: 5, category: "JMR Overdue",   plant: "Chandrapur Solar Project", state: "Maharashtra",   daysOpen: 11, severity: "high",     detail: "JMR submission pending — SLA breached" },
+    { id: 1, category: "Non-Compliant", plant: "Solar Park 08",      state: "Region North",   daysOpen: 2,  severity: "critical", detail: "CUF 18.5% — 5.5% below target" },
+    { id: 2, category: "Curtailment",   plant: "Solar Park 07",   state: "Region North",   daysOpen: 5,  severity: "high",     detail: "Grid curtailment — 18.8% generation loss" },
+    { id: 3, category: "JMR Overdue",   plant: "Solar Park 02",        state: "Region North",   daysOpen: 9,  severity: "high",     detail: "JMR submission pending — SLA breached" },
+    { id: 4, category: "Warning",       plant: "Solar Park 09",        state: "Region North",   daysOpen: 1,  severity: "medium",   detail: "CUF trending below threshold for 3 days" },
+    { id: 5, category: "JMR Overdue",   plant: "Solar Park 11", state: "Region North",   daysOpen: 11, severity: "high",     detail: "JMR submission pending — SLA breached" },
   ],
   vendorLDExposure: [
-    { vendor: "SunPower Tech", plants: 15, ldCr: 0.54, risk: "high" },
-    { vendor: "SolarCo India", plants: 12, ldCr: 0.42, risk: "medium" },
-    { vendor: "Green Energy Ltd", plants: 8,  ldCr: 0.28, risk: "low" },
+    { vendor: "Vendor Alpha", plants: 15, ldCr: 0.54, risk: "high" },
+    { vendor: "Vendor Bravo", plants: 12, ldCr: 0.42, risk: "medium" },
+    { vendor: "Vendor Delta", plants: 8,  ldCr: 0.28, risk: "low" },
   ],
 };
 
 // Generation Analytics Data
 const mtdGenerationData = [
-  { plant: "Beed Solar Park", target: 1850, actual: 1920 },
-  { plant: "Osmanabad Solar Plant", target: 2450, actual: 2380 },
-  { plant: "Sakri Solar Park", target: 2100, actual: 2150 },
-  { plant: "Wardha Solar Park", target: 2350, actual: 2120 },
-  { plant: "Latur Solar Station", target: 1680, actual: 1720 },
-  { plant: "Sangli Solar Farm", target: 1260, actual: 1180 },
+  { plant: "Solar Park 05", target: 1850, actual: 1920 },
+  { plant: "Solar Park 03", target: 2450, actual: 2380 },
+  { plant: "Solar Park 01", target: 2100, actual: 2150 },
+  { plant: "Solar Park 09", target: 2350, actual: 2120 },
+  { plant: "Solar Park 04", target: 1680, actual: 1720 },
+  { plant: "Solar Park 02", target: 1260, actual: 1180 },
 ];
 
 const cufTrendData = [
@@ -298,12 +298,12 @@ const cufTrendData = [
 
 // Previous year data for comparison mode
 const prevYearMtdGenerationData = [
-  { plant: "Beed Solar Park", target: 1700, actual: 1680 },
-  { plant: "Osmanabad Solar Plant", target: 2250, actual: 2190 },
-  { plant: "Sakri Solar Park", target: 1950, actual: 1920 },
-  { plant: "Wardha Solar Park", target: 2150, actual: 1980 },
-  { plant: "Latur Solar Station", target: 1550, actual: 1530 },
-  { plant: "Sangli Solar Farm", target: 1180, actual: 1050 },
+  { plant: "Solar Park 05", target: 1700, actual: 1680 },
+  { plant: "Solar Park 03", target: 2250, actual: 2190 },
+  { plant: "Solar Park 01", target: 1950, actual: 1920 },
+  { plant: "Solar Park 09", target: 2150, actual: 1980 },
+  { plant: "Solar Park 04", target: 1550, actual: 1530 },
+  { plant: "Solar Park 02", target: 1180, actual: 1050 },
 ];
 
 const prevYearCufTrendData = [
@@ -341,11 +341,11 @@ const revenueWaterfallData = [
 
 // LD Exposure by Vendor
 const ldExposureData = [
-  { vendor: "SolarCo India", plants: 12, ldAmount: 0.42, severity: "medium" },
-  { vendor: "SunPower Tech", plants: 15, ldAmount: 0.54, severity: "high" },
-  { vendor: "Mega Solar Inc", plants: 10, ldAmount: 0.55, severity: "high" },
-  { vendor: "Green Energy Ltd", plants: 4, ldAmount: 0.00, severity: "none" },
-  { vendor: "TechSolar Pvt", plants: 4, ldAmount: 0.00, severity: "none" },
+  { vendor: "Vendor Bravo", plants: 12, ldAmount: 0.42, severity: "medium" },
+  { vendor: "Vendor Alpha", plants: 15, ldAmount: 0.54, severity: "high" },
+  { vendor: "Vendor Charlie", plants: 10, ldAmount: 0.55, severity: "high" },
+  { vendor: "Vendor Delta", plants: 4, ldAmount: 0.00, severity: "none" },
+  { vendor: "Vendor Echo", plants: 4, ldAmount: 0.00, severity: "none" },
 ];
 
 // O&M Deviation Data
@@ -357,18 +357,18 @@ const omDeviationData = {
 
 // Vendor Performance Ranking
 const vendorRankingData = [
-  { rank: 1, vendor: "TechSolar Pvt", plants: 4, avgCuf: 23.8, avgAvailability: 97.5, ldExposure: 0.00, compliance: 98.5 },
-  { rank: 2, vendor: "Mega Solar Inc", plants: 10, avgCuf: 23.7, avgAvailability: 97.8, ldExposure: 0.55, compliance: 94.2 },
-  { rank: 3, vendor: "SolarCo India", plants: 12, avgCuf: 22.1, avgAvailability: 96.2, ldExposure: 0.42, compliance: 92.8 },
-  { rank: 4, vendor: "Green Energy Ltd", plants: 4, avgCuf: 24.1, avgAvailability: 96.8, ldExposure: 0.00, compliance: 95.8 },
-  { rank: 5, vendor: "SunPower Tech", plants: 15, avgCuf: 20.8, avgAvailability: 93.5, ldExposure: 0.54, compliance: 88.5 },
+  { rank: 1, vendor: "Vendor Echo", plants: 4, avgCuf: 23.8, avgAvailability: 97.5, ldExposure: 0.00, compliance: 98.5 },
+  { rank: 2, vendor: "Vendor Charlie", plants: 10, avgCuf: 23.7, avgAvailability: 97.8, ldExposure: 0.55, compliance: 94.2 },
+  { rank: 3, vendor: "Vendor Bravo", plants: 12, avgCuf: 22.1, avgAvailability: 96.2, ldExposure: 0.42, compliance: 92.8 },
+  { rank: 4, vendor: "Vendor Delta", plants: 4, avgCuf: 24.1, avgAvailability: 96.8, ldExposure: 0.00, compliance: 95.8 },
+  { rank: 5, vendor: "Vendor Alpha", plants: 15, avgCuf: 20.8, avgAvailability: 93.5, ldExposure: 0.54, compliance: 88.5 },
 ];
 
 // Cluster Comparison
 const clusterComparisonData = [
-  { state: "Western Maharashtra", capacity: 82, generation: 18650, cuf: 22.8, availability: 96.5, ldExposure: 0.32 },
-  { state: "Vidarbha Region", capacity: 78, generation: 17240, cuf: 21.5, availability: 94.2, ldExposure: 0.58 },
-  { state: "Marathwada Region", capacity: 60, generation: 13580, cuf: 22.6, availability: 96.8, ldExposure: 0.24 },
+  { state: "Region North", capacity: 82, generation: 18650, cuf: 22.8, availability: 96.5, ldExposure: 0.32 },
+  { state: "Region East", capacity: 78, generation: 17240, cuf: 21.5, availability: 94.2, ldExposure: 0.58 },
+  { state: "Region South", capacity: 60, generation: 13580, cuf: 22.6, availability: 96.8, ldExposure: 0.24 },
 ];
 
 // Lost Production Index
@@ -491,7 +491,7 @@ function KpiCardWithPreview({
               onMouseLeave={handlePreviewLeave}
             >
               <div className="w-[360px] max-h-[70vh] bg-white rounded-xl shadow-2xl border border-slate-200 ring-1 ring-black/5 flex flex-col overflow-hidden">
-                <div className="flex items-center justify-between px-3 py-1.5 bg-gradient-to-r from-[#2955A0] to-[#0089C9] shrink-0">
+                <div className="flex items-center justify-between px-3 py-1.5 bg-gradient-to-r from-brand to-brand-500 shrink-0">
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <span className="text-[10px] font-semibold text-white/90 uppercase tracking-wider">Quick Preview</span>
@@ -800,7 +800,7 @@ function PlantCardWithPreview({ children, plant }: { children: React.ReactNode; 
 
                 <div className="px-3 pt-2.5 pb-2 border-b border-slate-100 bg-slate-50/50 shrink-0">
                   <h3 className="text-xs font-bold text-slate-800">{plant.name}</h3>
-                  <p className="text-[9px] text-slate-400 mt-0.5">{plant.district}, Maharashtra · {plant.vendor} · {plant.capacity} MW</p>
+                  <p className="text-[9px] text-slate-400 mt-0.5">{plant.district}, Region North · {plant.vendor} · {plant.capacity} MW</p>
                 </div>
 
                 <div className="p-3 space-y-3">
@@ -888,8 +888,9 @@ const MONTH_FACTORS: Record<string, number> = {
   September: 0.90, October: 0.92, November: 0.85, December: 0.80,
   January: 0.82, February: 0.85, March: 1.00,
 };
+const CURRENT_FY = "FY 2026-27";
 const FY_FACTORS: Record<string, number> = {
-  "FY 2025-26": 1.00, "FY 2024-25": 0.95, "FY 2023-24": 0.88,
+  "FY 2026-27": 1.06, "FY 2025-26": 1.00, "FY 2024-25": 0.95, "FY 2023-24": 0.88,
 };
 const BASE_SEASON = 0.85; // existing data is calibrated for February
 // Baseline portfolio-level KPI values (all plants, FY 2025-26, Feb, MTD)
@@ -899,27 +900,27 @@ const BASE_KPI = {
 };
 
 const vendorPlantDetails: Record<string, { name: string; district: string; capacity: number; budgeted: number; realized: number; shortfall: number; collection: number; pr: number; cuf: number; status: "green" | "yellow" | "red" }[]> = {
-  "SolarCo India": [
-    { name: "Sakri Solar Park", district: "Dhule", capacity: 25.0, budgeted: 4.80, realized: 4.38, shortfall: 0.42, collection: 91.3, pr: 78.2, cuf: 22.1, status: "yellow" },
-    { name: "Ahmednagar Solar Plant", district: "Ahmednagar", capacity: 12.0, budgeted: 3.60, realized: 3.17, shortfall: 0.43, collection: 88.1, pr: 76.5, cuf: 21.4, status: "yellow" },
-    { name: "Amravati Solar Unit", district: "Amravati", capacity: 14.0, budgeted: 2.45, realized: 2.16, shortfall: 0.29, collection: 88.2, pr: 76.8, cuf: 21.2, status: "yellow" },
+  "Vendor Bravo": [
+    { name: "Solar Park 01", district: "Zone 1", capacity: 25.0, budgeted: 4.80, realized: 4.38, shortfall: 0.42, collection: 91.3, pr: 78.2, cuf: 22.1, status: "yellow" },
+    { name: "Solar Park 06", district: "Zone 6", capacity: 12.0, budgeted: 3.60, realized: 3.17, shortfall: 0.43, collection: 88.1, pr: 76.5, cuf: 21.4, status: "yellow" },
+    { name: "Solar Park 08", district: "Zone 7", capacity: 14.0, budgeted: 2.45, realized: 2.16, shortfall: 0.29, collection: 88.2, pr: 76.8, cuf: 21.2, status: "yellow" },
   ],
-  "SunPower Tech": [
-    { name: "Sangli Solar Farm", district: "Sangli", capacity: 15.0, budgeted: 2.90, realized: 2.48, shortfall: 0.42, collection: 85.5, pr: 74.8, cuf: 20.2, status: "red" },
-    { name: "Wardha Solar Park", district: "Wardha", capacity: 16.0, budgeted: 2.56, realized: 2.18, shortfall: 0.38, collection: 85.2, pr: 75.1, cuf: 20.5, status: "red" },
-    { name: "Buldhana Solar Farm", district: "Buldhana", capacity: 10.0, budgeted: 2.64, realized: 2.32, shortfall: 0.32, collection: 87.9, pr: 76.0, cuf: 21.0, status: "yellow" },
-    { name: "Chandrapur Solar Project", district: "Chandrapur", capacity: 22.0, budgeted: 2.10, realized: 1.78, shortfall: 0.32, collection: 84.8, pr: 73.5, cuf: 19.8, status: "red" },
+  "Vendor Alpha": [
+    { name: "Solar Park 02", district: "Zone 2", capacity: 15.0, budgeted: 2.90, realized: 2.48, shortfall: 0.42, collection: 85.5, pr: 74.8, cuf: 20.2, status: "red" },
+    { name: "Solar Park 09", district: "Zone 8", capacity: 16.0, budgeted: 2.56, realized: 2.18, shortfall: 0.38, collection: 85.2, pr: 75.1, cuf: 20.5, status: "red" },
+    { name: "Solar Park 10", district: "Zone 9", capacity: 10.0, budgeted: 2.64, realized: 2.32, shortfall: 0.32, collection: 87.9, pr: 76.0, cuf: 21.0, status: "yellow" },
+    { name: "Solar Park 11", district: "Zone 10", capacity: 22.0, budgeted: 2.10, realized: 1.78, shortfall: 0.32, collection: 84.8, pr: 73.5, cuf: 19.8, status: "red" },
   ],
-  "Mega Solar Inc": [
-    { name: "Beed Solar Park", district: "Beed", capacity: 30.0, budgeted: 4.32, realized: 3.95, shortfall: 0.37, collection: 91.4, pr: 78.5, cuf: 22.3, status: "yellow" },
-    { name: "Devdaithan Solar Plant", district: "Ahmednagar", capacity: 18.0, budgeted: 3.60, realized: 3.22, shortfall: 0.38, collection: 89.4, pr: 77.2, cuf: 21.6, status: "yellow" },
-    { name: "Bhandara Solar Station", district: "Bhandara", capacity: 8.0, budgeted: 3.60, realized: 3.28, shortfall: 0.32, collection: 91.1, pr: 78.0, cuf: 22.0, status: "yellow" },
+  "Vendor Charlie": [
+    { name: "Solar Park 05", district: "Zone 5", capacity: 30.0, budgeted: 4.32, realized: 3.95, shortfall: 0.37, collection: 91.4, pr: 78.5, cuf: 22.3, status: "yellow" },
+    { name: "Solar Park 07", district: "Zone 6", capacity: 18.0, budgeted: 3.60, realized: 3.22, shortfall: 0.38, collection: 89.4, pr: 77.2, cuf: 21.6, status: "yellow" },
+    { name: "Solar Park 12", district: "Zone 11", capacity: 8.0, budgeted: 3.60, realized: 3.28, shortfall: 0.32, collection: 91.1, pr: 78.0, cuf: 22.0, status: "yellow" },
   ],
-  "Green Energy Ltd": [
-    { name: "Osmanabad Solar Plant", district: "Osmanabad", capacity: 30.0, budgeted: 4.44, realized: 4.30, shortfall: 0.14, collection: 96.8, pr: 82.4, cuf: 24.1, status: "green" },
+  "Vendor Delta": [
+    { name: "Solar Park 03", district: "Zone 3", capacity: 30.0, budgeted: 4.44, realized: 4.30, shortfall: 0.14, collection: 96.8, pr: 82.4, cuf: 24.1, status: "green" },
   ],
-  "TechSolar Pvt": [
-    { name: "Latur Solar Station", district: "Latur", capacity: 20.0, budgeted: 3.60, realized: 3.45, shortfall: 0.15, collection: 95.8, pr: 81.2, cuf: 23.5, status: "green" },
+  "Vendor Echo": [
+    { name: "Solar Park 04", district: "Zone 4", capacity: 20.0, budgeted: 3.60, realized: 3.45, shortfall: 0.15, collection: 95.8, pr: 81.2, cuf: 23.5, status: "green" },
   ],
 };
 
@@ -944,26 +945,26 @@ type PlantHealthEntry = {
 };
 
 const PLANT_STATUS_COLORS: Record<string, string> = {
-  "Sakri Solar Park": "#2563eb",
-  "Sangli Solar Farm": "#f59e0b",
-  "Osmanabad Solar Plant": "#10b981",
-  "Latur Solar Station": "#8b5cf6",
-  "Beed Solar Park": "#ef4444",
-  "Ahmednagar Solar Plant": "#0ea5e9",
-  "Devdaithan Solar Plant": "#f97316",
-  "Amravati Solar Unit": "#6366f1",
-  "Wardha Solar Park": "#14b8a6",
-  "Buldhana Solar Farm": "#a855f7",
-  "Chandrapur Solar Project": "#e11d48",
-  "Bhandara Solar Station": "#84cc16",
+  "Solar Park 01": "#2563eb",
+  "Solar Park 02": "#f59e0b",
+  "Solar Park 03": "#10b981",
+  "Solar Park 04": "#8b5cf6",
+  "Solar Park 05": "#ef4444",
+  "Solar Park 06": "#0ea5e9",
+  "Solar Park 07": "#f97316",
+  "Solar Park 08": "#6366f1",
+  "Solar Park 09": "#14b8a6",
+  "Solar Park 10": "#a855f7",
+  "Solar Park 11": "#e11d48",
+  "Solar Park 12": "#84cc16",
 };
 
 const vendorHealthData = [
-  { vendor: "SolarCo India", plantCount: 2, capacity: 35.2, budgeted: 8.40, realized: 7.55, shortfall: 0.85, collection: 89.9, ldExposure: 0.42, status: "warning", color: "#2955A0" },
-  { vendor: "SunPower Tech", plantCount: 5, capacity: 63.2, budgeted: 12.65, realized: 10.92, shortfall: 1.73, collection: 86.3, ldExposure: 0.54, status: "critical", color: "#ef4444" },
-  { vendor: "Mega Solar Inc", plantCount: 3, capacity: 48.0, budgeted: 11.52, realized: 10.45, shortfall: 1.07, collection: 90.7, ldExposure: 0.55, status: "warning", color: "#f59e0b" },
-  { vendor: "Green Energy Ltd", plantCount: 1, capacity: 18.5, budgeted: 4.44, realized: 4.30, shortfall: 0.14, collection: 96.8, ldExposure: 0.00, status: "healthy", color: "#10b981" },
-  { vendor: "TechSolar Pvt", plantCount: 1, capacity: 15.0, budgeted: 3.60, realized: 3.45, shortfall: 0.15, collection: 95.8, ldExposure: 0.00, status: "healthy", color: "#8b5cf6" },
+  { vendor: "Vendor Bravo", plantCount: 2, capacity: 35.2, budgeted: 8.40, realized: 7.55, shortfall: 0.85, collection: 89.9, ldExposure: 0.42, status: "warning", color: "#2955A0" },
+  { vendor: "Vendor Alpha", plantCount: 5, capacity: 63.2, budgeted: 12.65, realized: 10.92, shortfall: 1.73, collection: 86.3, ldExposure: 0.54, status: "critical", color: "#ef4444" },
+  { vendor: "Vendor Charlie", plantCount: 3, capacity: 48.0, budgeted: 11.52, realized: 10.45, shortfall: 1.07, collection: 90.7, ldExposure: 0.55, status: "warning", color: "#f59e0b" },
+  { vendor: "Vendor Delta", plantCount: 1, capacity: 18.5, budgeted: 4.44, realized: 4.30, shortfall: 0.14, collection: 96.8, ldExposure: 0.00, status: "healthy", color: "#10b981" },
+  { vendor: "Vendor Echo", plantCount: 1, capacity: 15.0, budgeted: 3.60, realized: 3.45, shortfall: 0.15, collection: 95.8, ldExposure: 0.00, status: "healthy", color: "#8b5cf6" },
 ];
 
 const WIDGET_ORDER_KEY = "dashboard-widget-order";
@@ -1023,12 +1024,12 @@ function DraggableWidget({
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
       className={`relative group/widget ${isDragging ? "opacity-40" : ""} ${
         customizeMode ? "ring-2 ring-dashed ring-slate-300 rounded-xl" : ""
-      } ${isOver && customizeMode ? "ring-[#2955A0] ring-2" : ""}`}
+      } ${isOver && customizeMode ? "ring-brand ring-2" : ""}`}
     >
       {customizeMode && (
         <div
           ref={drag}
-          className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-1 px-1.5 py-2 bg-white border-2 border-slate-300 rounded-lg shadow-md cursor-grab active:cursor-grabbing hover:border-[#2955A0] hover:shadow-lg transition-all"
+          className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-1 px-1.5 py-2 bg-white border-2 border-slate-300 rounded-lg shadow-md cursor-grab active:cursor-grabbing hover:border-brand hover:shadow-lg transition-all"
         >
           <GripVertical className="w-4 h-4 text-slate-400" />
           <span className="text-[8px] font-bold text-slate-400 uppercase tracking-wider [writing-mode:vertical-lr] rotate-180">{title}</span>
@@ -1040,13 +1041,13 @@ function DraggableWidget({
 }
 
 export function Dashboard() {
-  const [financialYear, setFinancialYear] = useState("FY 2025-26");
+  const [financialYear, setFinancialYear] = useState(CURRENT_FY);
   const [month] = useState(() => {
     const now = new Date();
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     return monthNames[now.getMonth()];
   });
-  const [stateFilter, setStateFilter] = useState("All States");
+  const [stateFilter, setStateFilter] = useState("All Regions");
   const [vendorFilter, setVendorFilter] = useState("All Vendors");
   const [plantFilter, setPlantFilter] = useState("All Plants");
   const [durationToggle, setDurationToggle] = useState("MTD");
@@ -1102,7 +1103,7 @@ export function Dashboard() {
 
     // Plant-level filtering
     const filtered = plantMarkers.filter(p =>
-      (stateFilter === "All States" || p.state === stateFilter) &&
+      (stateFilter === "All Regions" || p.state === stateFilter) &&
       (vendorFilter === "All Vendors" || p.vendor === vendorFilter) &&
       (plantFilter === "All Plants" || String(p.id) === plantFilter)
     );
@@ -1169,8 +1170,9 @@ export function Dashboard() {
       : 0;
 
     // Period change label
-    const genChange = fyFactor < 1.0
-      ? `-${Math.round((1 - fyFactor) * 100)}% vs FY 2025-26`
+    const currentFyFactor = FY_FACTORS[CURRENT_FY];
+    const genChange = fyFactor < currentFyFactor
+      ? `-${Math.round((1 - fyFactor / currentFyFactor) * 100)}% vs ${CURRENT_FY}`
       : durationToggle === "MTD" ? "+5.2%" : durationToggle === "YTD" ? "+8.4%" : "+6.1%";
 
     return {
@@ -1390,7 +1392,7 @@ export function Dashboard() {
       capacity: {
         title: "Installed Capacity Breakdown",
         rows: stateCapRows,
-        chart: { label: "State-wise Capacity (MW)", data: stateChartData },
+        chart: { label: "Region-wise Capacity (MW)", data: stateChartData },
         footer: `Total filtered: ${filteredPortfolioCap} MW · ${filtered.length} plant${filtered.length !== 1 ? "s" : ""}`,
       },
       "mtd-generation": {
@@ -1496,11 +1498,11 @@ export function Dashboard() {
       vendorMap[p.vendor].cap += p.capacity;
     }
     const colors: Record<string, string> = {
-      "SolarCo India": "#2955A0",
-      "SunPower Tech": "#ef4444",
-      "Mega Solar Inc": "#f59e0b",
-      "Green Energy Ltd": "#10b981",
-      "TechSolar Pvt": "#8b5cf6",
+      "Vendor Bravo": "#2955A0",
+      "Vendor Alpha": "#ef4444",
+      "Vendor Charlie": "#f59e0b",
+      "Vendor Delta": "#10b981",
+      "Vendor Echo": "#8b5cf6",
     };
     return Object.entries(vendorMap).map(([vendor, data]) => {
       const plants = data.plants;
@@ -1857,10 +1859,10 @@ export function Dashboard() {
           <div className="flex items-center justify-between mb-3">
             <div>
               <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-[#2955A0]" />
+                <Building2 className="w-4 h-4 text-brand-fg" />
                 Vendor Revenue Health
               </h3>
-              <p className="text-[10px] text-slate-400 mt-0.5">Realization performance by vendor — FY 2025-26</p>
+              <p className="text-[10px] text-slate-400 mt-0.5">Realization performance by vendor — {financialYear}</p>
             </div>
             <div className="flex items-center gap-2">
               {[
@@ -1943,7 +1945,7 @@ export function Dashboard() {
           <div className="flex items-center justify-between mb-3">
             <div>
               <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2">
-                <Factory className="w-4 h-4 text-[#2955A0]" />
+                <Factory className="w-4 h-4 text-brand-fg" />
                 Plant Revenue Health
               </h3>
               <p className="text-[10px] text-slate-400 mt-0.5">Revenue realization by plant — hover for detailed breakdown</p>
@@ -2048,7 +2050,7 @@ export function Dashboard() {
                   </Suspense>
                 </div>
                 <div className={`grid gap-2 mt-3 ${dashboardData.uniqueStates.length === 1 ? "grid-cols-1" : dashboardData.uniqueStates.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
-                  {(stateFilter === "All States" ? PORTFOLIO_CONFIG.states : [stateFilter]).map((state) => {
+                  {(stateFilter === "All Regions" ? PORTFOLIO_CONFIG.states : [stateFilter]).map((state) => {
                     const statePlants = dashboardData.filtered.filter((p: any) => p.state === state);
                     const stateCapacity = statePlants.reduce((sum: number, p: any) => sum + p.capacity, 0);
                     const compliant = statePlants.filter((p: any) => p.status === "compliant").length;
@@ -2364,13 +2366,13 @@ export function Dashboard() {
                             strokeLinecap="round" />
                         </svg>
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                          <span className="text-2xl font-bold text-[#2955A0]">{filteredCufTrend[0].portfolio}%</span>
+                          <span className="text-2xl font-bold text-brand-fg">{filteredCufTrend[0].portfolio}%</span>
                           <span className="text-[10px] text-slate-400">CUF</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-6 text-xs">
                         <div className="text-center">
-                          <p className="font-bold text-[#2955A0]">{filteredCufTrend[0].portfolio}%</p>
+                          <p className="font-bold text-brand-fg">{filteredCufTrend[0].portfolio}%</p>
                           <p className="text-slate-400 text-[10px]">Actual</p>
                         </div>
                         <div className="text-center">
@@ -2575,7 +2577,7 @@ export function Dashboard() {
                   <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
                     <div className="text-xs font-semibold text-blue-700 mb-2">Settlement Amount</div>
                     <div className="text-2xl font-bold text-blue-900">₹{filteredOmDeviation.settlementAmount} Cr</div>
-                    <div className="text-xs text-blue-600 mt-1">Payable to EESL</div>
+                    <div className="text-xs text-blue-600 mt-1">Payable to Operator</div>
                   </div>
                 </div>
               </CardContent>
@@ -2609,7 +2611,7 @@ export function Dashboard() {
                     {filteredVendorRankingData.map((vendor) => (
                       <TableRow key={vendor.rank} className="hover:bg-slate-50 cursor-pointer">
                         <TableCell>
-                          <div className="w-7 h-7 rounded-lg bg-[#2955A0] text-white flex items-center justify-center font-bold text-xs">
+                          <div className="w-7 h-7 rounded-lg bg-brand text-white flex items-center justify-center font-bold text-xs">
                             {vendor.rank}
                           </div>
                         </TableCell>
@@ -2638,13 +2640,13 @@ export function Dashboard() {
             </Card>
             <Card className="col-span-5 border-2 border-slate-200 shadow-md">
               <CardHeader className="border-b border-slate-100 pb-3">
-                <CardTitle className="text-base">State-wise Cluster Comparison</CardTitle>
+                <CardTitle className="text-base">Region-wise Cluster Comparison</CardTitle>
                 <CardDescription className="text-xs">Regional performance metrics</CardDescription>
               </CardHeader>
               <CardContent className="p-4">
                 <div className="space-y-4">
                   {filteredClusterData.map((cluster) => (
-                    <div key={cluster.state} className="p-4 bg-slate-50 rounded-lg border-2 border-slate-200 hover:border-[#2955A0] transition-all cursor-pointer">
+                    <div key={cluster.state} className="p-4 bg-slate-50 rounded-lg border-2 border-slate-200 hover:border-brand transition-all cursor-pointer">
                       <div className="flex items-center justify-between mb-3">
                         <h4 className="text-sm font-bold text-slate-900">{cluster.state}</h4>
                         <Badge variant="outline" className="text-xs bg-blue-50 text-blue-700 border-blue-200">
@@ -2845,7 +2847,7 @@ export function Dashboard() {
                   ];
                   const compositeScore = parseFloat(breakdown.reduce((s, c) => s + Math.min(100, (c.value / c.target * 100)) * (c.weight / 100), 0).toFixed(1));
                   return (
-                    <div className="mt-6 p-4 bg-gradient-to-r from-[#2955A0] to-[#2955A0]/80 rounded-lg text-white">
+                    <div className="mt-6 p-4 bg-gradient-to-r from-brand to-brand/80 rounded-lg text-white">
                       <div className="text-xs font-semibold mb-2">Composite Asset Health Index</div>
                       <div className="text-4xl font-bold">{compositeScore} <span className="text-xl">/100</span></div>
                       <div className="text-xs mt-2 flex items-center gap-1">
@@ -2871,18 +2873,18 @@ export function Dashboard() {
           {/* Row 1: Title & Meta Info */}
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <BarChart3 className="w-4 h-4 text-white" />
               </div>
               <div>
                 <h1 className="text-base font-bold text-slate-900 leading-none">Portfolio Dashboard</h1>
                 <p className="text-xs text-slate-600 mt-0.5">
-                  {dashboardData.filteredPortfolioCap} MW · {dashboardData.filteredPlantCount} Plants · {dashboardData.uniqueStates.length} {dashboardData.uniqueStates.length === 1 ? "State" : "States"}
-                  {(stateFilter !== "All States" || vendorFilter !== "All Vendors" || plantFilter !== "All Plants") && (
+                  {dashboardData.filteredPortfolioCap} MW · {dashboardData.filteredPlantCount} Plants · {dashboardData.uniqueStates.length} {dashboardData.uniqueStates.length === 1 ? "Region" : "Regions"}
+                  {(stateFilter !== "All Regions" || vendorFilter !== "All Vendors" || plantFilter !== "All Plants") && (
                     <>
                       <span className="ml-2 px-1.5 py-0.5 bg-amber-100 text-amber-700 border border-amber-300 rounded text-[10px] font-bold">Filtered View</span>
                       <button
-                        onClick={() => { setStateFilter("All States"); setVendorFilter("All Vendors"); setPlantFilter("All Plants"); }}
+                        onClick={() => { setStateFilter("All Regions"); setVendorFilter("All Vendors"); setPlantFilter("All Plants"); }}
                         className="ml-1.5 px-1.5 py-0.5 bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300 rounded text-[10px] font-medium transition-colors"
                       >
                         ✕ Reset
@@ -2911,7 +2913,7 @@ export function Dashboard() {
                 onClick={() => setCustomizeMode((v) => !v)}
                 className={`h-7 text-xs gap-1.5 ${
                   customizeMode
-                    ? "bg-[#2955A0] text-white hover:bg-[#2955A0]/90"
+                    ? "bg-brand text-white hover:bg-brand/90"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -2938,6 +2940,7 @@ export function Dashboard() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="FY 2026-27">FY 2026-27</SelectItem>
                   <SelectItem value="FY 2025-26">FY 2025-26</SelectItem>
                   <SelectItem value="FY 2024-25">FY 2024-25</SelectItem>
                   <SelectItem value="FY 2023-24">FY 2023-24</SelectItem>
@@ -2949,10 +2952,10 @@ export function Dashboard() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="All States">All States</SelectItem>
-                  <SelectItem value="Maharashtra">Maharashtra</SelectItem>
-                  <SelectItem value="Vidarbha">Vidarbha Region</SelectItem>
-                  <SelectItem value="Marathwada">Marathwada Region</SelectItem>
+                  <SelectItem value="All Regions">All Regions</SelectItem>
+                  <SelectItem value="Region North">Region North</SelectItem>
+                  <SelectItem value="Region East">Region East</SelectItem>
+                  <SelectItem value="Region South">Region South</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -2962,11 +2965,11 @@ export function Dashboard() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="All Vendors">All Vendors</SelectItem>
-                  <SelectItem value="SolarCo India">SolarCo India</SelectItem>
-                  <SelectItem value="SunPower Tech">SunPower Tech</SelectItem>
-                  <SelectItem value="Mega Solar Inc">Mega Solar Inc</SelectItem>
-                  <SelectItem value="Green Energy Ltd">Green Energy Ltd</SelectItem>
-                  <SelectItem value="TechSolar Pvt">TechSolar Pvt</SelectItem>
+                  <SelectItem value="Vendor Bravo">Vendor Bravo</SelectItem>
+                  <SelectItem value="Vendor Alpha">Vendor Alpha</SelectItem>
+                  <SelectItem value="Vendor Charlie">Vendor Charlie</SelectItem>
+                  <SelectItem value="Vendor Delta">Vendor Delta</SelectItem>
+                  <SelectItem value="Vendor Echo">Vendor Echo</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -2978,7 +2981,7 @@ export function Dashboard() {
                   <SelectItem value="All Plants">All Plants</SelectItem>
                   {plantMarkers
                     .filter(p =>
-                      (stateFilter === "All States" || p.state === stateFilter) &&
+                      (stateFilter === "All Regions" || p.state === stateFilter) &&
                       (vendorFilter === "All Vendors" || p.vendor === vendorFilter)
                     )
                     .map(p => (
@@ -2996,7 +2999,7 @@ export function Dashboard() {
                   onClick={() => setDurationToggle(duration)}
                   className={`px-4 py-1 text-xs font-semibold rounded transition-all ${
                     durationToggle === duration
-                      ? "bg-[#2955A0] text-white shadow-sm"
+                      ? "bg-brand text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >

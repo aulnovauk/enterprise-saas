@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 export function useDarkMode() {
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("e-sammp-theme");
+      const stored = localStorage.getItem("solarops-theme");
       if (stored) return stored === "dark";
       return window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
@@ -14,10 +14,10 @@ export function useDarkMode() {
     const root = document.documentElement;
     if (isDark) {
       root.classList.add("dark");
-      localStorage.setItem("e-sammp-theme", "dark");
+      localStorage.setItem("solarops-theme", "dark");
     } else {
       root.classList.remove("dark");
-      localStorage.setItem("e-sammp-theme", "light");
+      localStorage.setItem("solarops-theme", "light");
     }
   }, [isDark]);
 

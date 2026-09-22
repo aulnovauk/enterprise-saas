@@ -46,7 +46,7 @@ const topInsights = [
     severity: "high",
     icon: TrendingDown,
     title: "Degradation Trend Alert",
-    subtitle: "Amravati Solar Unit",
+    subtitle: "Solar Park 08",
     metric: "0.82% annual",
     baseline: "vs. 0.50% industry standard",
     insight: "Accelerated degradation detected over the last 12 months. Module inspection recommended.",
@@ -141,11 +141,11 @@ const degradationData = [
 
 // Site benchmarking data
 const siteBenchmarking = [
-  { site: "Sakri Solar Park", efficiency: 88, cuf: 23.5, availability: 97.2, pr: 78.8 },
-  { site: "Osmanabad Solar Plant", efficiency: 82, cuf: 24.1, availability: 96.8, pr: 77.5 },
-  { site: "Latur Solar Station", efficiency: 84, cuf: 23.8, availability: 97.5, pr: 78.2 },
-  { site: "Amravati Solar Unit", efficiency: 78, cuf: 18.5, availability: 88.3, pr: 76.1 },
-  { site: "Beed Solar Park", efficiency: 92, cuf: 24.5, availability: 98.1, pr: 80.2 },
+  { site: "Solar Park 01", efficiency: 88, cuf: 23.5, availability: 97.2, pr: 78.8 },
+  { site: "Solar Park 03", efficiency: 82, cuf: 24.1, availability: 96.8, pr: 77.5 },
+  { site: "Solar Park 04", efficiency: 84, cuf: 23.8, availability: 97.5, pr: 78.2 },
+  { site: "Solar Park 08", efficiency: 78, cuf: 18.5, availability: 88.3, pr: 76.1 },
+  { site: "Solar Park 05", efficiency: 92, cuf: 24.5, availability: 98.1, pr: 80.2 },
   { site: "Portfolio Avg", efficiency: 85, cuf: 22.5, availability: 95.4, pr: 78.1 },
 ];
 
@@ -178,7 +178,7 @@ const modelExplanation = {
 const recommendationSummary = `Based on comprehensive analysis of 36 months of historical data across 12 plants (220 MW capacity), the AI model has identified three priority areas for optimization:
 
 **1. Degradation Management (High Priority)**
-Amravati Solar Unit shows accelerated degradation at 0.82% annually vs. industry standard of 0.50%. Root cause analysis suggests potential module quality issues or environmental stress factors. Immediate action: Schedule comprehensive IV curve testing and thermal imaging survey.
+Solar Park 08 shows accelerated degradation at 0.82% annually vs. industry standard of 0.50%. Root cause analysis suggests potential module quality issues or environmental stress factors. Immediate action: Schedule comprehensive IV curve testing and thermal imaging survey.
 
 **2. Operational Efficiency (Medium Priority)**
 Portfolio-wide cleaning optimization could yield 3.2% generation improvement (1,850 MWh annually). Current cleaning schedules are reactive rather than predictive. Recommended: Implement AI-driven cleaning schedule based on soiling rate predictions and weather forecasts.
@@ -196,7 +196,7 @@ export function AIInsightSummary() {
       <div className="bg-white border-b-2 border-slate-200 shadow-sm shrink-0 z-20 sticky top-0">
         <div className="px-6 py-2 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-1.5 bg-[#2955A0] rounded-lg">
+            <div className="p-1.5 bg-brand rounded-lg">
               <BrainCircuit className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -435,7 +435,7 @@ export function AIInsightSummary() {
                   <div className="grid grid-cols-3 gap-3 text-center text-xs">
                     <div>
                       <div className="text-gray-600 mb-1">Top Performer</div>
-                      <div className="text-sm font-bold text-green-600">Beed Solar Park (92)</div>
+                      <div className="text-sm font-bold text-green-600">Solar Park 05 (92)</div>
                     </div>
                     <div>
                       <div className="text-gray-600 mb-1">Portfolio Avg</div>
@@ -443,7 +443,7 @@ export function AIInsightSummary() {
                     </div>
                     <div>
                       <div className="text-gray-600 mb-1">Needs Focus</div>
-                      <div className="text-sm font-bold text-red-600">Amravati Solar Unit (78)</div>
+                      <div className="text-sm font-bold text-red-600">Solar Park 08 (78)</div>
                     </div>
                   </div>
                 </div>
@@ -530,18 +530,18 @@ export function AIInsightSummary() {
           <Card className="border-2 sticky top-6">
             <CardHeader className="border-b bg-gray-50">
               <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                <BrainCircuit className="w-5 h-5" style={{ color: '#2955A0' }} />
+                <BrainCircuit className="w-5 h-5" style={{ color: 'var(--brand-fg)' }} />
                 AI Confidence Indicator
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6">
               <div className="text-center mb-4">
-                <div className="text-5xl font-bold mb-2" style={{ color: '#2955A0' }}>{overallConfidence}%</div>
+                <div className="text-5xl font-bold mb-2" style={{ color: 'var(--brand-fg)' }}>{overallConfidence}%</div>
                 <div className="text-xs text-gray-600 mb-4">Overall Model Confidence</div>
                 <div className="w-full h-4 bg-gray-200 rounded overflow-hidden">
                   <div
                     className="h-full transition-all"
-                    style={{ width: `${overallConfidence}%`, backgroundColor: '#2955A0' }}
+                    style={{ width: `${overallConfidence}%`, backgroundColor: 'var(--brand)' }}
                   />
                 </div>
               </div>
@@ -571,7 +571,7 @@ export function AIInsightSummary() {
           <Card className="border-2">
             <CardHeader className="border-b bg-gray-50">
               <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                <BarChart3 className="w-5 h-5" style={{ color: '#2955A0' }} />
+                <BarChart3 className="w-5 h-5" style={{ color: 'var(--brand-fg)' }} />
                 Model Logic Explanation
               </CardTitle>
             </CardHeader>
@@ -607,7 +607,7 @@ export function AIInsightSummary() {
                   </div>
                   <div className="col-span-2">
                     <div className="text-gray-600 mb-1">Training Data Points</div>
-                    <div className="text-sm font-bold" style={{ color: '#2955A0' }}>{modelExplanation.dataPoints}</div>
+                    <div className="text-sm font-bold" style={{ color: 'var(--brand-fg)' }}>{modelExplanation.dataPoints}</div>
                   </div>
                 </div>
               </div>
@@ -632,7 +632,7 @@ export function AIInsightSummary() {
           </Card>
 
           {/* Action Button */}
-          <Button className="w-full hover:bg-opacity-90" style={{ backgroundColor: '#2955A0' }} size="lg">
+          <Button className="w-full hover:bg-opacity-90" style={{ backgroundColor: 'var(--brand)' }} size="lg">
             <BrainCircuit className="w-5 h-5 mr-2" />
             Generate Detailed AI Report
           </Button>

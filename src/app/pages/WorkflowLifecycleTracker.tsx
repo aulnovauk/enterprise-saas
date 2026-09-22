@@ -99,7 +99,7 @@ const workflowStages = [
 // JMR Data Summary
 const jmrData = {
   id: "JMR-2026-02-003",
-  plant: "Latur Solar Station Solar Park",
+  plant: "Solar Park 04 Solar Park",
   capacity: "50 MW",
   month: "February 2026",
   submittedBy: "Amit Patel",

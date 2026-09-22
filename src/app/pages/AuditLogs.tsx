@@ -35,10 +35,10 @@ const userActivityLogs = [
     id: "LOG-2026-1543",
     timestamp: "2026-04-07 14:32:15",
     user: "Rajesh Kumar",
-    email: "rajesh.kumar@eesl.in",
+    email: "rajesh.kumar@solarops.io",
     role: "Data Analyst",
     action: "JMR Data Modified",
-    resource: "Sakri Solar Park - Apr 2026 (Generation Data)",
+    resource: "Solar Park 01 - Apr 2026 (Generation Data)",
     ipAddress: "192.168.1.45",
     status: "Success",
     changes: "Updated generation value from 4100 to 4105 MWh",
@@ -47,10 +47,10 @@ const userActivityLogs = [
     id: "LOG-2026-1542",
     timestamp: "2026-04-07 13:18:42",
     user: "Priya Sharma",
-    email: "priya.sharma@eesl.in",
+    email: "priya.sharma@solarops.io",
     role: "Admin",
     action: "User Role Updated",
-    resource: "User: john.doe@eesl.in",
+    resource: "User: john.doe@solarops.io",
     ipAddress: "192.168.1.52",
     status: "Success",
     changes: "Role changed from Viewer to Data Analyst",
@@ -59,10 +59,10 @@ const userActivityLogs = [
     id: "LOG-2026-1541",
     timestamp: "2026-04-07 11:45:20",
     user: "Amit Patel",
-    email: "amit.patel@eesl.in",
+    email: "amit.patel@solarops.io",
     role: "Plant Manager",
     action: "JMR Submitted",
-    resource: "Osmanabad Solar Plant - Apr 2026 (Final)",
+    resource: "Solar Park 03 - Apr 2026 (Final)",
     ipAddress: "192.168.1.38",
     status: "Success",
     changes: "Final JMR submission with all mandatory fields",
@@ -83,7 +83,7 @@ const userActivityLogs = [
     id: "LOG-2026-1539",
     timestamp: "2026-04-07 09:15:33",
     user: "Neha Singh",
-    email: "neha.singh@eesl.in",
+    email: "neha.singh@solarops.io",
     role: "Auditor",
     action: "Report Downloaded",
     resource: "Monthly Performance Report - Jan 2026",
@@ -97,7 +97,7 @@ const userActivityLogs = [
 const jmrSubmissions = [
   {
     id: "JMR-2026-02-001",
-    plant: "Sakri Solar Park (25 MW)",
+    plant: "Solar Park 01 (25 MW)",
     month: "February 2026",
     submittedBy: "Amit Patel",
     submittedDate: "2026-04-07 11:45",
@@ -108,7 +108,7 @@ const jmrSubmissions = [
   },
   {
     id: "JMR-2026-02-002",
-    plant: "Osmanabad Solar Plant (30 MW)",
+    plant: "Solar Park 03 (30 MW)",
     month: "February 2026",
     submittedBy: "Vikram Desai",
     submittedDate: "2026-04-07 10:30",
@@ -119,7 +119,7 @@ const jmrSubmissions = [
   },
   {
     id: "JMR-2026-02-003",
-    plant: "Latur Solar Station (20 MW)",
+    plant: "Solar Park 04 (20 MW)",
     month: "February 2026",
     submittedBy: "Anjali Verma",
     submittedDate: "2026-04-06 16:20",
@@ -130,7 +130,7 @@ const jmrSubmissions = [
   },
   {
     id: "JMR-2026-02-004",
-    plant: "Beed Solar Park (30 MW)",
+    plant: "Solar Park 05 (30 MW)",
     month: "February 2026",
     submittedBy: "-",
     submittedDate: "-",
@@ -141,7 +141,7 @@ const jmrSubmissions = [
   },
   {
     id: "JMR-2026-02-005",
-    plant: "Ahmednagar Solar Plant (12 MW)",
+    plant: "Solar Park 06 (12 MW)",
     month: "February 2026",
     submittedBy: "Rahul Gupta",
     submittedDate: "2026-04-07 14:10",
@@ -158,7 +158,7 @@ const complianceAlerts = [
     id: "ALERT-2026-08",
     priority: "critical",
     type: "Overdue Submission",
-    message: "Beed Solar Park - JMR for February 2026 not submitted",
+    message: "Solar Park 05 - JMR for February 2026 not submitted",
     dueDate: "2026-04-07",
     daysOverdue: 1,
     assignedTo: "Suresh Reddy",
@@ -168,7 +168,7 @@ const complianceAlerts = [
     id: "ALERT-2026-07",
     priority: "high",
     type: "Pending Approval",
-    message: "Sangli Solar Farm - JMR awaiting review for 18 hours",
+    message: "Solar Park 02 - JMR awaiting review for 18 hours",
     dueDate: "2026-03-01",
     daysOverdue: 0,
     assignedTo: "Priya Sharma",
@@ -211,7 +211,7 @@ const versionHistory = [
   {
     id: "VER-2026-324",
     timestamp: "2026-04-07 14:32:15",
-    resource: "Sakri Solar Park - Apr 2026 (Generation)",
+    resource: "Solar Park 01 - Apr 2026 (Generation)",
     field: "Generation (MWh)",
     oldValue: "4100",
     newValue: "4105",
@@ -222,7 +222,7 @@ const versionHistory = [
   {
     id: "VER-2026-323",
     timestamp: "2026-04-07 12:18:40",
-    resource: "Sakri Solar Park - Apr 2026 (Availability)",
+    resource: "Solar Park 01 - Apr 2026 (Availability)",
     field: "Availability (%)",
     oldValue: "94.2",
     newValue: "94.5",
@@ -233,7 +233,7 @@ const versionHistory = [
   {
     id: "VER-2026-322",
     timestamp: "2026-04-06 16:45:22",
-    resource: "Osmanabad Solar Plant - Apr 2026 (Irradiation)",
+    resource: "Solar Park 03 - Apr 2026 (Irradiation)",
     field: "Irradiation (kWh/m²)",
     oldValue: "5.2",
     newValue: "5.3",
@@ -244,7 +244,7 @@ const versionHistory = [
   {
     id: "VER-2026-321",
     timestamp: "2026-04-06 14:20:10",
-    resource: "Beed Solar Park - Apr 2026 (Grid Outage)",
+    resource: "Solar Park 05 - Apr 2026 (Grid Outage)",
     field: "Grid Outage Hours",
     oldValue: "8.0",
     newValue: "10.5",
@@ -315,24 +315,24 @@ const modificationTimeline = [
   {
     date: "2026-04-07",
     events: [
-      { time: "14:32", user: "Rajesh Kumar", action: "Modified Generation Data", resource: "Sakri Solar Park - Apr 2026" },
-      { time: "13:18", user: "Priya Sharma", action: "User Role Updated", resource: "john.doe@eesl.in" },
-      { time: "11:45", user: "Amit Patel", action: "JMR Submitted", resource: "Osmanabad Solar Plant - Apr 2026" },
+      { time: "14:32", user: "Rajesh Kumar", action: "Modified Generation Data", resource: "Solar Park 01 - Apr 2026" },
+      { time: "13:18", user: "Priya Sharma", action: "User Role Updated", resource: "john.doe@solarops.io" },
+      { time: "11:45", user: "Amit Patel", action: "JMR Submitted", resource: "Solar Park 03 - Apr 2026" },
     ],
   },
   {
     date: "2026-04-06",
     events: [
-      { time: "16:45", user: "Amit Patel", action: "Modified Irradiation Data", resource: "Osmanabad Solar Plant - Apr 2026" },
-      { time: "16:20", user: "Anjali Verma", action: "JMR Submitted", resource: "Sakri Solar Park - Apr 2026" },
-      { time: "14:20", user: "Vikram Desai", action: "Modified Outage Data", resource: "Beed Solar Park - Apr 2026" },
+      { time: "16:45", user: "Amit Patel", action: "Modified Irradiation Data", resource: "Solar Park 03 - Apr 2026" },
+      { time: "16:20", user: "Anjali Verma", action: "JMR Submitted", resource: "Solar Park 01 - Apr 2026" },
+      { time: "14:20", user: "Vikram Desai", action: "Modified Outage Data", resource: "Solar Park 05 - Apr 2026" },
     ],
   },
   {
     date: "2026-02-26",
     events: [
       { time: "15:10", user: "Neha Singh", action: "Audit Log Exported", resource: "January 2026 Logs" },
-      { time: "10:30", user: "Priya Sharma", action: "User Account Created", resource: "new.user@eesl.in" },
+      { time: "10:30", user: "Priya Sharma", action: "User Account Created", resource: "new.user@solarops.io" },
     ],
   },
 ];
@@ -351,7 +351,7 @@ export function AuditLogs() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <FileSearch className="w-4 h-4 text-white" />
               </div>
               <div>

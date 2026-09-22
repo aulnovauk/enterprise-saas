@@ -22,24 +22,24 @@ interface Notification {
 }
 
 const initialNotifications: Notification[] = [
-  { id: "1", category: "critical", title: "Buldhana Solar Farm CUF dropped below 20% threshold", description: "CUF has been consistently below the minimum acceptable level for the past 48 hours. Immediate attention required.", timestamp: "2 min ago", read: false },
-  { id: "2", category: "critical", title: "LD exposure crossed ₹1.5 Cr limit", description: "Liquidated damages for Osmanabad Solar Plant have exceeded the contractual threshold for Q4 FY25.", timestamp: "15 min ago", read: false },
-  { id: "3", category: "critical", title: "SCADA integration failed", description: "Real-time data feed from Beed Solar Park SCADA system has been interrupted since 10:42 AM.", timestamp: "32 min ago", read: false },
-  { id: "4", category: "critical", title: "Inverter fault detected at Sakri Solar Park", description: "Inverter INV-04 reported overcurrent fault. Energy loss estimated at 120 kWh/hr.", timestamp: "1 hr ago", read: true },
-  { id: "5", category: "warning", title: "JMR submission overdue for Wardha Solar Park", description: "April 2026 JMR has not been submitted. Deadline was 3 days ago.", timestamp: "45 min ago", read: false },
-  { id: "6", category: "warning", title: "Grid availability dropped to 94.2%", description: "Buldhana Solar Farm grid availability is below the 95% SLA threshold for the current billing cycle.", timestamp: "1 hr ago", read: false },
-  { id: "7", category: "warning", title: "SunPower Tech compliance at 78%", description: "O&M vendor compliance score has dropped below the 80% acceptable benchmark.", timestamp: "2 hr ago", read: false },
-  { id: "8", category: "warning", title: "Module degradation above normal rate", description: "Amravati Solar Unit module degradation rate measured at 1.2%/year vs expected 0.7%/year.", timestamp: "3 hr ago", read: true },
-  { id: "9", category: "warning", title: "Backup battery SOC below 30%", description: "Beed Solar Park energy storage system state-of-charge is critically low.", timestamp: "4 hr ago", read: true },
+  { id: "1", category: "critical", title: "Solar Park 10 CUF dropped below 20% threshold", description: "CUF has been consistently below the minimum acceptable level for the past 48 hours. Immediate attention required.", timestamp: "2 min ago", read: false },
+  { id: "2", category: "critical", title: "LD exposure crossed ₹1.5 Cr limit", description: "Liquidated damages for Solar Park 03 have exceeded the contractual threshold for Q4 FY25.", timestamp: "15 min ago", read: false },
+  { id: "3", category: "critical", title: "SCADA integration failed", description: "Real-time data feed from Solar Park 05 SCADA system has been interrupted since 10:42 AM.", timestamp: "32 min ago", read: false },
+  { id: "4", category: "critical", title: "Inverter fault detected at Solar Park 01", description: "Inverter INV-04 reported overcurrent fault. Energy loss estimated at 120 kWh/hr.", timestamp: "1 hr ago", read: true },
+  { id: "5", category: "warning", title: "JMR submission overdue for Solar Park 09", description: "April 2026 JMR has not been submitted. Deadline was 3 days ago.", timestamp: "45 min ago", read: false },
+  { id: "6", category: "warning", title: "Grid availability dropped to 94.2%", description: "Solar Park 10 grid availability is below the 95% SLA threshold for the current billing cycle.", timestamp: "1 hr ago", read: false },
+  { id: "7", category: "warning", title: "Vendor Alpha compliance at 78%", description: "O&M vendor compliance score has dropped below the 80% acceptable benchmark.", timestamp: "2 hr ago", read: false },
+  { id: "8", category: "warning", title: "Module degradation above normal rate", description: "Solar Park 08 module degradation rate measured at 1.2%/year vs expected 0.7%/year.", timestamp: "3 hr ago", read: true },
+  { id: "9", category: "warning", title: "Backup battery SOC below 30%", description: "Solar Park 05 energy storage system state-of-charge is critically low.", timestamp: "4 hr ago", read: true },
   { id: "10", category: "info", title: "Monthly report auto-generated", description: "April 2026 performance report has been generated and is ready for review.", timestamp: "1 hr ago", read: false },
   { id: "11", category: "info", title: "AI model updated to v2.4.2", description: "Anomaly detection and generation forecasting models have been refreshed with latest data.", timestamp: "3 hr ago", read: false },
-  { id: "12", category: "info", title: "New user role assigned", description: "User 'Priya Sharma' has been assigned the Plant Manager role for Latur Solar Station.", timestamp: "5 hr ago", read: true },
-  { id: "13", category: "info", title: "Scheduled maintenance window", description: "Sangli Solar Farm will undergo scheduled inverter maintenance on 15 Mar, 6:00-10:00 AM.", timestamp: "6 hr ago", read: true },
+  { id: "12", category: "info", title: "New user role assigned", description: "User 'Priya Sharma' has been assigned the Plant Manager role for Solar Park 04.", timestamp: "5 hr ago", read: true },
+  { id: "13", category: "info", title: "Scheduled maintenance window", description: "Solar Park 02 will undergo scheduled inverter maintenance on 15 Mar, 6:00-10:00 AM.", timestamp: "6 hr ago", read: true },
   { id: "14", category: "info", title: "Data export completed", description: "Portfolio performance data export (Jan-Mar 2025) is ready for download.", timestamp: "8 hr ago", read: true },
-  { id: "15", category: "success", title: "Sakri Solar Park JMR approved", description: "April 2026 JMR for Sakri Solar Park has been approved by Priya Sharma.", timestamp: "30 min ago", read: false },
+  { id: "15", category: "success", title: "Solar Park 01 JMR approved", description: "April 2026 JMR for Solar Park 01 has been approved by Priya Sharma.", timestamp: "30 min ago", read: false },
   { id: "16", category: "success", title: "April billing reconciled", description: "All 12 plants' April billing has been successfully reconciled with JMR data.", timestamp: "2 hr ago", read: false },
   { id: "17", category: "success", title: "ERP sync completed", description: "SAP ERP synchronization completed successfully. 342 records updated.", timestamp: "4 hr ago", read: true },
-  { id: "18", category: "success", title: "Chandrapur Solar Project commissioning verified", description: "All pre-commissioning checks passed. Chandrapur Solar Project is operating at rated capacity.", timestamp: "1 day ago", read: true },
+  { id: "18", category: "success", title: "Solar Park 11 commissioning verified", description: "All pre-commissioning checks passed. Solar Park 11 is operating at rated capacity.", timestamp: "1 day ago", read: true },
 ];
 
 const categoryConfig: Record<NotificationCategory, { color: string; bgColor: string; icon: typeof AlertCircle }> = {
@@ -127,7 +127,7 @@ export function NotificationPanel({ open, onOpenChange }: NotificationPanelProps
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
             className="fixed right-0 top-0 h-full w-[400px] max-w-[calc(100vw-48px)] bg-white shadow-2xl z-50 flex flex-col"
           >
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200" style={{ background: "linear-gradient(135deg, #2955A0 0%, #0089C9 100%)" }}>
+            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200" style={{ background: "linear-gradient(135deg, #12307E 0%, #2151CA 100%)" }}>
               <div className="flex items-center gap-3">
                 <Bell className="w-5 h-5 text-white" />
                 <h2 className="text-[16px] font-semibold text-white">Notifications</h2>
@@ -165,7 +165,7 @@ export function NotificationPanel({ open, onOpenChange }: NotificationPanelProps
                       ? "text-white shadow-sm"
                       : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/60"
                   }`}
-                  style={activeFilter === tab.key ? { background: "#2955A0" } : undefined}
+                  style={activeFilter === tab.key ? { background: "var(--brand)" } : undefined}
                 >
                   {tab.label}
                 </button>

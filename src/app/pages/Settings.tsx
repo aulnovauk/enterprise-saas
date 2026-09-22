@@ -13,7 +13,7 @@ export function Settings() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <SettingsIcon className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -43,7 +43,7 @@ export function Settings() {
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <Label className="mb-2">Organization Name</Label>
-                  <Input defaultValue="Energy Efficiency Services Limited (EESL)" />
+                  <Input defaultValue="SolarOps Energy Services Ltd." />
                 </div>
                 <div>
                   <Label className="mb-2">Time Zone</Label>
@@ -81,7 +81,7 @@ export function Settings() {
 
               <div className="flex justify-end gap-3 pt-4">
                 <Button variant="outline">Reset to Defaults</Button>
-                <Button style={{ backgroundColor: "#2955A0" }} className="text-white">
+                <Button style={{ backgroundColor: "var(--brand)" }} className="text-white">
                   Save Changes
                 </Button>
               </div>
@@ -151,7 +151,7 @@ export function Settings() {
 
               <div className="flex justify-end gap-3 pt-4">
                 <Button variant="outline">Reset to Defaults</Button>
-                <Button style={{ backgroundColor: "#2955A0" }} className="text-white">
+                <Button style={{ backgroundColor: "var(--brand)" }} className="text-white">
                   Save Changes
                 </Button>
               </div>
@@ -214,7 +214,7 @@ export function Settings() {
 
               <div className="flex justify-end gap-3 pt-4">
                 <Button variant="outline">Reset to Defaults</Button>
-                <Button style={{ backgroundColor: "#2955A0" }} className="text-white">
+                <Button style={{ backgroundColor: "var(--brand)" }} className="text-white">
                   Save Changes
                 </Button>
               </div>
@@ -272,7 +272,7 @@ export function Settings() {
 
               <div className="flex justify-end gap-3 pt-4">
                 <Button variant="outline">Reset to Defaults</Button>
-                <Button style={{ backgroundColor: "#2955A0" }} className="text-white">
+                <Button style={{ backgroundColor: "var(--brand)" }} className="text-white">
                   Save Changes
                 </Button>
               </div>
