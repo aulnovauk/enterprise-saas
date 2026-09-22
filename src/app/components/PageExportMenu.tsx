@@ -22,7 +22,7 @@ interface PageExportMenuProps {
 
 export function PageExportMenu({
   pageTitle,
-  pageSubtitle = "E-SAMMP · EESL Solar Platform",
+  pageSubtitle = "SolarOps · Asset Monitoring Suite",
   contentRef,
   variant = "outline",
   label = "Export",
@@ -64,7 +64,7 @@ export function PageExportMenu({
 
       const safeTitle = pageTitle.replace(/[^a-zA-Z0-9]/g, "_");
       const blob = pdf.output("blob");
-      triggerDownload(blob, `E-SAMMP_${safeTitle}_${new Date().toISOString().slice(0, 10)}.pdf`);
+      triggerDownload(blob, `SolarOps_${safeTitle}_${new Date().toISOString().slice(0, 10)}.pdf`);
     } catch (err) {
       console.error("PDF export failed", err);
       setError(`PDF failed: ${err instanceof Error ? err.message : String(err)}`);
@@ -97,7 +97,7 @@ export function PageExportMenu({
       const s1 = prs.addSlide();
       s1.addShape(prs.ShapeType.rect, { x: 0, y: 0, w: "100%", h: "100%", fill: { color: NAVY } });
       s1.addShape(prs.ShapeType.rect, { x: 0, y: 3.3, w: "100%", h: 0.07, fill: { color: GOLD } });
-      s1.addText("E-SAMMP", {
+      s1.addText("SolarOps", {
         x: 1, y: 0.8, w: 11.3, h: 1.0, color: GOLD, fontSize: 56,
         bold: true, fontFace: "Calibri", align: "center",
       });
@@ -113,7 +113,7 @@ export function PageExportMenu({
         x: 1, y: 3.6, w: 11.3, h: 0.35, color: "64748B", fontSize: 12,
         fontFace: "Calibri", align: "center",
       });
-      s1.addText("EESL Solar Asset Management & Monitoring Platform", {
+      s1.addText("Solar Asset Monitoring & Analytics Suite", {
         x: 1, y: 6.3, w: 11.3, h: 0.35, color: "475569", fontSize: 10,
         fontFace: "Calibri", align: "center",
       });
@@ -142,7 +142,7 @@ export function PageExportMenu({
           { x: 9.5, y: 0.08, w: 3.1, h: 0.4, color: "94A3B8", fontSize: 11, fontFace: "Calibri", align: "right" }
         );
         s2.addImage({ data: imgData, x: 0, y: 0.65, w: 13.33, h: 6.6 });
-        s2.addText("E-SAMMP · EESL Solar Platform", {
+        s2.addText("SolarOps · Asset Monitoring Suite", {
           x: 0.3, y: 7.2, w: 12.7, h: 0.25, color: "475569", fontSize: 8,
           fontFace: "Calibri", align: "center",
         });
@@ -153,7 +153,7 @@ export function PageExportMenu({
           x: 1, y: 2.5, w: 11.3, h: 0.8, color: LIGHT, fontSize: 32,
           fontFace: "Calibri", align: "center", bold: true,
         });
-        s2.addText("For full analytics, please refer to the E-SAMMP platform.", {
+        s2.addText("For full analytics, please refer to the SolarOps platform.", {
           x: 1, y: 3.5, w: 11.3, h: 0.5, color: "94A3B8", fontSize: 16,
           fontFace: "Calibri", align: "center",
         });
@@ -161,7 +161,7 @@ export function PageExportMenu({
 
       const safeTitle = pageTitle.replace(/[^a-zA-Z0-9]/g, "_");
       const pptBlob: Blob = (await prs.write({ outputType: "blob" })) as Blob;
-      triggerDownload(pptBlob, `E-SAMMP_${safeTitle}_${new Date().toISOString().slice(0, 10)}.pptx`);
+      triggerDownload(pptBlob, `SolarOps_${safeTitle}_${new Date().toISOString().slice(0, 10)}.pptx`);
     } catch (err) {
       console.error("PPT export failed", err);
       setError(`PPT failed: ${err instanceof Error ? err.message : String(err)}`);
@@ -172,7 +172,7 @@ export function PageExportMenu({
 
   const buttonStyle =
     variant === "navy"
-      ? { backgroundColor: "#2955A0", color: "#ffffff" }
+      ? { backgroundColor: "var(--brand)", color: "#ffffff" }
       : variant === "blue"
       ? { backgroundColor: "#2563EB", color: "#ffffff" }
       : undefined;

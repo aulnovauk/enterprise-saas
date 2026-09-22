@@ -30,7 +30,7 @@ const MONTHS = [
   "October","November","December","January","February","March",
 ];
 
-const FYS = ["FY 2023-24", "FY 2024-25", "FY 2025-26"];
+const FYS = ["FY 2026-27", "FY 2025-26", "FY 2024-25", "FY 2023-24"];
 
 const PERIODS = ["Monthly", "MTD", "YTD", "Annual"] as const;
 
@@ -48,10 +48,10 @@ export function GlobalFilterBar({
     plantCluster !== "all" ||
     contract !== "all-ppa" ||
     category !== "all-categories" ||
-    fy !== "FY 2023-24";
+    fy !== "FY 2026-27";
 
   const resetFilters = () => {
-    setFy("FY 2023-24");
+    setFy("FY 2026-27");
     setMonth("September");
     setPlantCluster("all");
     setContract("all-ppa");
@@ -64,7 +64,7 @@ export function GlobalFilterBar({
       <div className="px-6 py-2">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 bg-[#2955A0] rounded-lg">
+            <div className="p-1.5 bg-brand rounded-lg">
               <Activity className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -95,7 +95,7 @@ export function GlobalFilterBar({
               <Filter className="w-3.5 h-3.5" />
               More Filters
             </Button>
-            <Button size="sm" className="h-7 px-3 text-xs gap-2 bg-[#2955A0] hover:bg-[#1E4888] text-white">
+            <Button size="sm" className="h-7 px-3 text-xs gap-2 bg-brand hover:bg-brand-hover text-white">
               <Download className="w-3.5 h-3.5" />
               Export Report
             </Button>
@@ -140,11 +140,11 @@ export function GlobalFilterBar({
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Plants (12)</SelectItem>
-              <SelectItem value="SolarCo India">SolarCo India (3 plants)</SelectItem>
-              <SelectItem value="SunPower Tech">SunPower Tech (4 plants)</SelectItem>
-              <SelectItem value="Green Energy Ltd">Green Energy Ltd (1 plant)</SelectItem>
-              <SelectItem value="TechSolar Pvt">TechSolar Pvt (1 plant)</SelectItem>
-              <SelectItem value="Mega Solar Inc">Mega Solar Inc (3 plants)</SelectItem>
+              <SelectItem value="Vendor Alpha">Vendor Alpha (4 plants)</SelectItem>
+              <SelectItem value="Vendor Bravo">Vendor Bravo (3 plants)</SelectItem>
+              <SelectItem value="Vendor Charlie">Vendor Charlie (3 plants)</SelectItem>
+              <SelectItem value="Vendor Delta">Vendor Delta (1 plant)</SelectItem>
+              <SelectItem value="Vendor Echo">Vendor Echo (1 plant)</SelectItem>
             </SelectContent>
           </Select>
 
@@ -182,7 +182,7 @@ export function GlobalFilterBar({
                 onClick={() => setPeriod(p)}
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-md transition-all cursor-pointer ${
                   period === p
-                    ? "bg-[#2955A0] text-white shadow-md"
+                    ? "bg-brand text-white shadow-md"
                     : "text-slate-600 hover:bg-white hover:text-slate-900 hover:shadow-sm"
                 }`}
               >

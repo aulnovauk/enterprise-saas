@@ -51,18 +51,18 @@ const quickActions = [
 ];
 
 const plants = [
-  { id: "plant-sakri", label: "Sakri Solar Park (25 MW)" },
-  { id: "plant-sangli", label: "Sangli Solar Farm (15 MW)" },
-  { id: "plant-osmanabad", label: "Osmanabad Solar Plant (30 MW)" },
-  { id: "plant-latur", label: "Latur Solar Station (20 MW)" },
-  { id: "plant-beed", label: "Beed Solar Park (30 MW)" },
-  { id: "plant-ahmednagar", label: "Ahmednagar Solar Plant (12 MW)" },
-  { id: "plant-devdaithan", label: "Devdaithan Solar Plant (18 MW)" },
-  { id: "plant-amravati", label: "Amravati Solar Unit (14 MW)" },
-  { id: "plant-wardha", label: "Wardha Solar Park (16 MW)" },
-  { id: "plant-buldhana", label: "Buldhana Solar Farm (10 MW)" },
-  { id: "plant-chandrapur", label: "Chandrapur Solar Project (22 MW)" },
-  { id: "plant-bhandara", label: "Bhandara Solar Station (8 MW)" },
+  { id: "plant-01", label: "Solar Park 01 (25 MW)" },
+  { id: "plant-02", label: "Solar Park 02 (15 MW)" },
+  { id: "plant-03", label: "Solar Park 03 (30 MW)" },
+  { id: "plant-04", label: "Solar Park 04 (20 MW)" },
+  { id: "plant-05", label: "Solar Park 05 (30 MW)" },
+  { id: "plant-06", label: "Solar Park 06 (12 MW)" },
+  { id: "plant-07", label: "Solar Park 07 (18 MW)" },
+  { id: "plant-08", label: "Solar Park 08 (14 MW)" },
+  { id: "plant-09", label: "Solar Park 09 (16 MW)" },
+  { id: "plant-10", label: "Solar Park 10 (10 MW)" },
+  { id: "plant-11", label: "Solar Park 11 (22 MW)" },
+  { id: "plant-12", label: "Solar Park 12 (8 MW)" },
 ];
 
 interface CommandPaletteProps {
@@ -103,7 +103,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                 onSelect={() => handlePageSelect(page.path)}
                 className="cursor-pointer"
               >
-                <Icon className="w-4 h-4" style={{ color: "#2955A0" }} />
+                <Icon className="w-4 h-4" style={{ color: "var(--brand-fg)" }} />
                 <span>{page.label}</span>
               </CommandItem>
             );
@@ -122,7 +122,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
                 onSelect={() => handleActionSelect(action.id)}
                 className="cursor-pointer"
               >
-                <Icon className="w-4 h-4" style={{ color: "#2955A0" }} />
+                <Icon className="w-4 h-4" style={{ color: "var(--brand-fg)" }} />
                 <span>{action.label}</span>
               </CommandItem>
             );
@@ -139,7 +139,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
               onSelect={() => handlePlantSelect(plant.id)}
               className="cursor-pointer"
             >
-              <MapPin className="w-4 h-4" style={{ color: "#2955A0" }} />
+              <MapPin className="w-4 h-4" style={{ color: "var(--brand-fg)" }} />
               <span>{plant.label}</span>
             </CommandItem>
           ))}

@@ -91,7 +91,7 @@ const cufFormulaData = {
   value: "18.6%",
   unit: "Percentage",
   calculatedOn: "2026-02-28 23:59:59",
-  dataSource: "Sakri Solar Park - April 2026 JMR",
+  dataSource: "Solar Park 01 - April 2026 JMR",
   
   formula: "CUF = (Actual Generation / (Installed Capacity × Hours in Period)) × 100",
   
@@ -219,7 +219,7 @@ export function KPITransparencyConsole() {
               <Unlock className={`w-3.5 h-3.5 ${isAdminMode ? "text-green-600" : "text-gray-400"}`} />
             </div>
             <Badge className="bg-blue-100 text-blue-800 px-3 py-1">
-              Data Source: Sakri Solar Park - Apr 2026
+              Data Source: Solar Park 01 - Apr 2026
             </Badge>
           </div>
         </div>

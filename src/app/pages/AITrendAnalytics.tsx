@@ -113,7 +113,7 @@ const forecastData = [
 // Cleaning cycle recommendations
 const cleaningRecommendations = [
   {
-    site: "Sakri Solar Park",
+    site: "Solar Park 01",
     lastCleaning: "2026-02-10",
     nextRecommended: "2026-03-15",
     daysUntil: 15,
@@ -122,7 +122,7 @@ const cleaningRecommendations = [
     soilingRate: "0.15%/day",
   },
   {
-    site: "Osmanabad Solar Plant",
+    site: "Solar Park 03",
     lastCleaning: "2026-01-28",
     nextRecommended: "2026-03-05",
     daysUntil: 5,
@@ -131,7 +131,7 @@ const cleaningRecommendations = [
     soilingRate: "0.22%/day",
   },
   {
-    site: "Latur Solar Station",
+    site: "Solar Park 04",
     lastCleaning: "2026-02-18",
     nextRecommended: "2026-03-25",
     daysUntil: 25,
@@ -140,7 +140,7 @@ const cleaningRecommendations = [
     soilingRate: "0.08%/day",
   },
   {
-    site: "Amravati Solar Unit",
+    site: "Solar Park 08",
     lastCleaning: "2026-01-20",
     nextRecommended: "2026-03-01",
     daysUntil: 1,
@@ -177,7 +177,7 @@ const aiInsights = [
     icon: AlertCircle,
     color: "#EF4444",
     title: "Accelerated Degradation Detected",
-    description: "Amravati Solar Unit shows 0.8% annual degradation vs industry standard 0.5%. Recommend immediate module inspection.",
+    description: "Solar Park 08 shows 0.8% annual degradation vs industry standard 0.5%. Recommend immediate module inspection.",
     confidence: 94,
     impact: "High",
     actionable: true,
@@ -218,7 +218,7 @@ const aiInsights = [
 ];
 
 export function AITrendAnalytics() {
-  const [selectedFY, setSelectedFY] = useState("FY 2025-26");
+  const [selectedFY, setSelectedFY] = useState("FY 2026-27");
   const [selectedVendor, setSelectedVendor] = useState("all");
   const [selectedPlant, setSelectedPlant] = useState("all");
   const overallHealthScore = 86.6;
@@ -231,7 +231,7 @@ export function AITrendAnalytics() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <BrainCircuit className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -260,6 +260,7 @@ export function AITrendAnalytics() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="FY 2026-27">FY 2026-27</SelectItem>
                 <SelectItem value="FY 2025-26">FY 2025-26</SelectItem>
                 <SelectItem value="FY 2024-25">FY 2024-25</SelectItem>
                 <SelectItem value="FY 2023-24">FY 2023-24</SelectItem>
@@ -775,9 +776,9 @@ export function AITrendAnalytics() {
               {/* Inline legend */}
               <div className="flex flex-col gap-1 text-right">
                 {[
-                  { label: "Beed Solar Park (Best)", color: "#10B981" },
+                  { label: "Solar Park 05 (Best)", color: "#10B981" },
                   { label: "Portfolio Avg", color: "#3B82F6" },
-                  { label: "Amravati Solar Unit (Lowest)", color: "#EF4444" },
+                  { label: "Solar Park 08 (Lowest)", color: "#EF4444" },
                 ].map((s) => (
                   <div key={s.label} className="flex items-center gap-1.5 justify-end">
                     <span className="text-[10px] text-gray-600 font-medium">{s.label}</span>
@@ -803,9 +804,9 @@ export function AITrendAnalytics() {
                   tickCount={4}
                   axisLine={false}
                 />
-                {/* Beed Solar Park — top performer */}
+                {/* Solar Park 05 — top performer */}
                 <Radar
-                  name="Beed Solar Park (Best)"
+                  name="Solar Park 05 (Best)"
                   dataKey="beedBest"
                   stroke="#10B981"
                   fill="#10B981"
@@ -824,9 +825,9 @@ export function AITrendAnalytics() {
                   strokeDasharray="5 3"
                   dot={{ r: 3, fill: "#3B82F6", strokeWidth: 0 }}
                 />
-                {/* Amravati Solar Unit — needs attention */}
+                {/* Solar Park 08 — needs attention */}
                 <Radar
-                  name="Amravati Solar Unit (Lowest)"
+                  name="Solar Park 08 (Lowest)"
                   dataKey="amravatLow"
                   stroke="#EF4444"
                   fill="#EF4444"
@@ -845,7 +846,7 @@ export function AITrendAnalytics() {
             <div className="grid grid-cols-3 gap-3 pt-3 border-t border-gray-100">
               <div className="text-center p-2 rounded-lg bg-emerald-50 border border-emerald-100">
                 <div className="text-[10px] text-emerald-600 font-semibold uppercase mb-0.5">Top Performer</div>
-                <div className="text-sm font-bold text-emerald-700">Beed Solar Park</div>
+                <div className="text-sm font-bold text-emerald-700">Solar Park 05</div>
                 <div className="text-xs text-emerald-600">Avg score 96</div>
               </div>
               <div className="text-center p-2 rounded-lg bg-blue-50 border border-blue-100">
@@ -855,7 +856,7 @@ export function AITrendAnalytics() {
               </div>
               <div className="text-center p-2 rounded-lg bg-rose-50 border border-rose-100">
                 <div className="text-[10px] text-rose-600 font-semibold uppercase mb-0.5">Needs Attention</div>
-                <div className="text-sm font-bold text-rose-700">Amravati Solar Unit</div>
+                <div className="text-sm font-bold text-rose-700">Solar Park 08</div>
                 <div className="text-xs text-rose-600">Avg score 72</div>
               </div>
             </div>

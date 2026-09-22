@@ -30,6 +30,7 @@ const FY_FACTOR: Record<string, number> = {
   "FY 2023-24": 1.00,
   "FY 2024-25": 1.03,
   "FY 2025-26": 1.06,
+  "FY 2026-27": 1.09,
 };
 
 // Period multipliers for absolute (₹ / cumulative) metrics
@@ -59,7 +60,7 @@ function deriveCompliance(value: number, target: number, kpiId: string): KPI["co
 
 export function KPIEngine() {
   // ── Filter state ──────────────────────────────────────────────────────────
-  const [fy, setFy] = useState("FY 2023-24");
+  const [fy, setFy] = useState("FY 2026-27");
   const [month, setMonth] = useState("September");
   const [plantCluster, setPlantCluster] = useState("all");
   const [contract, setContract] = useState("all-ppa");

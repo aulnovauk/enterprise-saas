@@ -55,9 +55,9 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 21.8, target: 23.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 21.5, status: "Non-Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Dhule", vendor: "SunPower Tech", value: 22.8, status: "Warning" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 23.5, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 21.5, status: "Non-Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 1", vendor: "Vendor Alpha", value: 22.8, status: "Warning" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 23.5, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Budgeted", value: 24.0, type: "total" },
@@ -117,10 +117,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 98.5, target: 98.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 98.2, status: "Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 98.8, status: "Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 98.5, status: "Compliant" },
-      { plant: "Latur Solar Station", cluster: "Latur", vendor: "TechSolar Pvt", value: 97.9, status: "Warning" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 98.2, status: "Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 98.8, status: "Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 98.5, status: "Compliant" },
+      { plant: "Solar Park 04", cluster: "Zone 4", vendor: "Vendor Echo", value: 97.9, status: "Warning" },
     ],
     waterfallData: [
       { step: "Total Hours", value: 100.0, type: "total" },
@@ -168,10 +168,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 97.8, target: 95.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 96.5, status: "Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 98.2, status: "Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 97.8, status: "Compliant" },
-      { plant: "Latur Solar Station", cluster: "Ahmednagar", vendor: "Green Energy Ltd", value: 94.2, status: "Warning" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 96.5, status: "Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 98.2, status: "Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 97.8, status: "Compliant" },
+      { plant: "Solar Park 04", cluster: "Zone 6", vendor: "Vendor Delta", value: 94.2, status: "Warning" },
     ],
     waterfallData: [
       { step: "Total Hours", value: 100.0, type: "total" },
@@ -219,10 +219,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 94.2, target: 93.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 93.8, status: "Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 94.5, status: "Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 94.2, status: "Compliant" },
-      { plant: "Latur Solar Station", cluster: "Latur", vendor: "TechSolar Pvt", value: 92.5, status: "Warning" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 93.8, status: "Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 94.5, status: "Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 94.2, status: "Compliant" },
+      { plant: "Solar Park 04", cluster: "Zone 4", vendor: "Vendor Echo", value: 92.5, status: "Warning" },
     ],
     waterfallData: [
       { step: "Plant Availability", value: 97.8, type: "total" },
@@ -270,10 +270,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 3.2, target: 3.5 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 2.8, status: "Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 3.1, status: "Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 3.2, status: "Compliant" },
-      { plant: "Beed Solar Park", cluster: "Beed", vendor: "Mega Solar Inc", value: 4.2, status: "Warning" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 2.8, status: "Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 3.1, status: "Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 3.2, status: "Compliant" },
+      { plant: "Solar Park 05", cluster: "Zone 5", vendor: "Vendor Charlie", value: 4.2, status: "Warning" },
     ],
     waterfallData: [
       { step: "Generation at Busbar", value: 100.0, type: "total" },
@@ -322,10 +322,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 1.8, target: 2.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 1.7, status: "Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 1.8, status: "Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 1.9, status: "Compliant" },
-      { plant: "Latur Solar Station", cluster: "Ahmednagar", vendor: "Green Energy Ltd", value: 2.2, status: "Warning" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 1.7, status: "Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 1.8, status: "Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 1.9, status: "Compliant" },
+      { plant: "Solar Park 04", cluster: "Zone 6", vendor: "Vendor Delta", value: 2.2, status: "Warning" },
     ],
     waterfallData: [
       { step: "Baseline Requirement", value: 2.5, type: "total" },
@@ -373,10 +373,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 4.2, target: 3.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 5.2, status: "Non-Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 4.8, status: "Non-Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 3.5, status: "Warning" },
-      { plant: "Devdaithan Solar Plant", cluster: "Ahmednagar", vendor: "Mega Solar Inc", value: 2.8, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 5.2, status: "Non-Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 4.8, status: "Non-Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 3.5, status: "Warning" },
+      { plant: "Solar Park 07", cluster: "Zone 6", vendor: "Vendor Charlie", value: 2.8, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Potential Generation", value: 100.0, type: "total" },
@@ -434,10 +434,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 6.8, target: 5.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 8.2, status: "Non-Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 7.5, status: "Warning" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 5.8, status: "Warning" },
-      { plant: "Amravati Solar Unit", cluster: "Amravati", vendor: "SolarCo India", value: 4.2, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 8.2, status: "Non-Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 7.5, status: "Warning" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 5.8, status: "Warning" },
+      { plant: "Solar Park 08", cluster: "Zone 7", vendor: "Vendor Bravo", value: 4.2, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Expected Generation", value: 100.0, type: "total" },
@@ -488,10 +488,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 42.85, target: 45.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 40.5, status: "Warning" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 43.2, status: "Warning" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 45.8, status: "Compliant" },
-      { plant: "Latur Solar Station", cluster: "Latur", vendor: "TechSolar Pvt", value: 42.0, status: "Warning" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 40.5, status: "Warning" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 43.2, status: "Warning" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 45.8, status: "Compliant" },
+      { plant: "Solar Park 04", cluster: "Zone 4", vendor: "Vendor Echo", value: 42.0, status: "Warning" },
     ],
     waterfallData: [
       { step: "Contracted Revenue", value: 45.0, type: "total" },
@@ -539,10 +539,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 2.15, target: 0.5 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 0.85, status: "Non-Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 0.65, status: "Warning" },
-      { plant: "Beed Solar Park", cluster: "Beed", vendor: "Mega Solar Inc", value: 0.45, status: "Warning" },
-      { plant: "Devdaithan Solar Plant", cluster: "Ahmednagar", vendor: "Mega Solar Inc", value: 0.20, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 0.85, status: "Non-Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 0.65, status: "Warning" },
+      { plant: "Solar Park 05", cluster: "Zone 5", vendor: "Vendor Charlie", value: 0.45, status: "Warning" },
+      { plant: "Solar Park 07", cluster: "Zone 6", vendor: "Vendor Charlie", value: 0.20, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Contracted Revenue", value: 45.0, type: "total" },
@@ -591,10 +591,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 8.5, target: 5.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 12.5, status: "Non-Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 9.2, status: "Warning" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 6.8, status: "Warning" },
-      { plant: "Wardha Solar Park", cluster: "Ahmednagar", vendor: "Mega Solar Inc", value: 4.2, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 12.5, status: "Non-Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 9.2, status: "Warning" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 6.8, status: "Warning" },
+      { plant: "Solar Park 09", cluster: "Zone 6", vendor: "Vendor Charlie", value: 4.2, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Budgeted O&M", value: 100.0, type: "total" },
@@ -643,9 +643,9 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 2.4, target: 0.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 0.95, status: "Non-Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 0.85, status: "Non-Compliant" },
-      { plant: "Beed Solar Park", cluster: "Beed", vendor: "Mega Solar Inc", value: 0.60, status: "Non-Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 0.95, status: "Non-Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 0.85, status: "Non-Compliant" },
+      { plant: "Solar Park 05", cluster: "Zone 5", vendor: "Vendor Charlie", value: 0.60, status: "Non-Compliant" },
     ],
     waterfallData: [
       { step: "Base", value: 0.0, type: "total" },
@@ -695,10 +695,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 11.2, target: 12.0 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 9.8, status: "Warning" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 12.5, status: "Compliant" },
-      { plant: "Amravati Solar Unit", cluster: "Amravati", vendor: "SolarCo India", value: 11.8, status: "Warning" },
-      { plant: "Latur Solar Station", cluster: "Latur", vendor: "TechSolar Pvt", value: 10.5, status: "Warning" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 9.8, status: "Warning" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 12.5, status: "Compliant" },
+      { plant: "Solar Park 08", cluster: "Zone 7", vendor: "Vendor Bravo", value: 11.8, status: "Warning" },
+      { plant: "Solar Park 04", cluster: "Zone 4", vendor: "Vendor Echo", value: 10.5, status: "Warning" },
     ],
     waterfallData: [
       { step: "Target ROI", value: 12.0, type: "total" },
@@ -746,10 +746,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 9.2, target: 8.5 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 10.5, status: "Non-Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 9.8, status: "Warning" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 8.2, status: "Compliant" },
-      { plant: "Beed Solar Park", cluster: "Beed", vendor: "Mega Solar Inc", value: 7.8, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 10.5, status: "Non-Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 9.8, status: "Warning" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 8.2, status: "Compliant" },
+      { plant: "Solar Park 05", cluster: "Zone 5", vendor: "Vendor Charlie", value: 7.8, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Base Case", value: 8.5, type: "total" },
@@ -798,10 +798,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 0.65, target: 0.70 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 0.72, status: "Warning" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 0.68, status: "Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 0.58, status: "Compliant" },
-      { plant: "Chandrapur Solar Project", cluster: "Chandrapur", vendor: "SunPower Tech", value: 0.85, status: "Non-Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 0.72, status: "Warning" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 0.68, status: "Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 0.58, status: "Compliant" },
+      { plant: "Solar Park 11", cluster: "Zone 10", vendor: "Vendor Alpha", value: 0.85, status: "Non-Compliant" },
     ],
     waterfallData: [
       { step: "Year 1 Output", value: 100.0, type: "total" },
@@ -855,10 +855,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 4500, target: 4400 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 1200, status: "Compliant" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 1100, status: "Compliant" },
-      { plant: "Osmanabad Solar Plant", cluster: "Osmanabad", vendor: "Green Energy Ltd", value: 1300, status: "Compliant" },
-      { plant: "Wardha Solar Park", cluster: "Wardha", vendor: "SunPower Tech", value: 900, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 1200, status: "Compliant" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 1100, status: "Compliant" },
+      { plant: "Solar Park 03", cluster: "Zone 3", vendor: "Vendor Delta", value: 1300, status: "Compliant" },
+      { plant: "Solar Park 09", cluster: "Zone 8", vendor: "Vendor Alpha", value: 900, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Base Forecast", value: 4200, type: "total" },
@@ -912,10 +912,10 @@ export const kpiData: KPI[] = [
       { month: "Jun", value: 72, target: 80 },
     ],
     plantBreakdown: [
-      { plant: "Sakri Solar Park", cluster: "Dhule", vendor: "SolarCo India", value: 65, status: "Warning" },
-      { plant: "Sangli Solar Farm", cluster: "Sangli", vendor: "SunPower Tech", value: 68, status: "Warning" },
-      { plant: "Beed Solar Park", cluster: "Beed", vendor: "Mega Solar Inc", value: 58, status: "Non-Compliant" },
-      { plant: "Devdaithan Solar Plant", cluster: "Ahmednagar", vendor: "Mega Solar Inc", value: 82, status: "Compliant" },
+      { plant: "Solar Park 01", cluster: "Zone 1", vendor: "Vendor Bravo", value: 65, status: "Warning" },
+      { plant: "Solar Park 02", cluster: "Zone 2", vendor: "Vendor Alpha", value: 68, status: "Warning" },
+      { plant: "Solar Park 05", cluster: "Zone 5", vendor: "Vendor Charlie", value: 58, status: "Non-Compliant" },
+      { plant: "Solar Park 07", cluster: "Zone 6", vendor: "Vendor Charlie", value: 82, status: "Compliant" },
     ],
     waterfallData: [
       { step: "Baseline Score", value: 100, type: "total" },

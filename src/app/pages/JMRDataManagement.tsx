@@ -110,26 +110,28 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "../components/ui/tooltip";
+import { historicalJmrRecords } from "../data/jmrHistory";
 
 // Mock Data
-const financialYears = ["FY 2025-26", "FY 2024-25", "FY 2023-24"];
+const financialYears = ["FY 2026-27", "FY 2025-26", "FY 2024-25", "FY 2023-24"];
 const months = [
   "April", "May", "June", "July", "August", "September",
   "October", "November", "December", "January", "February", "March"
 ];
-const states = ["Maharashtra"];
-const vendors = ["SolarCo India", "SunPower Tech", "Green Energy Ltd", "TechSolar Pvt", "Mega Solar Inc"];
+const states = ["Region North"];
+const vendors = ["Vendor Bravo", "Vendor Alpha", "Vendor Delta", "Vendor Echo", "Vendor Charlie"];
 const ppaTypes = ["Long Term (25Y)", "Medium Term (15Y)", "Short Term (5Y)"];
 
 // JMR Repository Mock Data
-export const initialJmrRecords = [
+// Hand-authored records: FY 2025-26 Nov-Mar, plus FY 2026-27 Apr-Sep (current year).
+const currentJmrRecords = [
   {
       id: "JMR-2026-04-001",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Sakri Solar Park",
-      district: "Dhule",
-      vendor: "SolarCo India",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
       capacityKWp: 2555.19,
       grossGeneration: 5160,
       energyExportKWh: 298226.35,
@@ -147,11 +149,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-002",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Sangli Solar Farm",
-      district: "Sangli",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
       capacityKWp: 1530,
       grossGeneration: 2389,
       energyExportKWh: 112099.19,
@@ -169,11 +171,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-003",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Osmanabad Solar Plant",
-      district: "Osmanabad",
-      vendor: "Green Energy Ltd",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
       capacityKWp: 2777.77,
       grossGeneration: 9513,
       energyExportKWh: 423901.29,
@@ -191,11 +193,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-004",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Latur Solar Station",
-      district: "Latur",
-      vendor: "TechSolar Pvt",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
       capacityKWp: 2040,
       grossGeneration: 7766,
       energyExportKWh: 366756.64,
@@ -213,11 +215,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-005",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Beed Solar Park",
-      district: "Beed",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
       capacityKWp: 3060,
       grossGeneration: 10077,
       energyExportKWh: 487885.28,
@@ -235,11 +237,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-006",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Ahmednagar Solar Plant",
-      district: "Ahmednagar",
-      vendor: "SolarCo India",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
       capacityKWp: 1224,
       grossGeneration: 2039,
       energyExportKWh: 70274.32,
@@ -257,11 +259,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-007",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Devdaithan Solar Plant",
-      district: "Ahmednagar",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
       capacityKWp: 1836,
       grossGeneration: 3208,
       energyExportKWh: 110555.07,
@@ -279,11 +281,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-008",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Amravati Solar Unit",
-      district: "Amravati",
-      vendor: "SolarCo India",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
       capacityKWp: 1428,
       grossGeneration: 2340,
       energyExportKWh: 80659.58,
@@ -301,11 +303,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-009",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Wardha Solar Park",
-      district: "Wardha",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
       capacityKWp: 1632,
       grossGeneration: 2533,
       energyExportKWh: 87546.12,
@@ -323,11 +325,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-010",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Buldhana Solar Farm",
-      district: "Buldhana",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
       capacityKWp: 1020,
       grossGeneration: 2369,
       energyExportKWh: 81672.27,
@@ -345,11 +347,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-011",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Chandrapur Solar Project",
-      district: "Chandrapur",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
       capacityKWp: 2244,
       grossGeneration: 3946,
       energyExportKWh: 136028.6,
@@ -367,11 +369,11 @@ export const initialJmrRecords = [
     },
   {
       id: "JMR-2026-04-012",
-      fy: "FY 2025-26",
+      fy: "FY 2026-27",
       month: "April",
-      plant: "Bhandara Solar Station",
-      district: "Bhandara",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
       capacityKWp: 816,
       grossGeneration: 1322,
       energyExportKWh: 45580.27,
@@ -391,9 +393,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-013",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Sakri Solar Park",
-      district: "Dhule",
-      vendor: "SolarCo India",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
       capacityKWp: 2555.19,
       grossGeneration: 4554,
       energyExportKWh: 263214.27,
@@ -413,9 +415,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-014",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Sangli Solar Farm",
-      district: "Sangli",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
       capacityKWp: 1530,
       grossGeneration: 2280,
       energyExportKWh: 106996.41,
@@ -435,9 +437,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-015",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Osmanabad Solar Plant",
-      district: "Osmanabad",
-      vendor: "Green Energy Ltd",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
       capacityKWp: 2777.77,
       grossGeneration: 9506,
       energyExportKWh: 423584.58,
@@ -457,9 +459,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-016",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Latur Solar Station",
-      district: "Latur",
-      vendor: "TechSolar Pvt",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
       capacityKWp: 2040,
       grossGeneration: 7312,
       energyExportKWh: 345314.23,
@@ -479,9 +481,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-017",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Beed Solar Park",
-      district: "Beed",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
       capacityKWp: 3060,
       grossGeneration: 9561,
       energyExportKWh: 462886.99,
@@ -501,9 +503,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-018",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Ahmednagar Solar Plant",
-      district: "Ahmednagar",
-      vendor: "SolarCo India",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
       capacityKWp: 1224,
       grossGeneration: 1866,
       energyExportKWh: 64310.9,
@@ -523,9 +525,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-019",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Devdaithan Solar Plant",
-      district: "Ahmednagar",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
       capacityKWp: 1836,
       grossGeneration: 3007,
       energyExportKWh: 103639.69,
@@ -545,9 +547,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-020",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Amravati Solar Unit",
-      district: "Amravati",
-      vendor: "SolarCo India",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
       capacityKWp: 1428,
       grossGeneration: 2168,
       energyExportKWh: 74736.73,
@@ -567,9 +569,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-021",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Wardha Solar Park",
-      district: "Wardha",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
       capacityKWp: 1632,
       grossGeneration: 2329,
       energyExportKWh: 80490.02,
@@ -589,9 +591,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-022",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Buldhana Solar Farm",
-      district: "Buldhana",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
       capacityKWp: 1020,
       grossGeneration: 2104,
       energyExportKWh: 72553.15,
@@ -611,9 +613,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-023",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Chandrapur Solar Project",
-      district: "Chandrapur",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
       capacityKWp: 2244,
       grossGeneration: 3526,
       energyExportKWh: 121556.72,
@@ -633,9 +635,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-03-024",
       fy: "FY 2025-26",
       month: "March",
-      plant: "Bhandara Solar Station",
-      district: "Bhandara",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
       capacityKWp: 816,
       grossGeneration: 1362,
       energyExportKWh: 46954.96,
@@ -655,9 +657,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-025",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Sakri Solar Park",
-      district: "Dhule",
-      vendor: "SolarCo India",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
       capacityKWp: 2555.19,
       grossGeneration: 4515,
       energyExportKWh: 260918.03,
@@ -677,9 +679,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-026",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Sangli Solar Farm",
-      district: "Sangli",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
       capacityKWp: 1530,
       grossGeneration: 2257,
       energyExportKWh: 105877.17,
@@ -699,9 +701,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-027",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Osmanabad Solar Plant",
-      district: "Osmanabad",
-      vendor: "Green Energy Ltd",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
       capacityKWp: 2777.77,
       grossGeneration: 8936,
       energyExportKWh: 398208.06,
@@ -721,9 +723,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-028",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Latur Solar Station",
-      district: "Latur",
-      vendor: "TechSolar Pvt",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
       capacityKWp: 2040,
       grossGeneration: 6870,
       energyExportKWh: 324459.41,
@@ -743,9 +745,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-029",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Beed Solar Park",
-      district: "Beed",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
       capacityKWp: 3060,
       grossGeneration: 9293,
       energyExportKWh: 449894.54,
@@ -765,9 +767,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-030",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Ahmednagar Solar Plant",
-      district: "Ahmednagar",
-      vendor: "SolarCo India",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
       capacityKWp: 1224,
       grossGeneration: 1926,
       energyExportKWh: 66396.34,
@@ -787,9 +789,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-031",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Devdaithan Solar Plant",
-      district: "Ahmednagar",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
       capacityKWp: 1836,
       grossGeneration: 2765,
       energyExportKWh: 95284.03,
@@ -809,9 +811,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-032",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Amravati Solar Unit",
-      district: "Amravati",
-      vendor: "SolarCo India",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
       capacityKWp: 1428,
       grossGeneration: 2189,
       energyExportKWh: 75457.95,
@@ -831,9 +833,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-033",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Wardha Solar Park",
-      district: "Wardha",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
       capacityKWp: 1632,
       grossGeneration: 2361,
       energyExportKWh: 81577.58,
@@ -853,9 +855,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-034",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Buldhana Solar Farm",
-      district: "Buldhana",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
       capacityKWp: 1020,
       grossGeneration: 2063,
       energyExportKWh: 71123.33,
@@ -875,9 +877,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-035",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Chandrapur Solar Project",
-      district: "Chandrapur",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
       capacityKWp: 2244,
       grossGeneration: 3393,
       energyExportKWh: 116984.81,
@@ -897,9 +899,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-02-036",
       fy: "FY 2025-26",
       month: "February",
-      plant: "Bhandara Solar Station",
-      district: "Bhandara",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
       capacityKWp: 816,
       grossGeneration: 1284,
       energyExportKWh: 44250.83,
@@ -919,9 +921,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-037",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Sakri Solar Park",
-      district: "Dhule",
-      vendor: "SolarCo India",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
       capacityKWp: 2555.19,
       grossGeneration: 4231,
       energyExportKWh: 244527.33,
@@ -941,9 +943,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-038",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Sangli Solar Farm",
-      district: "Sangli",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
       capacityKWp: 1530,
       grossGeneration: 1987,
       energyExportKWh: 93236.79,
@@ -963,9 +965,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-039",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Osmanabad Solar Plant",
-      district: "Osmanabad",
-      vendor: "Green Energy Ltd",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
       capacityKWp: 2777.77,
       grossGeneration: 8300,
       energyExportKWh: 369867.66,
@@ -985,9 +987,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-040",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Latur Solar Station",
-      district: "Latur",
-      vendor: "TechSolar Pvt",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
       capacityKWp: 2040,
       grossGeneration: 6328,
       energyExportKWh: 298869.67,
@@ -1007,9 +1009,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-041",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Beed Solar Park",
-      district: "Beed",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
       capacityKWp: 3060,
       grossGeneration: 8758,
       energyExportKWh: 424021.3,
@@ -1029,9 +1031,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-042",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Ahmednagar Solar Plant",
-      district: "Ahmednagar",
-      vendor: "SolarCo India",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
       capacityKWp: 1224,
       grossGeneration: 1806,
       energyExportKWh: 62257.56,
@@ -1051,9 +1053,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-043",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Devdaithan Solar Plant",
-      district: "Ahmednagar",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
       capacityKWp: 1836,
       grossGeneration: 2702,
       energyExportKWh: 93139.73,
@@ -1073,9 +1075,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-044",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Amravati Solar Unit",
-      district: "Amravati",
-      vendor: "SolarCo India",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
       capacityKWp: 1428,
       grossGeneration: 2095,
       energyExportKWh: 72219.27,
@@ -1095,9 +1097,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-045",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Wardha Solar Park",
-      district: "Wardha",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
       capacityKWp: 1632,
       grossGeneration: 2077,
       energyExportKWh: 71788.73,
@@ -1117,9 +1119,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-046",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Buldhana Solar Farm",
-      district: "Buldhana",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
       capacityKWp: 1020,
       grossGeneration: 1859,
       energyExportKWh: 64109.46,
@@ -1139,9 +1141,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-047",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Chandrapur Solar Project",
-      district: "Chandrapur",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
       capacityKWp: 2244,
       grossGeneration: 3178,
       energyExportKWh: 109545.22,
@@ -1161,9 +1163,9 @@ export const initialJmrRecords = [
       id: "JMR-2026-01-048",
       fy: "FY 2025-26",
       month: "January",
-      plant: "Bhandara Solar Station",
-      district: "Bhandara",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
       capacityKWp: 816,
       grossGeneration: 1125,
       energyExportKWh: 38794.18,
@@ -1183,9 +1185,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-049",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Sakri Solar Park",
-      district: "Dhule",
-      vendor: "SolarCo India",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
       capacityKWp: 2555.19,
       grossGeneration: 4132,
       energyExportKWh: 238806.43,
@@ -1205,9 +1207,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-050",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Sangli Solar Farm",
-      district: "Sangli",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
       capacityKWp: 1530,
       grossGeneration: 1911,
       energyExportKWh: 89654.09,
@@ -1227,9 +1229,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-051",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Osmanabad Solar Plant",
-      district: "Osmanabad",
-      vendor: "Green Energy Ltd",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
       capacityKWp: 2777.77,
       grossGeneration: 7609,
       energyExportKWh: 339083.25,
@@ -1249,9 +1251,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-052",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Latur Solar Station",
-      district: "Latur",
-      vendor: "TechSolar Pvt",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
       capacityKWp: 2040,
       grossGeneration: 6090,
       energyExportKWh: 287635.69,
@@ -1271,9 +1273,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-053",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Beed Solar Park",
-      district: "Beed",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
       capacityKWp: 3060,
       grossGeneration: 7987,
       energyExportKWh: 386679.92,
@@ -1293,9 +1295,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-054",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Ahmednagar Solar Plant",
-      district: "Ahmednagar",
-      vendor: "SolarCo India",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
       capacityKWp: 1224,
       grossGeneration: 1555,
       energyExportKWh: 53606.72,
@@ -1315,9 +1317,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-055",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Devdaithan Solar Plant",
-      district: "Ahmednagar",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
       capacityKWp: 1836,
       grossGeneration: 2402,
       energyExportKWh: 82776.91,
@@ -1337,9 +1339,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-056",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Amravati Solar Unit",
-      district: "Amravati",
-      vendor: "SolarCo India",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
       capacityKWp: 1428,
       grossGeneration: 1949,
       energyExportKWh: 67170.62,
@@ -1359,9 +1361,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-057",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Wardha Solar Park",
-      district: "Wardha",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
       capacityKWp: 1632,
       grossGeneration: 2060,
       energyExportKWh: 71173.14,
@@ -1381,9 +1383,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-058",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Buldhana Solar Farm",
-      district: "Buldhana",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
       capacityKWp: 1020,
       grossGeneration: 1867,
       energyExportKWh: 64363.15,
@@ -1403,9 +1405,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-059",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Chandrapur Solar Project",
-      district: "Chandrapur",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
       capacityKWp: 2244,
       grossGeneration: 2954,
       energyExportKWh: 101824.19,
@@ -1425,9 +1427,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-12-060",
       fy: "FY 2025-26",
       month: "December",
-      plant: "Bhandara Solar Station",
-      district: "Bhandara",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
       capacityKWp: 816,
       grossGeneration: 1145,
       energyExportKWh: 39466.11,
@@ -1447,9 +1449,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-061",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Sakri Solar Park",
-      district: "Dhule",
-      vendor: "SolarCo India",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
       capacityKWp: 2555.19,
       grossGeneration: 3884,
       energyExportKWh: 224482.3,
@@ -1469,9 +1471,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-062",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Sangli Solar Farm",
-      district: "Sangli",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
       capacityKWp: 1530,
       grossGeneration: 1801,
       energyExportKWh: 84500.45,
@@ -1491,9 +1493,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-063",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Osmanabad Solar Plant",
-      district: "Osmanabad",
-      vendor: "Green Energy Ltd",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
       capacityKWp: 2777.77,
       grossGeneration: 7036,
       energyExportKWh: 313550.56,
@@ -1513,9 +1515,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-064",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Latur Solar Station",
-      district: "Latur",
-      vendor: "TechSolar Pvt",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
       capacityKWp: 2040,
       grossGeneration: 5657,
       energyExportKWh: 267146.2,
@@ -1535,9 +1537,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-065",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Beed Solar Park",
-      district: "Beed",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
       capacityKWp: 3060,
       grossGeneration: 7912,
       energyExportKWh: 383070.27,
@@ -1557,9 +1559,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-066",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Ahmednagar Solar Plant",
-      district: "Ahmednagar",
-      vendor: "SolarCo India",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
       capacityKWp: 1224,
       grossGeneration: 1523,
       energyExportKWh: 52474.6,
@@ -1579,9 +1581,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-067",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Devdaithan Solar Plant",
-      district: "Ahmednagar",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
       capacityKWp: 1836,
       grossGeneration: 2250,
       energyExportKWh: 77532.32,
@@ -1601,9 +1603,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-068",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Amravati Solar Unit",
-      district: "Amravati",
-      vendor: "SolarCo India",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
       capacityKWp: 1428,
       grossGeneration: 1723,
       energyExportKWh: 59375.07,
@@ -1623,9 +1625,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-069",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Wardha Solar Park",
-      district: "Wardha",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
       capacityKWp: 1632,
       grossGeneration: 1917,
       energyExportKWh: 66230.56,
@@ -1645,9 +1647,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-070",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Buldhana Solar Farm",
-      district: "Buldhana",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
       capacityKWp: 1020,
       grossGeneration: 1703,
       energyExportKWh: 58735.61,
@@ -1667,9 +1669,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-071",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Chandrapur Solar Project",
-      district: "Chandrapur",
-      vendor: "SunPower Tech",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
       capacityKWp: 2244,
       grossGeneration: 2719,
       energyExportKWh: 93731.88,
@@ -1689,9 +1691,9 @@ export const initialJmrRecords = [
       id: "JMR-2025-11-072",
       fy: "FY 2025-26",
       month: "November",
-      plant: "Bhandara Solar Station",
-      district: "Bhandara",
-      vendor: "Mega Solar Inc",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
       capacityKWp: 816,
       grossGeneration: 1046,
       energyExportKWh: 36051.82,
@@ -1706,8 +1708,1332 @@ export const initialJmrRecords = [
       approvedBy: "Suresh Iyer",
       submittedDate: "2025-12-01",
       approvedDate: "2025-12-02",
-    }
+    },
+  {
+      id: "JMR-2026-05-001",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
+      capacityKWp: 2555.19,
+      grossGeneration: 5530,
+      energyExportKWh: 319600.2,
+      energyImportKWh: 1981.98,
+      outage: "23:54",
+      revenue: 52.43,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-06-01",
+      approvedDate: "2026-06-04",
+    },
+  {
+      id: "JMR-2026-05-002",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1530,
+      grossGeneration: 2459,
+      energyExportKWh: 115399.69,
+      energyImportKWh: 756.16,
+      outage: "22:25",
+      revenue: 23.36,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-06-02",
+      approvedDate: "2026-06-05",
+    },
+  {
+      id: "JMR-2026-05-003",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
+      capacityKWp: 2777.77,
+      grossGeneration: 10002,
+      energyExportKWh: 445678.93,
+      energyImportKWh: 3820.75,
+      outage: "19:15",
+      revenue: 95.01,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-06-03",
+      approvedDate: "2026-06-06",
+    },
+  {
+      id: "JMR-2026-05-004",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
+      capacityKWp: 2040,
+      grossGeneration: 8365,
+      energyExportKWh: 395025.62,
+      energyImportKWh: 1486.97,
+      outage: "14:38",
+      revenue: 79.46,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-06-01",
+      approvedDate: "2026-06-04",
+    },
+  {
+      id: "JMR-2026-05-005",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
+      capacityKWp: 3060,
+      grossGeneration: 10426,
+      energyExportKWh: 504779.86,
+      energyImportKWh: 2827.54,
+      outage: "08:54",
+      revenue: 99.04,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-06-02",
+      approvedDate: "2026-06-05",
+    },
+  {
+      id: "JMR-2026-05-006",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1224,
+      grossGeneration: 2195,
+      energyExportKWh: 75648.24,
+      energyImportKWh: 379.66,
+      outage: "02:31",
+      revenue: 20.86,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-06-03",
+      approvedDate: "2026-06-06",
+    },
+  {
+      id: "JMR-2026-05-007",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
+      capacityKWp: 1836,
+      grossGeneration: 3309,
+      energyExportKWh: 114046.84,
+      energyImportKWh: 567.28,
+      outage: "04:03",
+      revenue: 31.43,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-06-01",
+      approvedDate: "2026-06-04",
+    },
+  {
+      id: "JMR-2026-05-008",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1428,
+      grossGeneration: 2542,
+      energyExportKWh: 87632.39,
+      energyImportKWh: 449.4,
+      outage: "10:20",
+      revenue: 24.16,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-06-02",
+      approvedDate: "2026-06-05",
+    },
+  {
+      id: "JMR-2026-05-009",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1632,
+      grossGeneration: 2642,
+      energyExportKWh: 91297.74,
+      energyImportKWh: 466.1,
+      outage: "15:49",
+      revenue: 25.1,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-06-03",
+      approvedDate: "2026-06-06",
+    },
+  {
+      id: "JMR-2026-05-010",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1020,
+      grossGeneration: 2544,
+      energyExportKWh: 87694.94,
+      energyImportKWh: 427.21,
+      outage: "20:08",
+      revenue: 24.17,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-06-01",
+      approvedDate: "2026-06-04",
+    },
+  {
+      id: "JMR-2026-05-011",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
+      capacityKWp: 2244,
+      grossGeneration: 4046,
+      energyExportKWh: 139467.69,
+      energyImportKWh: 697.93,
+      outage: "22:55",
+      revenue: 38.44,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-06-02",
+      approvedDate: "2026-06-05",
+    },
+  {
+      id: "JMR-2026-05-012",
+      fy: "FY 2026-27",
+      month: "May",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
+      capacityKWp: 816,
+      grossGeneration: 1376,
+      energyExportKWh: 47450.61,
+      energyImportKWh: 238.64,
+      outage: "23:59",
+      revenue: 13.08,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-06-03",
+      approvedDate: "2026-06-06",
+    },
+  {
+      id: "JMR-2026-06-001",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
+      capacityKWp: 2555.19,
+      grossGeneration: 4553,
+      energyExportKWh: 263163.46,
+      energyImportKWh: 1631.99,
+      outage: "11:59",
+      revenue: 43.17,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-07-01",
+      approvedDate: "2026-07-04",
+    },
+  {
+      id: "JMR-2026-06-002",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1530,
+      grossGeneration: 2083,
+      energyExportKWh: 97736.1,
+      energyImportKWh: 640.42,
+      outage: "05:53",
+      revenue: 19.78,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-07-02",
+      approvedDate: "2026-07-05",
+    },
+  {
+      id: "JMR-2026-06-003",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
+      capacityKWp: 2777.77,
+      grossGeneration: 8260,
+      energyExportKWh: 368072.55,
+      energyImportKWh: 3155.44,
+      outage: "00:39",
+      revenue: 78.47,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-07-03",
+      approvedDate: "2026-07-06",
+    },
+  {
+      id: "JMR-2026-06-004",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
+      capacityKWp: 2040,
+      grossGeneration: 6842,
+      energyExportKWh: 323138.91,
+      energyImportKWh: 1216.37,
+      outage: "07:09",
+      revenue: 65,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-07-01",
+      approvedDate: "2026-07-04",
+    },
+  {
+      id: "JMR-2026-06-005",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
+      capacityKWp: 3060,
+      grossGeneration: 8652,
+      energyExportKWh: 418870.43,
+      energyImportKWh: 2346.31,
+      outage: "13:06",
+      revenue: 82.19,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-07-02",
+      approvedDate: "2026-07-05",
+    },
+  {
+      id: "JMR-2026-06-006",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1224,
+      grossGeneration: 1742,
+      energyExportKWh: 60052.76,
+      energyImportKWh: 301.39,
+      outage: "18:04",
+      revenue: 16.56,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-07-03",
+      approvedDate: "2026-07-06",
+    },
+  {
+      id: "JMR-2026-06-007",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
+      capacityKWp: 1836,
+      grossGeneration: 2888,
+      energyExportKWh: 99538.66,
+      energyImportKWh: 495.11,
+      outage: "21:41",
+      revenue: 27.43,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-07-01",
+      approvedDate: "2026-07-04",
+    },
+  {
+      id: "JMR-2026-06-008",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1428,
+      grossGeneration: 2020,
+      energyExportKWh: 69638.94,
+      energyImportKWh: 357.12,
+      outage: "23:39",
+      revenue: 19.2,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-07-02",
+      approvedDate: "2026-07-05",
+    },
+  {
+      id: "JMR-2026-06-009",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1632,
+      grossGeneration: 2215,
+      energyExportKWh: 76564.64,
+      energyImportKWh: 390.89,
+      outage: "23:51",
+      revenue: 21.05,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-07-03",
+      approvedDate: "2026-07-06",
+    },
+  {
+      id: "JMR-2026-06-010",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1020,
+      grossGeneration: 2144,
+      energyExportKWh: 73930.66,
+      energyImportKWh: 360.16,
+      outage: "22:15",
+      revenue: 20.38,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-07-01",
+      approvedDate: "2026-07-04",
+    },
+  {
+      id: "JMR-2026-06-011",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
+      capacityKWp: 2244,
+      grossGeneration: 3409,
+      energyExportKWh: 117514.74,
+      energyImportKWh: 588.07,
+      outage: "18:58",
+      revenue: 32.39,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-07-02",
+      approvedDate: "2026-07-05",
+    },
+  {
+      id: "JMR-2026-06-012",
+      fy: "FY 2026-27",
+      month: "June",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
+      capacityKWp: 816,
+      grossGeneration: 1164,
+      energyExportKWh: 40145.93,
+      energyImportKWh: 201.9,
+      outage: "14:16",
+      revenue: 11.06,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-07-03",
+      approvedDate: "2026-07-06",
+    },
+  {
+      id: "JMR-2026-07-001",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
+      capacityKWp: 2555.19,
+      grossGeneration: 4191,
+      energyExportKWh: 242250.66,
+      energyImportKWh: 1502.3,
+      outage: "10:07",
+      revenue: 39.74,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-08-01",
+      approvedDate: "2026-08-04",
+    },
+  {
+      id: "JMR-2026-07-002",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1530,
+      grossGeneration: 1927,
+      energyExportKWh: 90403.77,
+      energyImportKWh: 592.37,
+      outage: "15:39",
+      revenue: 18.3,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-08-02",
+      approvedDate: "2026-08-05",
+    },
+  {
+      id: "JMR-2026-07-003",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
+      capacityKWp: 2777.77,
+      grossGeneration: 7936,
+      energyExportKWh: 353629.23,
+      energyImportKWh: 3031.62,
+      outage: "20:00",
+      revenue: 75.39,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-08-03",
+      approvedDate: "2026-08-06",
+    },
+  {
+      id: "JMR-2026-07-004",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
+      capacityKWp: 2040,
+      grossGeneration: 6149,
+      energyExportKWh: 290382.68,
+      energyImportKWh: 1093.07,
+      outage: "22:51",
+      revenue: 58.41,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-08-01",
+      approvedDate: "2026-08-04",
+    },
+  {
+      id: "JMR-2026-07-005",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
+      capacityKWp: 3060,
+      grossGeneration: 8361,
+      energyExportKWh: 404788.02,
+      energyImportKWh: 2267.43,
+      outage: "23:59",
+      revenue: 79.43,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-08-02",
+      approvedDate: "2026-08-05",
+    },
+  {
+      id: "JMR-2026-07-006",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1224,
+      grossGeneration: 1613,
+      energyExportKWh: 55600.29,
+      energyImportKWh: 279.04,
+      outage: "23:18",
+      revenue: 15.33,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-08-03",
+      approvedDate: "2026-08-06",
+    },
+  {
+      id: "JMR-2026-07-007",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
+      capacityKWp: 1836,
+      grossGeneration: 2619,
+      energyExportKWh: 90273.06,
+      energyImportKWh: 449.03,
+      outage: "20:52",
+      revenue: 24.88,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-08-01",
+      approvedDate: "2026-08-04",
+    },
+  {
+      id: "JMR-2026-07-008",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1428,
+      grossGeneration: 1875,
+      energyExportKWh: 64642.92,
+      energyImportKWh: 331.5,
+      outage: "16:52",
+      revenue: 17.82,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-08-02",
+      approvedDate: "2026-08-05",
+    },
+  {
+      id: "JMR-2026-07-009",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1632,
+      grossGeneration: 2064,
+      energyExportKWh: 71347.62,
+      energyImportKWh: 364.25,
+      outage: "11:35",
+      revenue: 19.62,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-08-03",
+      approvedDate: "2026-08-06",
+    },
+  {
+      id: "JMR-2026-07-010",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1020,
+      grossGeneration: 1966,
+      energyExportKWh: 67785.1,
+      energyImportKWh: 330.22,
+      outage: "05:27",
+      revenue: 18.68,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-08-01",
+      approvedDate: "2026-08-04",
+    },
+  {
+      id: "JMR-2026-07-011",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
+      capacityKWp: 2244,
+      grossGeneration: 3258,
+      energyExportKWh: 112310.5,
+      energyImportKWh: 562.03,
+      outage: "01:06",
+      revenue: 30.95,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-08-02",
+      approvedDate: "2026-08-05",
+    },
+  {
+      id: "JMR-2026-07-012",
+      fy: "FY 2026-27",
+      month: "July",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
+      capacityKWp: 816,
+      grossGeneration: 1109,
+      energyExportKWh: 38221.82,
+      energyImportKWh: 192.22,
+      outage: "07:34",
+      revenue: 10.53,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-08-03",
+      approvedDate: "2026-08-06",
+    },
+  {
+      id: "JMR-2026-08-001",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
+      capacityKWp: 2555.19,
+      grossGeneration: 4720,
+      energyExportKWh: 272803.91,
+      energyImportKWh: 1691.77,
+      outage: "23:37",
+      revenue: 44.75,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "—",
+      submittedDate: "2026-09-01",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-08-002",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1530,
+      grossGeneration: 2274,
+      energyExportKWh: 106712.43,
+      energyImportKWh: 699.23,
+      outage: "23:53",
+      revenue: 21.6,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-09-02",
+      approvedDate: "2026-09-05",
+    },
+  {
+      id: "JMR-2026-08-003",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
+      capacityKWp: 2777.77,
+      grossGeneration: 8885,
+      energyExportKWh: 395911.93,
+      energyImportKWh: 3394.1,
+      outage: "22:20",
+      revenue: 84.4,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-09-03",
+      approvedDate: "2026-09-06",
+    },
+  {
+      id: "JMR-2026-08-004",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
+      capacityKWp: 2040,
+      grossGeneration: 7033,
+      energyExportKWh: 332117.71,
+      energyImportKWh: 1250.17,
+      outage: "19:07",
+      revenue: 66.8,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-09-01",
+      approvedDate: "2026-09-04",
+    },
+  {
+      id: "JMR-2026-08-005",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
+      capacityKWp: 3060,
+      grossGeneration: 9177,
+      energyExportKWh: 444300.18,
+      energyImportKWh: 2488.76,
+      outage: "14:27",
+      revenue: 87.18,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-09-02",
+      approvedDate: "2026-09-05",
+    },
+  {
+      id: "JMR-2026-08-006",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1224,
+      grossGeneration: 1928,
+      energyExportKWh: 66435.05,
+      energyImportKWh: 333.42,
+      outage: "08:42",
+      revenue: 18.32,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "—",
+      submittedDate: "2026-09-03",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-08-007",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
+      capacityKWp: 1836,
+      grossGeneration: 3027,
+      energyExportKWh: 104320.62,
+      energyImportKWh: 518.9,
+      outage: "02:18",
+      revenue: 28.75,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-09-01",
+      approvedDate: "2026-09-04",
+    },
+  {
+      id: "JMR-2026-08-008",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1428,
+      grossGeneration: 2107,
+      energyExportKWh: 72640.08,
+      energyImportKWh: 372.51,
+      outage: "04:16",
+      revenue: 20.03,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-09-02",
+      approvedDate: "2026-09-05",
+    },
+  {
+      id: "JMR-2026-08-009",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1632,
+      grossGeneration: 2294,
+      energyExportKWh: 79279.47,
+      energyImportKWh: 404.75,
+      outage: "10:31",
+      revenue: 21.8,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "Suresh Iyer",
+      submittedDate: "2026-09-03",
+      approvedDate: "2026-09-06",
+    },
+  {
+      id: "JMR-2026-08-010",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1020,
+      grossGeneration: 2167,
+      energyExportKWh: 74702.93,
+      energyImportKWh: 363.92,
+      outage: "15:59",
+      revenue: 20.59,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-09-01",
+      approvedDate: "2026-09-04",
+    },
+  {
+      id: "JMR-2026-08-011",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
+      capacityKWp: 2244,
+      grossGeneration: 3732,
+      energyExportKWh: 128655.79,
+      energyImportKWh: 643.82,
+      outage: "20:15",
+      revenue: 35.46,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "—",
+      submittedDate: "2026-09-02",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-08-012",
+      fy: "FY 2026-27",
+      month: "August",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
+      capacityKWp: 816,
+      grossGeneration: 1205,
+      energyExportKWh: 41537.21,
+      energyImportKWh: 208.9,
+      outage: "22:59",
+      revenue: 11.45,
+      approvalStatus: "approved",
+      lockStatus: true,
+      version: 2,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "Priya Sharma",
+      submittedDate: "2026-09-03",
+      approvedDate: "2026-09-06",
+    },
+  {
+      id: "JMR-2026-09-001",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 01",
+      district: "Zone 1",
+      vendor: "Vendor Bravo",
+      capacityKWp: 2555.19,
+      grossGeneration: 5133,
+      energyExportKWh: 296658.83,
+      energyImportKWh: 1839.71,
+      outage: "17:02",
+      revenue: 48.66,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: false,
+      submittedBy: "Lakshmi N",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-002",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 02",
+      district: "Zone 2",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1530,
+      grossGeneration: 2336,
+      energyExportKWh: 109635.59,
+      energyImportKWh: 718.39,
+      outage: "11:48",
+      revenue: 22.19,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-003",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 03",
+      district: "Zone 3",
+      vendor: "Vendor Delta",
+      capacityKWp: 2777.77,
+      grossGeneration: 9509,
+      energyExportKWh: 423733.66,
+      energyImportKWh: 3632.61,
+      outage: "05:40",
+      revenue: 90.33,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-004",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 04",
+      district: "Zone 4",
+      vendor: "Vendor Echo",
+      capacityKWp: 2040,
+      grossGeneration: 7472,
+      energyExportKWh: 352884.33,
+      energyImportKWh: 1328.34,
+      outage: "00:52",
+      revenue: 70.98,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Venkat Rao",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-005",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 05",
+      district: "Zone 5",
+      vendor: "Vendor Charlie",
+      capacityKWp: 3060,
+      grossGeneration: 9649,
+      energyExportKWh: 467165.01,
+      energyImportKWh: 2616.83,
+      outage: "07:21",
+      revenue: 91.66,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: false,
+      submittedBy: "Amit Desai",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-006",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 06",
+      district: "Zone 6",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1224,
+      grossGeneration: 1940,
+      energyExportKWh: 66869.98,
+      energyImportKWh: 335.6,
+      outage: "13:17",
+      revenue: 18.44,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-007",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 07",
+      district: "Zone 6",
+      vendor: "Vendor Charlie",
+      capacityKWp: 1836,
+      grossGeneration: 3108,
+      energyExportKWh: 107096.21,
+      energyImportKWh: 532.71,
+      outage: "18:13",
+      revenue: 29.52,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-008",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 08",
+      district: "Zone 7",
+      vendor: "Vendor Bravo",
+      capacityKWp: 1428,
+      grossGeneration: 2224,
+      energyExportKWh: 76667.12,
+      energyImportKWh: 393.17,
+      outage: "21:46",
+      revenue: 21.14,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Sunil Patel",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-009",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 09",
+      district: "Zone 8",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1632,
+      grossGeneration: 2485,
+      energyExportKWh: 85895.87,
+      energyImportKWh: 438.52,
+      outage: "23:41",
+      revenue: 23.62,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: false,
+      submittedBy: "Venkat Rao",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-010",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 10",
+      district: "Zone 9",
+      vendor: "Vendor Alpha",
+      capacityKWp: 1020,
+      grossGeneration: 2279,
+      energyExportKWh: 78579.17,
+      energyImportKWh: 382.8,
+      outage: "23:50",
+      revenue: 21.66,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Amit Desai",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-011",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 11",
+      district: "Zone 10",
+      vendor: "Vendor Alpha",
+      capacityKWp: 2244,
+      grossGeneration: 3963,
+      energyExportKWh: 136631.74,
+      energyImportKWh: 683.74,
+      outage: "22:10",
+      revenue: 37.66,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Lakshmi N",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
+  {
+      id: "JMR-2026-09-012",
+      fy: "FY 2026-27",
+      month: "September",
+      plant: "Solar Park 12",
+      district: "Zone 11",
+      vendor: "Vendor Charlie",
+      capacityKWp: 816,
+      grossGeneration: 1273,
+      energyExportKWh: 43894.33,
+      energyImportKWh: 220.75,
+      outage: "18:51",
+      revenue: 12.1,
+      approvalStatus: "pending",
+      lockStatus: false,
+      version: 1,
+      pdfUploaded: true,
+      submittedBy: "Rajesh Kumar",
+      approvedBy: "—",
+      submittedDate: "—",
+      approvedDate: "—",
+    },
 ];
+
+// FY 2025-26 Apr-Oct plus the whole of FY 2024-25 and FY 2023-24 are generated,
+// so every year in the selector has records instead of an empty table.
+export const initialJmrRecords = [...currentJmrRecords, ...historicalJmrRecords];
 
 
 // Audit Trail Mock Data
@@ -1721,8 +3047,8 @@ const auditRecords = [
     changeSummary: "Approved and locked JMR record",
     approvalStatus: "Approved",
     ipAddress: "192.168.1.105",
-    plant: "Sakri Solar Park",
-    vendor: "SolarCo India",
+    plant: "Solar Park 01",
+    vendor: "Vendor Bravo",
     fy: "FY 2025-26",
   },
   {
@@ -1734,8 +3060,8 @@ const auditRecords = [
     changeSummary: "Initial JMR data entry",
     approvalStatus: "Submitted",
     ipAddress: "192.168.1.102",
-    plant: "Sakri Solar Park",
-    vendor: "SolarCo India",
+    plant: "Solar Park 01",
+    vendor: "Vendor Bravo",
     fy: "FY 2025-26",
   },
   {
@@ -1747,8 +3073,8 @@ const auditRecords = [
     changeSummary: "Approved JMR after verification",
     approvalStatus: "Approved",
     ipAddress: "192.168.1.110",
-    plant: "Sangli Solar Farm",
-    vendor: "SunPower Tech",
+    plant: "Solar Park 02",
+    vendor: "Vendor Alpha",
     fy: "FY 2025-26",
   },
   {
@@ -1760,8 +3086,8 @@ const auditRecords = [
     changeSummary: "Monthly JMR data submission",
     approvalStatus: "Submitted",
     ipAddress: "192.168.1.108",
-    plant: "Osmanabad Solar Plant",
-    vendor: "Green Energy Ltd",
+    plant: "Solar Park 03",
+    vendor: "Vendor Delta",
     fy: "FY 2025-26",
   },
   {
@@ -1773,8 +3099,8 @@ const auditRecords = [
     changeSummary: "Corrected tariff and recalculated revenue",
     approvalStatus: "Approved",
     ipAddress: "192.168.1.112",
-    plant: "Beed Solar Park",
-    vendor: "Mega Solar Inc",
+    plant: "Solar Park 05",
+    vendor: "Vendor Charlie",
     fy: "FY 2025-26",
   },
   {
@@ -1786,8 +3112,8 @@ const auditRecords = [
     changeSummary: "Initial JMR data entry for February",
     approvalStatus: "Submitted",
     ipAddress: "192.168.1.115",
-    plant: "Latur Solar Station",
-    vendor: "TechSolar Pvt",
+    plant: "Solar Park 04",
+    vendor: "Vendor Echo",
     fy: "FY 2025-26",
   },
 ];
@@ -1850,7 +3176,7 @@ const getStatusConfig = (status: string) => {
 
 export function JMRDataManagement() {
   const [activeTab, setActiveTab] = useState("manual-entry");
-  const [selectedFY, setSelectedFY] = useState("FY 2025-26");
+  const [selectedFY, setSelectedFY] = useState("FY 2026-27");
   const [selectedMonth, setSelectedMonth] = useState("All Months");
   const [selectedPlant, setSelectedPlant] = useState("All Plants");
   const [selectedVendor, setSelectedVendor] = useState("All Vendors");
@@ -1862,13 +3188,13 @@ export function JMRDataManagement() {
 
   // Form State - Plant Metadata
   const [plantMetadata, setPlantMetadata] = useState({
-    state: "Maharashtra",
-    district: "Sangli",
-    plantName: "Sangli Solar Farm",
+    state: "Region North",
+    district: "Zone 2",
+    plantName: "Solar Park 02",
     capacity: "25",
     cod: "2024-04-15",
-    vendor: "SunPower Tech",
-    procurer: "EESL",
+    vendor: "Vendor Alpha",
+    procurer: "Client Alpha",
     contractType: "Domestic",
     ppaType: "Long Term (25Y)",
   });
@@ -2055,7 +3381,7 @@ export function JMRDataManagement() {
     toast.info("Form reset");
   };
 
-  const isFiltered = selectedFY !== "FY 2025-26" || selectedMonth !== "All Months" || selectedPlant !== "All Plants" || selectedVendor !== "All Vendors" || selectedStatus !== "all";
+  const isFiltered = selectedFY !== "FY 2026-27" || selectedMonth !== "All Months" || selectedPlant !== "All Plants" || selectedVendor !== "All Vendors" || selectedStatus !== "all";
 
   const resetAllFilters = () => {
     setSelectedFY("FY 2025-26");
@@ -2385,7 +3711,7 @@ export function JMRDataManagement() {
           {/* Row 1: Title & Actions */}
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <Database className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -2520,7 +3846,7 @@ export function JMRDataManagement() {
           <Filter className="w-3 h-3 text-blue-600 shrink-0" />
           <span className="text-xs text-blue-800 font-medium">Active Filters:</span>
           <div className="flex items-center gap-1.5 flex-wrap">
-            {selectedFY !== "FY 2025-26" && <Badge variant="outline" className="text-[10px] h-5 bg-blue-100 text-blue-700 border-blue-300">{selectedFY}</Badge>}
+            {selectedFY !== "FY 2026-27" && <Badge variant="outline" className="text-[10px] h-5 bg-blue-100 text-blue-700 border-blue-300">{selectedFY}</Badge>}
             {selectedMonth !== "All Months" && <Badge variant="outline" className="text-[10px] h-5 bg-blue-100 text-blue-700 border-blue-300">{selectedMonth}</Badge>}
             {selectedPlant !== "All Plants" && <Badge variant="outline" className="text-[10px] h-5 bg-blue-100 text-blue-700 border-blue-300">{selectedPlant}</Badge>}
             {selectedVendor !== "All Vendors" && <Badge variant="outline" className="text-[10px] h-5 bg-blue-100 text-blue-700 border-blue-300">{selectedVendor}</Badge>}
@@ -2703,35 +4029,35 @@ export function JMRDataManagement() {
               <TabsList className="bg-transparent h-12 p-0 gap-1">
                 <TabsTrigger
                   value="manual-entry"
-                  className="gap-2 data-[state=active]:bg-[#2955A0] data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
+                  className="gap-2 data-[state=active]:bg-brand data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
                 >
                   <Edit3 className="w-4 h-4" />
                   Manual Entry
                 </TabsTrigger>
                 <TabsTrigger
                   value="bulk-upload"
-                  className="gap-2 data-[state=active]:bg-[#2955A0] data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
+                  className="gap-2 data-[state=active]:bg-brand data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
                 >
                   <FileUp className="w-4 h-4" />
                   Excel Bulk Upload
                 </TabsTrigger>
                 <TabsTrigger
                   value="repository"
-                  className="gap-2 data-[state=active]:bg-[#2955A0] data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
+                  className="gap-2 data-[state=active]:bg-brand data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
                 >
                   <Database className="w-4 h-4" />
                   JMR Repository
                 </TabsTrigger>
                 <TabsTrigger
                   value="audit"
-                  className="gap-2 data-[state=active]:bg-[#2955A0] data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
+                  className="gap-2 data-[state=active]:bg-brand data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
                 >
                   <History className="w-4 h-4" />
                   Audit & Version History
                 </TabsTrigger>
                 <TabsTrigger
                   value="generation-comparison"
-                  className="gap-2 data-[state=active]:bg-[#2955A0] data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
+                  className="gap-2 data-[state=active]:bg-brand data-[state=active]:text-white data-[state=active]:shadow-sm px-4 rounded-lg"
                 >
                   <BarChart2 className="w-4 h-4" />
                   Generation Comparison
@@ -2769,7 +4095,7 @@ export function JMRDataManagement() {
                                         isCompleted
                                           ? "bg-emerald-600 text-white"
                                           : isActive
-                                          ? "bg-[#2955A0] text-white"
+                                          ? "bg-brand text-white"
                                           : "bg-slate-200 text-slate-500"
                                       }`}
                                     >
@@ -2781,7 +4107,7 @@ export function JMRDataManagement() {
                                     </div>
                                     <span
                                       className={`text-xs font-semibold mt-2 ${
-                                        isActive ? "text-[#2955A0]" : "text-slate-600"
+                                        isActive ? "text-brand-fg" : "text-slate-600"
                                       }`}
                                     >
                                       {step.label}
@@ -2827,7 +4153,7 @@ export function JMRDataManagement() {
                           <Card className="border-2 border-slate-200">
                             <CardHeader className="border-b border-slate-100">
                               <CardTitle className="flex items-center gap-2">
-                                <Building2 className="w-5 h-5 text-[#2955A0]" />
+                                <Building2 className="w-5 h-5 text-brand-fg" />
                                 Plant Metadata
                               </CardTitle>
                               <CardDescription>
@@ -2955,7 +4281,7 @@ export function JMRDataManagement() {
                                     onChange={(e) =>
                                       setPlantMetadata({ ...plantMetadata, procurer: e.target.value })
                                     }
-                                    placeholder="e.g., EESL, SECI"
+                                    placeholder="e.g., Client Alpha, Client Bravo"
                                     disabled={isLocked}
                                   />
                                 </div>
@@ -3017,7 +4343,7 @@ export function JMRDataManagement() {
                                 Reset
                               </Button>
                             )}
-                            <Button onClick={() => setEntryStep(2)} className="bg-[#2955A0]">
+                            <Button onClick={() => setEntryStep(2)} className="bg-brand">
                               Next Step
                               <ArrowRight className="w-4 h-4 ml-2" />
                             </Button>
@@ -3035,7 +4361,7 @@ export function JMRDataManagement() {
                           <Card className="border-2 border-slate-200">
                             <CardHeader className="border-b border-slate-100">
                               <CardTitle className="flex items-center gap-2">
-                                <Zap className="w-5 h-5 text-[#2955A0]" />
+                                <Zap className="w-5 h-5 text-brand-fg" />
                                 Operational Parameters
                               </CardTitle>
                               <CardDescription>Monthly generation and operational metrics</CardDescription>
@@ -3044,7 +4370,7 @@ export function JMRDataManagement() {
                               {/* Generation Metrics */}
                               <div>
                                 <h3 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                                  <div className="w-1 h-4 bg-[#2955A0] rounded"></div>
+                                  <div className="w-1 h-4 bg-brand rounded"></div>
                                   Generation Metrics
                                 </h3>
                                 <div className="grid grid-cols-3 gap-4">
@@ -3122,7 +4448,7 @@ export function JMRDataManagement() {
                               {/* Availability Metrics */}
                               <div>
                                 <h3 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                                  <div className="w-1 h-4 bg-[#2955A0] rounded"></div>
+                                  <div className="w-1 h-4 bg-brand rounded"></div>
                                   Availability Metrics
                                 </h3>
                                 <div className="grid grid-cols-3 gap-4">
@@ -3187,7 +4513,7 @@ export function JMRDataManagement() {
                               {/* Downtime Metrics */}
                               <div>
                                 <h3 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                                  <div className="w-1 h-4 bg-[#2955A0] rounded"></div>
+                                  <div className="w-1 h-4 bg-brand rounded"></div>
                                   Downtime Hours
                                 </h3>
                                 <div className="grid grid-cols-4 gap-4">
@@ -3270,7 +4596,7 @@ export function JMRDataManagement() {
                               {/* Other Parameters */}
                               <div>
                                 <h3 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
-                                  <div className="w-1 h-4 bg-[#2955A0] rounded"></div>
+                                  <div className="w-1 h-4 bg-brand rounded"></div>
                                   Other Parameters
                                 </h3>
                                 <div className="grid grid-cols-2 gap-4">
@@ -3317,7 +4643,7 @@ export function JMRDataManagement() {
                                 <div className="flex items-center justify-between mb-3">
                                   <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
                                     <div className="w-1 h-4 bg-purple-600 rounded"></div>
-                                    Additional Parameters (EESL Defined)
+                                    Additional Parameters (Operator Defined)
                                   </h3>
                                   <Button
                                     size="sm"
@@ -3382,7 +4708,7 @@ export function JMRDataManagement() {
                                   Reset
                                 </Button>
                               )}
-                              <Button onClick={() => setEntryStep(3)} className="bg-[#2955A0]">
+                              <Button onClick={() => setEntryStep(3)} className="bg-brand">
                                 Next Step
                                 <ArrowRight className="w-4 h-4 ml-2" />
                               </Button>
@@ -3401,7 +4727,7 @@ export function JMRDataManagement() {
                           <Card className="border-2 border-slate-200">
                             <CardHeader className="border-b border-slate-100">
                               <CardTitle className="flex items-center gap-2">
-                                <TrendingUp className="w-5 h-5 text-[#2955A0]" />
+                                <TrendingUp className="w-5 h-5 text-brand-fg" />
                                 Commercial Parameters
                               </CardTitle>
                               <CardDescription>Revenue and contractual compliance data</CardDescription>
@@ -3605,7 +4931,7 @@ export function JMRDataManagement() {
                                   Reset
                                 </Button>
                               )}
-                              <Button onClick={() => { validateForm(); setEntryStep(4); }} className="bg-[#2955A0]">
+                              <Button onClick={() => { validateForm(); setEntryStep(4); }} className="bg-brand">
                                 Next Step
                                 <ArrowRight className="w-4 h-4 ml-2" />
                               </Button>
@@ -3640,7 +4966,7 @@ export function JMRDataManagement() {
                           <Card className="border-2 border-slate-200">
                             <CardHeader className="border-b border-slate-100">
                               <CardTitle className="flex items-center gap-2">
-                                <ShieldCheck className="w-5 h-5 text-[#2955A0]" />
+                                <ShieldCheck className="w-5 h-5 text-brand-fg" />
                                 Validation & Compliance Check
                               </CardTitle>
                               <CardDescription>
@@ -3879,7 +5205,7 @@ export function JMRDataManagement() {
                                     <Button size="sm" variant="outline" className="gap-1 text-xs" onClick={handleSaveDraft}>
                                       <Save className="w-3 h-3" /> Save Draft
                                     </Button>
-                                    <Button size="sm" className="gap-1 text-xs bg-[#2955A0] hover:bg-[#1E4888]" onClick={handleSubmitForReview}>
+                                    <Button size="sm" className="gap-1 text-xs bg-brand hover:bg-brand-hover" onClick={handleSubmitForReview}>
                                       <Send className="w-3 h-3" /> Submit for Review
                                     </Button>
                                   </div>
@@ -4004,7 +5330,7 @@ export function JMRDataManagement() {
                                     <Button size="sm" className="gap-1 text-xs bg-emerald-600 hover:bg-emerald-700" onClick={() => { setWorkflowStage("approved"); recordTimestamp("approved"); updateRepositoryFromForm("approved"); toast.success("JMR approved by Approver"); }}>
                                       <CheckCircle className="w-3 h-3" /> Approve
                                     </Button>
-                                    <Button size="sm" className="gap-1 text-xs bg-[#2955A0] hover:bg-[#1E4888]" onClick={() => { setWorkflowStage("locked"); recordTimestamp("approved"); recordTimestamp("locked"); updateRepositoryFromForm("locked"); toast.success("JMR approved and locked"); }}>
+                                    <Button size="sm" className="gap-1 text-xs bg-brand hover:bg-brand-hover" onClick={() => { setWorkflowStage("locked"); recordTimestamp("approved"); recordTimestamp("locked"); updateRepositoryFromForm("locked"); toast.success("JMR approved and locked"); }}>
                                       <Lock className="w-3 h-3" /> Approve & Lock
                                     </Button>
                                     <Button size="sm" variant="outline" className="gap-1 text-xs border-rose-300 text-rose-600 hover:bg-rose-50" onClick={() => { setWorkflowStage("rejected"); setRejectionReason("Rejected by Approver"); toast.error("JMR rejected by Approver"); }}>
@@ -4017,7 +5343,7 @@ export function JMRDataManagement() {
                                   <div className="text-sm"><span className="text-slate-600">Approver:</span> <span className="font-semibold">Rahul Sharma</span></div>
                                   <div className="text-sm"><span className="text-slate-600">Approved:</span> <span className="font-semibold">{workflowTimestamps.approved || "—"}</span></div>
                                   <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 text-xs">Approved</Badge>
-                                  <Button size="sm" className="gap-1 text-xs bg-[#2955A0] hover:bg-[#1E4888] mt-1" onClick={() => { setWorkflowStage("locked"); recordTimestamp("locked"); updateRepositoryFromForm("locked"); toast.success("JMR record locked"); }}>
+                                  <Button size="sm" className="gap-1 text-xs bg-brand hover:bg-brand-hover mt-1" onClick={() => { setWorkflowStage("locked"); recordTimestamp("locked"); updateRepositoryFromForm("locked"); toast.success("JMR record locked"); }}>
                                     <Lock className="w-3 h-3" /> Lock Record
                                   </Button>
                                 </>
@@ -4051,7 +5377,7 @@ export function JMRDataManagement() {
                   {!showWorkflowPanel && (
                     <Button
                       onClick={() => setShowWorkflowPanel(true)}
-                      className="fixed right-0 top-1/2 -translate-y-1/2 rounded-l-lg rounded-r-none h-32 w-10 bg-[#2955A0] hover:bg-[#1E4888] shadow-lg z-20"
+                      className="fixed right-0 top-1/2 -translate-y-1/2 rounded-l-lg rounded-r-none h-32 w-10 bg-brand hover:bg-brand-hover shadow-lg z-20"
                       style={{ writingMode: "vertical-rl" }}
                     >
                       <span className="transform rotate-180">Workflow Panel</span>
@@ -4447,7 +5773,7 @@ export function JMRDataManagement() {
                           </SelectContent>
                         </Select>
 
-                        <Button className="bg-[#2955A0] gap-2" onClick={() => { if (compareV1 !== compareV2) { setShowDiff(true); } else { toast.warning("Please select two different versions"); } }}>
+                        <Button className="bg-brand gap-2" onClick={() => { if (compareV1 !== compareV2) { setShowDiff(true); } else { toast.warning("Please select two different versions"); } }}>
                           <GitCompare className="w-4 h-4" />
                           Compare
                         </Button>
@@ -4457,7 +5783,7 @@ export function JMRDataManagement() {
                       {showDiff && compareV1 !== compareV2 && (
                         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-2">
                           <div className="bg-white rounded-xl border-2 border-blue-200 overflow-hidden">
-                            <div className="grid grid-cols-[1fr_120px_16px_120px] bg-[#2955A0] text-white text-xs font-bold px-4 py-2.5 gap-2">
+                            <div className="grid grid-cols-[1fr_120px_16px_120px] bg-brand text-white text-xs font-bold px-4 py-2.5 gap-2">
                               <span>Parameter</span>
                               <span className="text-center">Version {compareV1 < compareV2 ? compareV1 : compareV2}</span>
                               <span></span>
@@ -4513,7 +5839,7 @@ export function JMRDataManagement() {
                   <div className="flex items-start justify-between">
                     <div>
                       <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                        <BarChart2 className="w-5 h-5 text-[#2955A0]" />
+                        <BarChart2 className="w-5 h-5 text-brand-fg" />
                         Month-over-Month Generation Comparison
                       </h2>
                       <p className="text-sm text-slate-500 mt-0.5">
@@ -4529,7 +5855,7 @@ export function JMRDataManagement() {
                           const prevIdx = idx === 0 ? months.length - 1 : idx - 1;
                           setCmpPrevMonth(months[prevIdx]);
                         }}>
-                          <SelectTrigger className="h-8 w-36 text-sm font-semibold border-[#2955A0] text-[#2955A0]">
+                          <SelectTrigger className="h-8 w-36 text-sm font-semibold border-brand text-brand-fg">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -4661,13 +5987,13 @@ export function JMRDataManagement() {
                       <div className="flex items-center justify-between">
                         <div>
                           <CardTitle className="text-base flex items-center gap-2">
-                            <BarChart2 className="w-4 h-4 text-[#2955A0]" />
+                            <BarChart2 className="w-4 h-4 text-brand-fg" />
                             Plant-wise Gross Generation — {cmpCurrentMonth} vs {cmpPrevMonth}
                           </CardTitle>
                           <CardDescription>Side-by-side comparison of gross generation (MWh) per plant</CardDescription>
                         </div>
                         <div className="flex items-center gap-4 text-xs">
-                          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-[#2955A0] inline-block" /> {cmpCurrentMonth}</span>
+                          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-brand inline-block" /> {cmpCurrentMonth}</span>
                           <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-slate-300 inline-block" /> {cmpPrevMonth}</span>
                         </div>
                       </div>
@@ -4723,7 +6049,7 @@ export function JMRDataManagement() {
                   <Card className="border-2 border-slate-200">
                     <CardHeader className="border-b border-slate-100 pb-4">
                       <CardTitle className="text-base flex items-center gap-2">
-                        <Database className="w-4 h-4 text-[#2955A0]" />
+                        <Database className="w-4 h-4 text-brand-fg" />
                         Detailed Plant-wise Comparison
                       </CardTitle>
                       <CardDescription>
@@ -4737,14 +6063,14 @@ export function JMRDataManagement() {
                             <tr className="bg-slate-50 border-b border-slate-200">
                               <th className="text-left px-4 py-3 font-semibold text-slate-700 text-xs">Plant</th>
                               <th className="text-right px-4 py-3 font-semibold text-slate-700 text-xs">
-                                <span className="text-[#2955A0]">{cmpCurrentMonth}</span> Generation (MWh)
+                                <span className="text-brand-fg">{cmpCurrentMonth}</span> Generation (MWh)
                               </th>
                               <th className="text-right px-4 py-3 font-semibold text-slate-700 text-xs">
                                 {cmpPrevMonth} Generation (MWh)
                               </th>
                               <th className="text-right px-4 py-3 font-semibold text-slate-700 text-xs">MoM Change</th>
                               <th className="text-right px-4 py-3 font-semibold text-slate-700 text-xs">
-                                <span className="text-[#2955A0]">{cmpCurrentMonth}</span> Revenue (₹L)
+                                <span className="text-brand-fg">{cmpCurrentMonth}</span> Revenue (₹L)
                               </th>
                               <th className="text-right px-4 py-3 font-semibold text-slate-700 text-xs">
                                 {cmpPrevMonth} Revenue (₹L)
@@ -4770,7 +6096,7 @@ export function JMRDataManagement() {
                                     <td className="px-4 py-3">
                                       <div className="font-semibold text-slate-800 text-xs">{row.fullName}</div>
                                     </td>
-                                    <td className="px-4 py-3 text-right font-semibold text-[#2955A0]">
+                                    <td className="px-4 py-3 text-right font-semibold text-brand-fg">
                                       {row.current > 0 ? row.current.toLocaleString("en-IN") : <span className="text-slate-400">—</span>}
                                     </td>
                                     <td className="px-4 py-3 text-right text-slate-500">
@@ -4786,7 +6112,7 @@ export function JMRDataManagement() {
                                         </span>
                                       )}
                                     </td>
-                                    <td className="px-4 py-3 text-right font-semibold text-[#2955A0]">
+                                    <td className="px-4 py-3 text-right font-semibold text-brand-fg">
                                       {row.currentRevenue > 0 ? `₹${row.currentRevenue.toFixed(2)}` : <span className="text-slate-400">—</span>}
                                     </td>
                                     <td className="px-4 py-3 text-right text-slate-500">
@@ -4812,9 +6138,9 @@ export function JMRDataManagement() {
                           </tbody>
                           {comparisonData.chartData.length > 0 && (
                             <tfoot>
-                              <tr className="bg-[#2955A0]/5 border-t-2 border-[#2955A0]/20">
+                              <tr className="bg-brand/5 border-t-2 border-brand/20">
                                 <td className="px-4 py-3 font-bold text-slate-800 text-xs">Portfolio Total</td>
-                                <td className="px-4 py-3 text-right font-bold text-[#2955A0]">
+                                <td className="px-4 py-3 text-right font-bold text-brand-fg">
                                   {comparisonData.currentGross.toLocaleString("en-IN")}
                                 </td>
                                 <td className="px-4 py-3 text-right font-bold text-slate-600">
@@ -4826,7 +6152,7 @@ export function JMRDataManagement() {
                                     {Math.abs(comparisonData.deltaGross).toFixed(1)}%
                                   </span>
                                 </td>
-                                <td className="px-4 py-3 text-right font-bold text-[#2955A0]">
+                                <td className="px-4 py-3 text-right font-bold text-brand-fg">
                                   ₹{comparisonData.currentRevenue.toFixed(2)}
                                 </td>
                                 <td className="px-4 py-3 text-right font-bold text-slate-600">
@@ -4879,7 +6205,7 @@ export function JMRDataManagement() {
                           <div className="flex items-center justify-between">
                             <div>
                               <CardTitle className="text-base flex items-center gap-2">
-                                <GitCompare className="w-4 h-4 text-[#2955A0]" />
+                                <GitCompare className="w-4 h-4 text-brand-fg" />
                                 Generation Variance Analysis — Where Did the Difference Go?
                               </CardTitle>
                               <CardDescription>
@@ -4952,7 +6278,7 @@ export function JMRDataManagement() {
                           <div className="flex items-start justify-between gap-4">
                             <div className="flex-1">
                               <CardTitle className="text-base flex items-center gap-2">
-                                <AlertCircle className="w-4 h-4 text-[#2955A0]" />
+                                <AlertCircle className="w-4 h-4 text-brand-fg" />
                                 Plant-wise Variance Breakdown
                               </CardTitle>
                               <CardDescription className="mt-1">
@@ -4976,7 +6302,7 @@ export function JMRDataManagement() {
                               <span className="w-3 h-2 rounded-sm bg-slate-300 inline-block" /> {cmpPrevMonth}
                             </span>
                             <span className="flex items-center gap-1.5 text-[10px] text-slate-500">
-                              <span className="w-3 h-2 rounded-sm bg-[#2955A0] inline-block" /> {cmpCurrentMonth}
+                              <span className="w-3 h-2 rounded-sm bg-brand inline-block" /> {cmpCurrentMonth}
                             </span>
                             <span className="flex items-center gap-1.5 text-[10px] text-emerald-600">
                               <ArrowDownRight className="w-3 h-3" /> Improved (loss reduced)
@@ -5033,7 +6359,7 @@ export function JMRDataManagement() {
                                         <td className="py-2.5 px-3 text-center">
                                           <button
                                             onClick={() => setSelectedVariancePlant(plant.fullName)}
-                                            className="text-[10px] text-[#2955A0] hover:text-[#1e3f73] font-semibold hover:underline"
+                                            className="text-[10px] text-brand-fg hover:text-brand-fg-hover font-semibold hover:underline"
                                           >
                                             View Details →
                                           </button>
@@ -5222,7 +6548,7 @@ export function JMRDataManagement() {
         <DialogContent className="max-w-lg">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <FileText className="w-5 h-5 text-[#2955A0]" />
+              <FileText className="w-5 h-5 text-brand-fg" />
               PDF Document Preview
             </DialogTitle>
             <DialogDescription>
@@ -5247,7 +6573,7 @@ export function JMRDataManagement() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setPdfDialogOpen(false)}>Close</Button>
-            <Button className="bg-[#2955A0] gap-2" onClick={() => { toast.success("Downloading PDF…"); }}>
+            <Button className="bg-brand gap-2" onClick={() => { toast.success("Downloading PDF…"); }}>
               <Download className="w-4 h-4" /> Download
             </Button>
           </DialogFooter>
@@ -5278,11 +6604,11 @@ const SYSTEM_FIELDS = [
 ];
 
 const VALID_PREVIEW_ROWS = [
-  { row: 2, plant: "Sangli Solar Farm", month: "Feb", gross: "2,150", net: "2,120", revenue: "20.42", status: "valid" },
-  { row: 3, plant: "Sangli Solar Farm", month: "Feb", gross: "1,180", net: "1,162", revenue: "11.18", status: "valid" },
-  { row: 4, plant: "Osmanabad Solar Plant", month: "Feb", gross: "2,380", net: "2,345", revenue: "22.56", status: "valid" },
-  { row: 5, plant: "Latur Solar Station", month: "Feb", gross: "1,720", net: "1,695", revenue: "16.31", status: "warning" },
-  { row: 6, plant: "Beed Solar Park", month: "Feb", gross: "1,920", net: "1,892", revenue: "18.20", status: "valid" },
+  { row: 2, plant: "Solar Park 02", month: "Feb", gross: "2,150", net: "2,120", revenue: "20.42", status: "valid" },
+  { row: 3, plant: "Solar Park 02", month: "Feb", gross: "1,180", net: "1,162", revenue: "11.18", status: "valid" },
+  { row: 4, plant: "Solar Park 03", month: "Feb", gross: "2,380", net: "2,345", revenue: "22.56", status: "valid" },
+  { row: 5, plant: "Solar Park 04", month: "Feb", gross: "1,720", net: "1,695", revenue: "16.31", status: "warning" },
+  { row: 6, plant: "Solar Park 05", month: "Feb", gross: "1,920", net: "1,892", revenue: "18.20", status: "valid" },
 ];
 
 function BulkUploadContent() {
@@ -5327,7 +6653,7 @@ function BulkUploadContent() {
               <h3 className="font-bold text-blue-900 mb-1">Step 1: Download Template</h3>
               <p className="text-sm text-blue-700">Download the standardized Excel template with all required fields</p>
             </div>
-            <Button className="bg-[#2955A0] gap-2" onClick={() => toast.success("Template downloaded")}>
+            <Button className="bg-brand gap-2" onClick={() => toast.success("Template downloaded")}>
               <Download className="w-4 h-4" /> Download Template
             </Button>
           </div>
@@ -5343,7 +6669,7 @@ function BulkUploadContent() {
         <CardContent className="p-6">
           <label
             htmlFor="file-upload"
-            className="block border-2 border-dashed border-slate-300 rounded-xl p-12 text-center cursor-pointer hover:border-[#2955A0] hover:bg-blue-50 transition-all"
+            className="block border-2 border-dashed border-slate-300 rounded-xl p-12 text-center cursor-pointer hover:border-brand hover:bg-blue-50 transition-all"
           >
             <input id="file-upload" type="file" accept=".xlsx,.xls,.csv" className="hidden" onChange={handleFileUpload} />
             <Upload className="w-12 h-12 text-slate-400 mx-auto mb-4" />
@@ -5412,7 +6738,7 @@ function BulkUploadContent() {
                 })}
               </div>
               <div className="flex justify-end mt-4">
-                <Button className="bg-[#2955A0] gap-2" onClick={handleConfirmMapping}>
+                <Button className="bg-brand gap-2" onClick={handleConfirmMapping}>
                   <CheckCircle className="w-4 h-4" /> Confirm Mapping & Validate
                 </Button>
               </div>
@@ -5456,7 +6782,7 @@ function BulkUploadContent() {
                     {[
                       { row: 7, type: "Invalid Data", msg: "Gross Generation cannot be empty (required field)" },
                       { row: 14, type: "Validation Error", msg: "Net Export (2500) exceeds Gross Generation (2400)" },
-                      { row: 21, type: "Duplicate", msg: "Record for Sangli Solar Farm / Apr 2026 already exists" },
+                      { row: 21, type: "Duplicate", msg: "Record for Solar Park 02 / Apr 2026 already exists" },
                     ].map(err => (
                       <div key={err.row} className="bg-white p-3 rounded border border-rose-100 flex items-start justify-between">
                         <div>

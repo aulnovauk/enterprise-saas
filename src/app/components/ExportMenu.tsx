@@ -58,7 +58,7 @@ export function ExportMenu({ kpis, plants, dashboardRef }: ExportMenuProps) {
       }
 
       const blob = pdf.output("blob");
-      triggerDownload(blob, `E-SAMMP_Dashboard_${new Date().toISOString().slice(0, 10)}.pdf`);
+      triggerDownload(blob, `SolarOps_Dashboard_${new Date().toISOString().slice(0, 10)}.pdf`);
     } catch (err) {
       console.error("PDF export failed", err);
     } finally {
@@ -90,7 +90,7 @@ export function ExportMenu({ kpis, plants, dashboardRef }: ExportMenuProps) {
         slide.addShape(prs.ShapeType.rect, { x: 0, y: 1.25, w: 0.35, h: 0.15, fill: { color: GOLD } });
         slide.addText(titleText, { x: 0.4, y: 0.3, w: 11, h: 0.6, ...titleOpts });
         if (subtitleText) slide.addText(subtitleText, { x: 0.4, y: 0.9, w: 11, h: 0.35, ...subOpts });
-        slide.addText("E-SAMMP · EESL Solar Platform", { x: 0.4, y: 6.7, w: 12, h: 0.3, color: "475569", fontSize: 9, fontFace: "Calibri" });
+        slide.addText("SolarOps · Asset Monitoring Suite", { x: 0.4, y: 6.7, w: 12, h: 0.3, color: "475569", fontSize: 9, fontFace: "Calibri" });
         slide.addText(new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }), {
           x: 9.5, y: 6.7, w: 3.1, h: 0.3, color: "475569", fontSize: 9, fontFace: "Calibri", align: "right",
         });
@@ -100,8 +100,8 @@ export function ExportMenu({ kpis, plants, dashboardRef }: ExportMenuProps) {
       const s1 = prs.addSlide();
       s1.addShape(prs.ShapeType.rect, { x: 0, y: 0, w: "100%", h: "100%", fill: { color: NAVY } });
       s1.addShape(prs.ShapeType.rect, { x: 0, y: 3.2, w: "100%", h: 0.08, fill: { color: GOLD } });
-      s1.addText("E-SAMMP", { x: 1, y: 1.0, w: 11.3, h: 1.1, color: GOLD, fontSize: 64, bold: true, fontFace: "Calibri", align: "center" });
-      s1.addText("EESL Solar Asset Management & Monitoring Platform", {
+      s1.addText("SolarOps", { x: 1, y: 1.0, w: 11.3, h: 1.1, color: GOLD, fontSize: 64, bold: true, fontFace: "Calibri", align: "center" });
+      s1.addText("Solar Asset Monitoring & Analytics Suite", {
         x: 1, y: 2.15, w: 11.3, h: 0.55, color: WHITE, fontSize: 20, fontFace: "Calibri", align: "center",
       });
       s1.addText("Portfolio Dashboard Report", {
@@ -110,13 +110,13 @@ export function ExportMenu({ kpis, plants, dashboardRef }: ExportMenuProps) {
       s1.addText(`Generated: ${new Date().toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}`, {
         x: 1, y: 4.1, w: 11.3, h: 0.35, color: "64748B", fontSize: 12, fontFace: "Calibri", align: "center",
       });
-      s1.addText("220 MW  ·  45 Plants  ·  3 States  ·  FY 2025-26", {
+      s1.addText("220 MW  ·  12 Plants  ·  1 Region  ·  FY 2026-27", {
         x: 1, y: 5.5, w: 11.3, h: 0.4, color: "94A3B8", fontSize: 13, fontFace: "Calibri", align: "center",
       });
 
       // ── Slide 2: Key Performance Indicators ─────────────────────────────────
       const s2 = prs.addSlide();
-      addBg(s2, "Portfolio KPI Summary", "FY 2025-26 · February MTD");
+      addBg(s2, "Portfolio KPI Summary", "FY 2026-27 · September MTD");
 
       const kpiDisplay = kpis.slice(0, 8);
       kpiDisplay.forEach((kpi, i) => {
@@ -191,9 +191,9 @@ export function ExportMenu({ kpis, plants, dashboardRef }: ExportMenuProps) {
       });
 
       const underperforming = [
-        { plant: "Amravati Solar Unit", state: "Maharashtra", cuf: 18.5, gap: -5.5 },
-        { plant: "Devdaithan Solar Plant", state: "Maharashtra", cuf: 19.5, gap: -4.5 },
-        { plant: "Wardha Solar Park", state: "Maharashtra", cuf: 20.8, gap: -3.2 },
+        { plant: "Solar Park 08", state: "Region North", cuf: 18.5, gap: -5.5 },
+        { plant: "Solar Park 07", state: "Region North", cuf: 19.5, gap: -4.5 },
+        { plant: "Solar Park 09", state: "Region North", cuf: 20.8, gap: -3.2 },
       ];
 
       s4.addText("TOP UNDERPERFORMING PLANTS", { x: 0.4, y: 3.95, w: 12.5, h: 0.35, color: GOLD, fontSize: 10, bold: true, fontFace: "Calibri" });
@@ -211,7 +211,7 @@ export function ExportMenu({ kpis, plants, dashboardRef }: ExportMenuProps) {
       const pptUrl = URL.createObjectURL(pptBlob);
       const a = document.createElement("a");
       a.href = pptUrl;
-      a.download = `E-SAMMP_Report_${new Date().toISOString().slice(0, 10)}.pptx`;
+      a.download = `SolarOps_Report_${new Date().toISOString().slice(0, 10)}.pptx`;
       document.body.appendChild(a);
       a.click();
       setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(pptUrl); }, 1000);

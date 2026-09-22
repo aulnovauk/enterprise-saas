@@ -29,11 +29,11 @@ const userActivityLog = [
     id: "ACT-2026-5843",
     timestamp: "2026-04-07 14:32:15",
     user: "Rajesh Kumar",
-    email: "rajesh.kumar@eesl.in",
+    email: "rajesh.kumar@solarops.io",
     role: "Data Analyst",
     action: "JMR Data Modified",
     module: "JMR Management",
-    resource: "Sakri Solar Park - Apr 2026 (Generation)",
+    resource: "Solar Park 01 - Apr 2026 (Generation)",
     ipAddress: "192.168.1.45",
     status: "Success",
     details: "Updated generation value: 4100 → 4105 MWh",
@@ -42,11 +42,11 @@ const userActivityLog = [
     id: "ACT-2026-5842",
     timestamp: "2026-04-07 13:18:42",
     user: "Priya Sharma",
-    email: "priya.sharma@eesl.in",
+    email: "priya.sharma@solarops.io",
     role: "Admin",
     action: "User Role Updated",
     module: "User Management",
-    resource: "john.doe@eesl.in",
+    resource: "john.doe@solarops.io",
     ipAddress: "192.168.1.52",
     status: "Success",
     details: "Role changed: Viewer → Data Analyst",
@@ -55,11 +55,11 @@ const userActivityLog = [
     id: "ACT-2026-5841",
     timestamp: "2026-04-07 11:45:20",
     user: "Amit Patel",
-    email: "amit.patel@eesl.in",
+    email: "amit.patel@solarops.io",
     role: "Plant Manager",
     action: "JMR Submitted",
     module: "JMR Management",
-    resource: "Osmanabad Solar Plant - Apr 2026 (Final)",
+    resource: "Solar Park 03 - Apr 2026 (Final)",
     ipAddress: "192.168.1.38",
     status: "Success",
     details: "Final submission with approval workflow",
@@ -81,7 +81,7 @@ const userActivityLog = [
     id: "ACT-2026-5839",
     timestamp: "2026-04-07 09:15:33",
     user: "Neha Singh",
-    email: "neha.singh@eesl.in",
+    email: "neha.singh@solarops.io",
     role: "Auditor",
     action: "Report Downloaded",
     module: "Report Studio",
@@ -97,7 +97,7 @@ const jmrVersionHistory = [
   {
     id: "VER-2026-324",
     jmrId: "JMR-2026-02-003",
-    plant: "Latur Solar Station",
+    plant: "Solar Park 04",
     version: "v2.2",
     timestamp: "2026-04-07 14:32:15",
     modifiedBy: "Rajesh Kumar",
@@ -110,7 +110,7 @@ const jmrVersionHistory = [
   {
     id: "VER-2026-323",
     jmrId: "JMR-2026-02-003",
-    plant: "Latur Solar Station",
+    plant: "Solar Park 04",
     version: "v2.1",
     timestamp: "2026-04-07 12:18:40",
     modifiedBy: "Anjali Verma",
@@ -123,7 +123,7 @@ const jmrVersionHistory = [
   {
     id: "VER-2026-322",
     jmrId: "JMR-2026-02-003",
-    plant: "Latur Solar Station",
+    plant: "Solar Park 04",
     version: "v2.0",
     timestamp: "2026-04-06 16:45:22",
     modifiedBy: "Anjali Verma",
@@ -136,7 +136,7 @@ const jmrVersionHistory = [
   {
     id: "VER-2026-321",
     jmrId: "JMR-2026-02-001",
-    plant: "Sakri Solar Park",
+    plant: "Solar Park 01",
     version: "v1.1",
     timestamp: "2026-04-06 14:20:10",
     modifiedBy: "Amit Patel",
@@ -155,7 +155,7 @@ const emailDispatchLog = [
     reportName: "Monthly Performance Dashboard - February 2026",
     reportType: "MIS Report",
     sentBy: "System Scheduler",
-    sentTo: "management@eesl.in, ops@eesl.in",
+    sentTo: "management@solarops.io, ops@solarops.io",
     recipientCount: 12,
     timestamp: "2026-03-01 08:00:00",
     deliveryStatus: "Delivered",
@@ -167,7 +167,7 @@ const emailDispatchLog = [
     reportName: "Weekly Compliance Alert - Week 9",
     reportType: "Alert Notification",
     sentBy: "Compliance Engine",
-    sentTo: "compliance-team@eesl.in",
+    sentTo: "compliance-team@solarops.io",
     recipientCount: 5,
     timestamp: "2026-04-07 18:00:00",
     deliveryStatus: "Delivered",
@@ -176,10 +176,10 @@ const emailDispatchLog = [
   },
   {
     id: "EMAIL-2026-1243",
-    reportName: "JMR Submission Reminder - Beed Solar Park",
+    reportName: "JMR Submission Reminder - Solar Park 05",
     reportType: "System Reminder",
     sentBy: "Workflow Automation",
-    sentTo: "suresh.reddy@eesl.in",
+    sentTo: "suresh.reddy@solarops.io",
     recipientCount: 1,
     timestamp: "2026-04-07 16:00:00",
     deliveryStatus: "Bounced",
@@ -191,7 +191,7 @@ const emailDispatchLog = [
     reportName: "Quarterly Financial Report - Q3 FY2025-26",
     reportType: "MIS Report",
     sentBy: "Report Scheduler",
-    sentTo: "finance@eesl.in, board@eesl.in",
+    sentTo: "finance@solarops.io, board@solarops.io",
     recipientCount: 8,
     timestamp: "2026-04-07 09:00:00",
     deliveryStatus: "Delivered",
@@ -203,7 +203,7 @@ const emailDispatchLog = [
     reportName: "Daily Generation Summary - Feb 27",
     reportType: "Daily Report",
     sentBy: "System Scheduler",
-    sentTo: "operations@eesl.in",
+    sentTo: "operations@solarops.io",
     recipientCount: 15,
     timestamp: "2026-04-07 07:00:00",
     deliveryStatus: "Delivered",
@@ -286,7 +286,7 @@ export function AuditGovernanceConsole() {
       <div className="bg-white border-b-2 border-slate-200 shadow-sm shrink-0 z-20 sticky top-0">
         <div className="px-6 py-2 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-1.5 bg-[#2955A0] rounded-lg">
+            <div className="p-1.5 bg-brand rounded-lg">
               <Shield className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -310,19 +310,19 @@ export function AuditGovernanceConsole() {
       <div className="flex-1 overflow-auto p-6">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
         <TabsList className="bg-gray-100 border-2 border-gray-300">
-          <TabsTrigger value="activity" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'activity' ? '#2955A0' : 'transparent' }}>
+          <TabsTrigger value="activity" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'activity' ? '#12307E' : 'transparent' }}>
             <Activity className="w-4 h-4 mr-2" />
             User Activity Log
           </TabsTrigger>
-          <TabsTrigger value="versions" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'versions' ? '#2955A0' : 'transparent' }}>
+          <TabsTrigger value="versions" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'versions' ? '#12307E' : 'transparent' }}>
             <FileText className="w-4 h-4 mr-2" />
             JMR Version History
           </TabsTrigger>
-          <TabsTrigger value="email" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'email' ? '#2955A0' : 'transparent' }}>
+          <TabsTrigger value="email" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'email' ? '#12307E' : 'transparent' }}>
             <Mail className="w-4 h-4 mr-2" />
             Email Dispatch Log
           </TabsTrigger>
-          <TabsTrigger value="dr" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'dr' ? '#2955A0' : 'transparent' }}>
+          <TabsTrigger value="dr" className="data-[state=active]:bg-white data-[state=active]:border-2" style={{ borderColor: activeTab === 'dr' ? '#12307E' : 'transparent' }}>
             <Database className="w-4 h-4 mr-2" />
             DR Drill Records
           </TabsTrigger>

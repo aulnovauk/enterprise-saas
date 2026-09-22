@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Outlet, Link, useLocation } from "react-router";
+import { Outlet, Link, useLocation, useNavigate } from "react-router";
 import {
   LayoutDashboard,
   FileSpreadsheet,
@@ -25,6 +25,7 @@ import {
   Moon,
 } from "lucide-react";
 import { useDarkMode } from "../hooks/useDarkMode";
+import { useSession } from "../lib/auth";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -54,6 +55,8 @@ const navItems = [
 
 export function Layout() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { session, logout } = useSession();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
@@ -71,6 +74,11 @@ export function Layout() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true });
+  };
+
   return (
     <div className="flex h-screen bg-background">
       {/* Left Sidebar */}
@@ -78,7 +86,7 @@ export function Layout() {
         className={`flex flex-col transition-all duration-300 ease-in-out shadow-lg ${
           isSidebarCollapsed ? "w-16" : "w-[260px]"
         }`} 
-        style={{ background: "#2955A0" }}
+        style={{ background: "var(--sidebar)" }}
       >
         {/* Logo */}
         <div className={`border-b border-white/10 flex items-center justify-center ${
@@ -87,14 +95,14 @@ export function Layout() {
           <div className={`flex items-center gap-3 transition-opacity duration-300 ${
             isSidebarCollapsed ? "hidden" : "opacity-100"
           }`}>
-            <img src="/eesl-logo.svg" alt="EESL" className="w-10 h-7 rounded shadow-sm" />
+            <img src="/solarops-logo.svg" alt="SolarOps" className="w-10 h-7 rounded shadow-sm" />
             <div>
-              <h1 className="font-bold text-white text-[15px] leading-tight tracking-wide">E-SAMMP</h1>
-              <p className="text-[10.5px] text-white/60 leading-tight mt-0.5">EESL Solar Platform</p>
+              <h1 className="font-bold text-white text-[15px] leading-tight tracking-wide">SolarOps</h1>
+              <p className="text-[10.5px] text-white/60 leading-tight mt-0.5">Asset Monitoring Suite</p>
             </div>
           </div>
           {isSidebarCollapsed && (
-            <img src="/eesl-logo.svg" alt="EESL" className="w-9 h-6 rounded shadow-sm" />
+            <img src="/solarops-logo.svg" alt="SolarOps" className="w-9 h-6 rounded shadow-sm" />
           )}
         </div>
 
@@ -160,7 +168,7 @@ export function Layout() {
             >
               <Bell className="w-[18px] h-[18px]" />
               {unreadCount > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-[16px] px-1 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-[#2955A0]">
+                <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-[16px] px-1 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-sidebar">
                   {unreadCount}
                 </span>
               )}
@@ -218,16 +226,16 @@ export function Layout() {
                 className={`w-full flex items-center rounded-lg transition-all duration-200 hover:bg-white/8 ${
                   isSidebarCollapsed ? "justify-center py-1.5 px-0" : "gap-2.5 px-2.5 py-2"
                 }`}
-                title={isSidebarCollapsed ? "Admin User" : ""}
+                title={isSidebarCollapsed ? (session?.name ?? "Admin User") : ""}
               >
                 <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold text-[11px] flex-shrink-0 ring-2 ring-white/15" style={{ background: "linear-gradient(135deg, #E8A800 0%, #D97706 100%)" }}>
-                  AM
+                  {session?.initials ?? "AM"}
                 </div>
                 <div className={`flex-1 min-w-0 text-left transition-all duration-300 ${
                   isSidebarCollapsed ? "hidden" : "block"
                 }`}>
-                  <p className="text-[13px] font-medium text-white truncate leading-tight">Admin User</p>
-                  <p className="text-[11px] text-white/55 truncate leading-tight">admin@eesl.co.in</p>
+                  <p className="text-[13px] font-medium text-white truncate leading-tight">{session?.name ?? "Admin User"}</p>
+                  <p className="text-[11px] text-white/55 truncate leading-tight">{session?.email ?? "admin@solarops.io"}</p>
                 </div>
                 <LogOut className={`w-4 h-4 text-white/50 flex-shrink-0 transition-all duration-200 ${
                   isSidebarCollapsed ? "hidden" : "block"
@@ -241,8 +249,8 @@ export function Layout() {
             >
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col gap-0.5">
-                  <p className="text-sm font-medium">Admin User</p>
-                  <p className="text-xs text-muted-foreground">admin@eesl.co.in</p>
+                  <p className="text-sm font-medium">{session?.name ?? "Admin User"}</p>
+                  <p className="text-xs text-muted-foreground">{session?.email ?? "admin@solarops.io"}</p>
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
@@ -255,7 +263,7 @@ export function Layout() {
                 Settings
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem className="text-red-500 focus:text-red-500">
+              <DropdownMenuItem className="text-red-500 focus:text-red-500" onSelect={handleLogout}>
                 <LogOut className="w-4 h-4 mr-2" />
                 Logout
               </DropdownMenuItem>

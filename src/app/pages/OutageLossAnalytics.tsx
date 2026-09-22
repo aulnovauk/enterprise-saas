@@ -167,7 +167,7 @@ const yoyData = [
   { month: "Apr 2026", actual: 5210 },
 ];
 
-// YTD monthly loss by category (Apr → Feb, FY 2025-26)
+// YTD monthly loss by category (Apr → Sep, FY 2026-27)
 const ytdMonthlyLossData = [
   { month: "Apr", gridOutage: 95,  equipFailure: 68,  plannedShutdown: 35, forceMajeure: 15, spylTotal: 195 },
   { month: "May", gridOutage: 110, equipFailure: 72,  plannedShutdown: 42, forceMajeure: 18, spylTotal: 228 },
@@ -207,34 +207,34 @@ const ganttData = [
   { 
     date: "2026-02-22",
     events: [
-      { id: 1, type: "Grid Outage", start: 8, duration: 3, plant: "Sakri Solar Park" },
-      { id: 2, type: "Equipment Failure", start: 14, duration: 2, plant: "Osmanabad Solar Plant" },
+      { id: 1, type: "Grid Outage", start: 8, duration: 3, plant: "Solar Park 01" },
+      { id: 2, type: "Equipment Failure", start: 14, duration: 2, plant: "Solar Park 03" },
     ]
   },
   { 
     date: "2026-02-23",
     events: [
-      { id: 3, type: "Planned Shutdown", start: 10, duration: 6, plant: "Sangli Solar Farm" },
+      { id: 3, type: "Planned Shutdown", start: 10, duration: 6, plant: "Solar Park 02" },
     ]
   },
   { 
     date: "2026-02-24",
     events: [
-      { id: 4, type: "Force Majeure", start: 16, duration: 2, plant: "Latur Solar Station" },
-      { id: 5, type: "Grid Outage", start: 6, duration: 4, plant: "Amravati Solar Unit" },
+      { id: 4, type: "Force Majeure", start: 16, duration: 2, plant: "Solar Park 04" },
+      { id: 5, type: "Grid Outage", start: 6, duration: 4, plant: "Solar Park 08" },
     ]
   },
   { 
     date: "2026-02-25",
     events: [
-      { id: 6, type: "Equipment Failure", start: 12, duration: 5, plant: "Devdaithan Solar Plant" },
+      { id: 6, type: "Equipment Failure", start: 12, duration: 5, plant: "Solar Park 07" },
     ]
   },
   { 
     date: "2026-02-26",
     events: [
-      { id: 7, type: "Grid Outage", start: 8, duration: 2, plant: "Wardha Solar Park" },
-      { id: 8, type: "Equipment Failure", start: 14, duration: 4, plant: "Chandrapur Solar Project" },
+      { id: 7, type: "Grid Outage", start: 8, duration: 2, plant: "Solar Park 09" },
+      { id: 8, type: "Equipment Failure", start: 14, duration: 4, plant: "Solar Park 11" },
     ]
   },
   { 
@@ -244,7 +244,7 @@ const ganttData = [
   { 
     date: "2026-02-28",
     events: [
-      { id: 9, type: "Planned Shutdown", start: 9, duration: 8, plant: "Beed Solar Park" },
+      { id: 9, type: "Planned Shutdown", start: 9, duration: 8, plant: "Solar Park 05" },
     ]
   },
 ];
@@ -321,7 +321,7 @@ function getFYDateRange(selectedFY: string): string {
 export function OutageLossAnalytics() {
   const [rootCauseFilter, setRootCauseFilter] = useState("all");
   const [plantFilter, setPlantFilter] = useState("all");
-  const [selectedFY, setSelectedFY] = useState("FY 2025-26");
+  const [selectedFY, setSelectedFY] = useState("FY 2026-27");
   const [selectedVendor, setSelectedVendor] = useState("all");
   const [durationToggle, setDurationToggle] = useState("MTD");
   const [outageViewMode, setOutageViewMode] = useState<"table" | "bar" | "pie">("table");
@@ -557,7 +557,7 @@ export function OutageLossAnalytics() {
         <div className="px-6 py-2">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2.5">
-              <div className="p-1.5 bg-[#2955A0] rounded-lg">
+              <div className="p-1.5 bg-brand rounded-lg">
                 <TrendingDown className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -585,6 +585,7 @@ export function OutageLossAnalytics() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="FY 2026-27">FY 2026-27</SelectItem>
                 <SelectItem value="FY 2025-26">FY 2025-26</SelectItem>
                 <SelectItem value="FY 2024-25">FY 2024-25</SelectItem>
                 <SelectItem value="FY 2023-24">FY 2023-24</SelectItem>
@@ -639,7 +640,7 @@ export function OutageLossAnalytics() {
                   onClick={() => setDurationToggle(duration)}
                   className={`px-4 py-1 text-xs font-semibold rounded transition-all ${
                     durationToggle === duration
-                      ? "bg-[#2955A0] text-white shadow-sm"
+                      ? "bg-brand text-white shadow-sm"
                       : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
@@ -794,7 +795,7 @@ export function OutageLossAnalytics() {
                     </div>
                     <div>
                       <div className="text-xs text-gray-600 mb-1">Net Evacuated</div>
-                      <div className="text-xl font-bold" style={{ color: "#2955A0" }}>{Math.round(evacuated).toLocaleString()}</div>
+                      <div className="text-xl font-bold" style={{ color: "var(--brand-fg)" }}>{Math.round(evacuated).toLocaleString()}</div>
                       <div className="text-xs text-gray-500">MWh</div>
                     </div>
                   </>
@@ -959,7 +960,7 @@ export function OutageLossAnalytics() {
 
       {/* ── YTD Loss Comparison ─────────────────────────────────────────── */}
       <Card className="mb-8 border-2 border-slate-200">
-        <CardHeader className="border-b border-slate-100 bg-gradient-to-r from-[#2955A0] to-[#2955A0]/80 rounded-t-xl">
+        <CardHeader className="border-b border-slate-100 bg-gradient-to-r from-brand to-brand/80 rounded-t-xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <CalendarDays className="w-5 h-5 text-white" />
@@ -1028,7 +1029,7 @@ export function OutageLossAnalytics() {
                 <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-sm bg-[#F59E0B]" />Equipment Failure</span>
                 <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-sm bg-[#10B981]" />Planned Shutdown</span>
                 <span className="flex items-center gap-1.5"><span className="inline-block w-3 h-3 rounded-sm bg-[#6366F1]" />Force Majeure</span>
-                <span className="flex items-center gap-1.5"><span className="inline-block w-8 h-0.5 bg-[#2955A0] border-dashed border-t-2 border-[#2955A0]" />SPYL Total</span>
+                <span className="flex items-center gap-1.5"><span className="inline-block w-8 h-0.5 bg-brand border-dashed border-t-2 border-brand" />SPYL Total</span>
               </div>
             </div>
             <ResponsiveContainer width="100%" height={280}>
@@ -1333,7 +1334,7 @@ export function OutageLossAnalytics() {
               <Button
                 size="sm"
                 variant={outageViewMode === "table" ? "default" : "ghost"}
-                className={`gap-1 text-xs h-7 px-2 ${outageViewMode === "table" ? "bg-[#2955A0]" : ""}`}
+                className={`gap-1 text-xs h-7 px-2 ${outageViewMode === "table" ? "bg-brand" : ""}`}
                 onClick={() => setOutageViewMode("table")}
               >
                 <TableIcon className="w-3 h-3" /> Table
@@ -1341,7 +1342,7 @@ export function OutageLossAnalytics() {
               <Button
                 size="sm"
                 variant={outageViewMode === "bar" ? "default" : "ghost"}
-                className={`gap-1 text-xs h-7 px-2 ${outageViewMode === "bar" ? "bg-[#2955A0]" : ""}`}
+                className={`gap-1 text-xs h-7 px-2 ${outageViewMode === "bar" ? "bg-brand" : ""}`}
                 onClick={() => setOutageViewMode("bar")}
               >
                 <BarChart3 className="w-3 h-3" /> Bar Chart
@@ -1349,7 +1350,7 @@ export function OutageLossAnalytics() {
               <Button
                 size="sm"
                 variant={outageViewMode === "pie" ? "default" : "ghost"}
-                className={`gap-1 text-xs h-7 px-2 ${outageViewMode === "pie" ? "bg-[#2955A0]" : ""}`}
+                className={`gap-1 text-xs h-7 px-2 ${outageViewMode === "pie" ? "bg-brand" : ""}`}
                 onClick={() => setOutageViewMode("pie")}
               >
                 <PieChartIcon className="w-3 h-3" /> Pie Chart

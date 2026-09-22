@@ -86,11 +86,11 @@ const dataFields = [
 
 // Sample data for preview
 const sampleTableData = [
-  { plant: "Sakri Solar Park", state: "Maharashtra", generation: "4,105", cuf: "18.6%", pr: "78.8%", availability: "96.2%" },
-  { plant: "Osmanabad Solar Plant", state: "Maharashtra", generation: "10,850", cuf: "22.1%", pr: "77.5%", availability: "93.8%" },
-  { plant: "Latur Solar Station", state: "Maharashtra", generation: "22,450", cuf: "22.3%", pr: "78.2%", availability: "94.5%" },
-  { plant: "Beed Solar Park", state: "Maharashtra", generation: "12,320", cuf: "24.5%", pr: "80.2%", availability: "98.1%" },
-  { plant: "Ahmednagar Solar Plant", state: "Maharashtra", generation: "6,785", cuf: "23.5%", pr: "79.8%", availability: "97.3%" },
+  { plant: "Solar Park 01", state: "Region North", generation: "4,105", cuf: "18.6%", pr: "78.8%", availability: "96.2%" },
+  { plant: "Solar Park 03", state: "Region North", generation: "10,850", cuf: "22.1%", pr: "77.5%", availability: "93.8%" },
+  { plant: "Solar Park 04", state: "Region North", generation: "22,450", cuf: "22.3%", pr: "78.2%", availability: "94.5%" },
+  { plant: "Solar Park 05", state: "Region North", generation: "12,320", cuf: "24.5%", pr: "80.2%", availability: "98.1%" },
+  { plant: "Solar Park 06", state: "Region North", generation: "6,785", cuf: "23.5%", pr: "79.8%", availability: "97.3%" },
 ];
 
 // Selected fields for report
@@ -122,7 +122,7 @@ export function ReportStudio() {
       <div className="bg-white border-b-2 border-slate-200 shadow-sm shrink-0 z-20 sticky top-0">
         <div className="flex items-center justify-between px-6 py-2">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 bg-[#2955A0] rounded-lg">
+            <div className="p-1.5 bg-brand rounded-lg">
               <LayoutDashboard className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -378,9 +378,9 @@ export function ReportStudio() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">All Plants</SelectItem>
-                          <SelectItem value="plantA">Sakri Solar Park</SelectItem>
-                          <SelectItem value="plantB">Osmanabad Solar Plant</SelectItem>
-                          <SelectItem value="plantC">Latur Solar Station</SelectItem>
+                          <SelectItem value="plantA">Solar Park 01</SelectItem>
+                          <SelectItem value="plantB">Solar Park 03</SelectItem>
+                          <SelectItem value="plantC">Solar Park 04</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -389,13 +389,13 @@ export function ReportStudio() {
                       <Label className="text-xs font-medium text-gray-700 mb-1 block">State</Label>
                       <Select>
                         <SelectTrigger className="text-xs">
-                          <SelectValue placeholder="All States" />
+                          <SelectValue placeholder="All Regions" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="all">All States</SelectItem>
-                          <SelectItem value="western">Western Maharashtra</SelectItem>
-                          <SelectItem value="vidarbha">Vidarbha Region</SelectItem>
-                          <SelectItem value="marathwada">Marathwada Region</SelectItem>
+                          <SelectItem value="all">All Regions</SelectItem>
+                          <SelectItem value="region-north">Region North</SelectItem>
+                          <SelectItem value="region-east">Region East</SelectItem>
+                          <SelectItem value="region-south">Region South</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -422,8 +422,8 @@ export function ReportStudio() {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">All Clients</SelectItem>
-                          <SelectItem value="eesl">EESL</SelectItem>
-                          <SelectItem value="seci">SECI</SelectItem>
+                          <SelectItem value="client-alpha">Client Alpha</SelectItem>
+                          <SelectItem value="client-bravo">Client Bravo</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -449,6 +449,7 @@ export function ReportStudio() {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="fy2027">FY 2026-27</SelectItem>
                           <SelectItem value="fy2026">FY 2025-26</SelectItem>
                           <SelectItem value="fy2025">FY 2024-25</SelectItem>
                           <SelectItem value="fy2024">FY 2023-24</SelectItem>

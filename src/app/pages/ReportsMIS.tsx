@@ -164,13 +164,13 @@ const visualizationTypes = [
 
 // Sample preview data
 const sampleData = [
-  { plant: "Sakri Solar Park", state: "Maharashtra", region: "North", generation: 820, availability: 96.2, cuf: 21.8, revenue: 245, ldAmount: 0.36, energyLoss: 12.5, downtime: 8.2 },
-  { plant: "Osmanabad Solar Plant", state: "Maharashtra", region: "West", generation: 1980, availability: 93.8, cuf: 22.1, revenue: 592, ldAmount: 1.8, energyLoss: 45.2, downtime: 14.5 },
-  { plant: "Latur Solar Station", state: "Maharashtra", region: "Central", generation: 4100, availability: 94.5, cuf: 22.3, revenue: 1225, ldAmount: 1.0, energyLoss: 38.6, downtime: 11.8 },
-  { plant: "Beed Solar Park", state: "Maharashtra", region: "Beed", generation: 1920, availability: 98.1, cuf: 24.5, revenue: 574, ldAmount: 0, energyLoss: 12.3, downtime: 4.2 },
-  { plant: "Ahmednagar Solar Plant", state: "Maharashtra", region: "Ahmednagar", generation: 1560, availability: 96.4, cuf: 23.2, revenue: 466, ldAmount: 0, energyLoss: 8.1, downtime: 4.2 },
-  { plant: "Devdaithan Solar Plant", state: "Maharashtra", region: "Ahmednagar", generation: 1310, availability: 91.2, cuf: 19.5, revenue: 392, ldAmount: 4.86, energyLoss: 28.4, downtime: 9.6 },
-  { plant: "Amravati Solar Unit", state: "Maharashtra", region: "Amravati", generation: 1140, availability: 88.3, cuf: 18.5, revenue: 342, ldAmount: 10.8, energyLoss: 62.3, downtime: 18.9 },
+  { plant: "Solar Park 01", state: "Region North", region: "North", generation: 820, availability: 96.2, cuf: 21.8, revenue: 245, ldAmount: 0.36, energyLoss: 12.5, downtime: 8.2 },
+  { plant: "Solar Park 03", state: "Region North", region: "West", generation: 1980, availability: 93.8, cuf: 22.1, revenue: 592, ldAmount: 1.8, energyLoss: 45.2, downtime: 14.5 },
+  { plant: "Solar Park 04", state: "Region North", region: "Central", generation: 4100, availability: 94.5, cuf: 22.3, revenue: 1225, ldAmount: 1.0, energyLoss: 38.6, downtime: 11.8 },
+  { plant: "Solar Park 05", state: "Region North", region: "Zone 5", generation: 1920, availability: 98.1, cuf: 24.5, revenue: 574, ldAmount: 0, energyLoss: 12.3, downtime: 4.2 },
+  { plant: "Solar Park 06", state: "Region North", region: "Zone 6", generation: 1560, availability: 96.4, cuf: 23.2, revenue: 466, ldAmount: 0, energyLoss: 8.1, downtime: 4.2 },
+  { plant: "Solar Park 07", state: "Region North", region: "Zone 6", generation: 1310, availability: 91.2, cuf: 19.5, revenue: 392, ldAmount: 4.86, energyLoss: 28.4, downtime: 9.6 },
+  { plant: "Solar Park 08", state: "Region North", region: "Zone 7", generation: 1140, availability: 88.3, cuf: 18.5, revenue: 342, ldAmount: 10.8, energyLoss: 62.3, downtime: 18.9 },
 ];
 
 // Report templates (same as before)
@@ -304,7 +304,7 @@ const scheduledReports = [
     name: "Daily Generation Summary",
     schedule: "Daily at 6:00 AM",
     nextRun: "Tomorrow, 6:00 AM",
-    recipients: ["ops@eesl.in", "management@eesl.in"],
+    recipients: ["ops@solarops.io", "management@solarops.io"],
     status: "active",
     lastRun: "Today, 6:00 AM",
   },
@@ -313,7 +313,7 @@ const scheduledReports = [
     name: "Weekly Performance Report",
     schedule: "Every Monday at 8:00 AM",
     nextRun: "Mon, Mar 3, 8:00 AM",
-    recipients: ["executive@eesl.in"],
+    recipients: ["executive@solarops.io"],
     status: "active",
     lastRun: "Mon, Feb 24, 8:00 AM",
   },
@@ -322,7 +322,7 @@ const scheduledReports = [
     name: "Monthly Financial Report",
     schedule: "1st of every month at 9:00 AM",
     nextRun: "Apr 1, 9:00 AM",
-    recipients: ["finance@eesl.in", "cfo@eesl.in"],
+    recipients: ["finance@solarops.io", "cfo@solarops.io"],
     status: "active",
     lastRun: "Mar 1, 9:00 AM",
   },
@@ -331,7 +331,7 @@ const scheduledReports = [
     name: "Quarterly Board Report",
     schedule: "Quarterly - 5th of Q end month",
     nextRun: "Apr 5, 10:00 AM",
-    recipients: ["board@eesl.in"],
+    recipients: ["board@solarops.io"],
     status: "paused",
     lastRun: "Jan 5, 10:00 AM",
   },
@@ -425,11 +425,11 @@ function DraggableField({ field }: { field: typeof dataFields[0] }) {
       ref={drag}
       className={`group flex items-center gap-2 px-3 py-2 rounded-lg border-2 transition-all cursor-move
         ${isDragging 
-          ? "opacity-40 border-[#2955A0] bg-blue-50" 
-          : "border-slate-200 bg-white hover:border-[#2955A0] hover:bg-blue-50 hover:shadow-sm"
+          ? "opacity-40 border-brand bg-blue-50" 
+          : "border-slate-200 bg-white hover:border-brand hover:bg-blue-50 hover:shadow-sm"
         }`}
     >
-      <GripVertical className="w-3 h-3 text-slate-400 group-hover:text-[#2955A0]" />
+      <GripVertical className="w-3 h-3 text-slate-400 group-hover:text-brand-fg" />
       <Icon className="w-3.5 h-3.5 text-slate-500" />
       <span className="text-xs font-medium text-slate-700 flex-1">{field.name}</span>
       <Badge 
@@ -470,7 +470,7 @@ function FieldWell({
       ref={drop}
       className={`rounded-xl border-2 transition-all min-h-[100px] p-4
         ${isOver && canDrop
-          ? "border-[#2955A0] bg-blue-50 shadow-lg" 
+          ? "border-brand bg-blue-50 shadow-lg" 
           : canDrop
           ? "border-dashed border-slate-300 bg-slate-50"
           : "border-dashed border-slate-200 bg-white"
@@ -480,7 +480,7 @@ function FieldWell({
         <Icon className="w-4 h-4 text-slate-600" />
         <Label className="text-xs font-bold text-slate-700 uppercase tracking-wide">{title}</Label>
         {fields.length > 0 && (
-          <Badge variant="secondary" className="ml-auto text-xs bg-[#2955A0] text-white">
+          <Badge variant="secondary" className="ml-auto text-xs bg-brand text-white">
             {fields.length}
           </Badge>
         )}
@@ -526,12 +526,12 @@ type ViewMode = "gallery" | "builder" | "scheduled" | "history" | "analytics";
 
 // ── Per-template preview mock data ────────────────────────────────────────
 const PREVIEW_MONTHLY_PLANTS = [
-  { plant: "Sakri Solar Park",     gen: 2150, target: 2100, cuf: 23.5, avail: 97.2, status: "Compliant" },
-  { plant: "Osmanabad Solar Plant",  gen: 2380, target: 2450, cuf: 24.1, avail: 96.8, status: "Warning" },
-  { plant: "Latur Solar Station",         gen: 1720, target: 1680, cuf: 23.8, avail: 97.5, status: "Compliant" },
-  { plant: "Beed Solar Park",     gen: 1920, target: 1850, cuf: 24.5, avail: 98.1, status: "Compliant" },
-  { plant: "Wardha Solar Park",    gen: 2120, target: 2350, cuf: 20.8, avail: 93.5, status: "Non-Compliant" },
-  { plant: "Devdaithan Solar Plant",        gen: 1310, target: 1580, cuf: 19.5, avail: 91.2, status: "Non-Compliant" },
+  { plant: "Solar Park 01",     gen: 2150, target: 2100, cuf: 23.5, avail: 97.2, status: "Compliant" },
+  { plant: "Solar Park 03",  gen: 2380, target: 2450, cuf: 24.1, avail: 96.8, status: "Warning" },
+  { plant: "Solar Park 04",         gen: 1720, target: 1680, cuf: 23.8, avail: 97.5, status: "Compliant" },
+  { plant: "Solar Park 05",     gen: 1920, target: 1850, cuf: 24.5, avail: 98.1, status: "Compliant" },
+  { plant: "Solar Park 09",    gen: 2120, target: 2350, cuf: 20.8, avail: 93.5, status: "Non-Compliant" },
+  { plant: "Solar Park 07",        gen: 1310, target: 1580, cuf: 19.5, avail: 91.2, status: "Non-Compliant" },
 ];
 const PREVIEW_MONTHLY_CHART = [
   { month: "Sep", gen: 38200, target: 40000 },
@@ -554,18 +554,18 @@ const PREVIEW_REVENUE_CHART = [
   { month: "Apr", realized: 8.5, target: 9.4 },
 ];
 const PREVIEW_VENDOR_DATA = [
-  { vendor: "SolarCo India", cuf: 22.1, avail: 96.2, ld: 0.42, plants: 3 },
-  { vendor: "SunPower Tech", cuf: 20.8, avail: 93.5, ld: 0.48, plants: 4 },
-  { vendor: "Mega Solar Inc", cuf: 23.7, avail: 97.8, ld: 0.55, plants: 3 },
-  { vendor: "Green Energy Ltd", cuf: 24.1, avail: 96.8, ld: 0.00, plants: 1 },
-  { vendor: "TechSolar Pvt", cuf: 23.8, avail: 97.5, ld: 0.00, plants: 1 },
+  { vendor: "Vendor Bravo", cuf: 22.1, avail: 96.2, ld: 0.42, plants: 3 },
+  { vendor: "Vendor Alpha", cuf: 20.8, avail: 93.5, ld: 0.48, plants: 4 },
+  { vendor: "Vendor Charlie", cuf: 23.7, avail: 97.8, ld: 0.55, plants: 3 },
+  { vendor: "Vendor Delta", cuf: 24.1, avail: 96.8, ld: 0.00, plants: 1 },
+  { vendor: "Vendor Echo", cuf: 23.8, avail: 97.5, ld: 0.00, plants: 1 },
 ];
 const PREVIEW_OUTAGE_LOG = [
-  { date: "Feb 18", plant: "Devdaithan Solar Plant",    type: "Grid Curtailment",   duration: "6.2 hrs", loss: "184 MWh", severity: "high" },
-  { date: "Feb 14", plant: "Amravati Solar Unit",   type: "Equipment Fault",    duration: "4.0 hrs", loss: "95 MWh",  severity: "high" },
-  { date: "Feb 11", plant: "Wardha Solar Park",      type: "Scheduled Maint.",   duration: "3.5 hrs", loss: "72 MWh",  severity: "medium" },
-  { date: "Feb 07", plant: "Sangli Solar Farm",   type: "Transmission Loss",  duration: "2.0 hrs", loss: "48 MWh",  severity: "medium" },
-  { date: "Feb 03", plant: "Osmanabad Solar Plant",      type: "Force Majeure",      duration: "1.5 hrs", loss: "38 MWh",  severity: "low" },
+  { date: "Feb 18", plant: "Solar Park 07",    type: "Grid Curtailment",   duration: "6.2 hrs", loss: "184 MWh", severity: "high" },
+  { date: "Feb 14", plant: "Solar Park 08",   type: "Equipment Fault",    duration: "4.0 hrs", loss: "95 MWh",  severity: "high" },
+  { date: "Feb 11", plant: "Solar Park 09",      type: "Scheduled Maint.",   duration: "3.5 hrs", loss: "72 MWh",  severity: "medium" },
+  { date: "Feb 07", plant: "Solar Park 02",   type: "Transmission Loss",  duration: "2.0 hrs", loss: "48 MWh",  severity: "medium" },
+  { date: "Feb 03", plant: "Solar Park 03",      type: "Force Majeure",      duration: "1.5 hrs", loss: "38 MWh",  severity: "low" },
 ];
 const PREVIEW_FORECAST_DATA = [
   { day: "Mar 6",  actual: null,  forecast: 1540, upper: 1620, lower: 1460 },
@@ -577,18 +577,18 @@ const PREVIEW_FORECAST_DATA = [
   { day: "Mar 12", actual: null,  forecast: 1680, upper: 1770, lower: 1580 },
 ];
 const PREVIEW_JMR_RECORDS = [
-  { id: "JMR-2026-02-001", plant: "Sakri Solar Park",  gross: 4520, net: 4418, avail: 97.2, status: "approved" },
-  { id: "JMR-2026-02-002", plant: "Beed Solar Park",     gross: 1920, net: 1882, avail: 98.1, status: "approved" },
-  { id: "JMR-2026-02-003", plant: "Devdaithan Solar Plant",        gross: 1310, net: 1274, avail: 91.2, status: "pending" },
-  { id: "JMR-2026-02-004", plant: "Wardha Solar Park",    gross: 2120, net: 2066, avail: 93.5, status: "review" },
-  { id: "JMR-2026-02-005", plant: "Sakri Solar Park",     gross: 2150, net: 2107, avail: 97.2, status: "approved" },
+  { id: "JMR-2026-02-001", plant: "Solar Park 01",  gross: 4520, net: 4418, avail: 97.2, status: "approved" },
+  { id: "JMR-2026-02-002", plant: "Solar Park 05",     gross: 1920, net: 1882, avail: 98.1, status: "approved" },
+  { id: "JMR-2026-02-003", plant: "Solar Park 07",        gross: 1310, net: 1274, avail: 91.2, status: "pending" },
+  { id: "JMR-2026-02-004", plant: "Solar Park 09",    gross: 2120, net: 2066, avail: 93.5, status: "review" },
+  { id: "JMR-2026-02-005", plant: "Solar Park 01",     gross: 2150, net: 2107, avail: 97.2, status: "approved" },
 ];
 const PREVIEW_LD_DATA = [
-  { vendor: "Mega Solar Inc", plant: "Devdaithan Solar Plant",     clause: "Cl. 8.2 – CUF",    breach: "4.5%", penalty: "₹0.55 Cr", risk: "high" },
-  { vendor: "SolarCo India", plant: "Amravati Solar Unit",    clause: "Cl. 8.2 – CUF",    breach: "5.5%", penalty: "₹0.69 Cr", risk: "high" },
-  { vendor: "SunPower Tech", plant: "Sangli Solar Farm",    clause: "Cl. 9.1 – Avail",  breach: "3.5%", penalty: "₹0.28 Cr", risk: "medium" },
-  { vendor: "SunPower Tech", plant: "Wardha Solar Park", clause: "Cl. 8.2 – CUF",    breach: "3.2%", penalty: "₹0.20 Cr", risk: "medium" },
-  { vendor: "SolarCo India", plant: "Sakri Solar Park",  clause: "—",                 breach: "—",    penalty: "₹0.00 Cr", risk: "none" },
+  { vendor: "Vendor Charlie", plant: "Solar Park 07",     clause: "Cl. 8.2 – CUF",    breach: "4.5%", penalty: "₹0.55 Cr", risk: "high" },
+  { vendor: "Vendor Bravo", plant: "Solar Park 08",    clause: "Cl. 8.2 – CUF",    breach: "5.5%", penalty: "₹0.69 Cr", risk: "high" },
+  { vendor: "Vendor Alpha", plant: "Solar Park 02",    clause: "Cl. 9.1 – Avail",  breach: "3.5%", penalty: "₹0.28 Cr", risk: "medium" },
+  { vendor: "Vendor Alpha", plant: "Solar Park 09", clause: "Cl. 8.2 – CUF",    breach: "3.2%", penalty: "₹0.20 Cr", risk: "medium" },
+  { vendor: "Vendor Bravo", plant: "Solar Park 01",  clause: "—",                 breach: "—",    penalty: "₹0.00 Cr", risk: "none" },
 ];
 
 function ReportPreviewContent({ template }: { template: typeof reportTemplates[0] | null }) {
@@ -771,9 +771,9 @@ function ReportPreviewContent({ template }: { template: typeof reportTemplates[0
       return (
         <div className="space-y-5">
           <div className="grid grid-cols-4 gap-3">
-            <KpiMini label="Best CUF"     value="Mega Solar Inc" sub="23.7% avg CUF" color="green" />
-            <KpiMini label="Best Avail."  value="Mega Solar Inc" sub="97.8% avg" color="green" />
-            <KpiMini label="Most LD"      value="SunPower Tech" sub="₹1.24 Cr exposure" color="red" />
+            <KpiMini label="Best CUF"     value="Vendor Charlie" sub="23.7% avg CUF" color="green" />
+            <KpiMini label="Best Avail."  value="Vendor Charlie" sub="97.8% avg" color="green" />
+            <KpiMini label="Most LD"      value="Vendor Alpha" sub="₹1.24 Cr exposure" color="red" />
             <KpiMini label="Total Plants" value="11 plants" sub="Across 4 vendors" color="blue" />
           </div>
           <div>
@@ -1031,14 +1031,14 @@ function buildReportHTML(template: typeof reportTemplates[0]): string {
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>${template.name} — E-SAMMP</title>
+<title>${template.name} — SolarOps</title>
 <style>
   body{font-family:Arial,sans-serif;margin:0;padding:40px;color:#1e293b;background:#f8fafc;}
-  h1{color:#2955A0;font-size:24px;margin-bottom:4px;}
+  h1{color:#12307E;font-size:24px;margin-bottom:4px;}
   .sub{color:#64748b;font-size:13px;margin-bottom:24px;}
   .badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:11px;font-weight:700;background:#e0f2fe;color:#0369a1;}
   .kpi-row{display:flex;gap:16px;margin-bottom:28px;}
-  .kpi{flex:1;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:14px;border-left:4px solid #2955A0;}
+  .kpi{flex:1;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:14px;border-left:4px solid #12307E;}
   .kpi label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#64748b;}
   .kpi .val{font-size:22px;font-weight:800;color:#0f172a;margin-top:4px;}
   table{width:100%;border-collapse:collapse;font-size:12px;background:#fff;border-radius:8px;overflow:hidden;margin-bottom:24px;}
@@ -1055,10 +1055,10 @@ function buildReportHTML(template: typeof reportTemplates[0]): string {
     <p class="sub">${template.description} &nbsp;|&nbsp; <span class="badge">${template.category}</span></p>
   </div>
   <div style="text-align:right;font-size:12px;color:#64748b;">
-    <div style="font-weight:700;color:#2955A0;font-size:15px;">E-SAMMP</div>
-    <div>EESL Solar Asset Management</div>
+    <div style="font-weight:700;color:#12307E;font-size:15px;">SolarOps</div>
+    <div>Asset Monitoring Suite</div>
     <div>Generated: ${now}</div>
-    <button onclick="window.print()" style="margin-top:8px;padding:5px 12px;background:#2955A0;color:#fff;border:none;border-radius:5px;cursor:pointer;">Print / Save PDF</button>
+    <button onclick="window.print()" style="margin-top:8px;padding:5px 12px;background:#12307E;color:#fff;border:none;border-radius:5px;cursor:pointer;">Print / Save PDF</button>
   </div>
 </div>
 
@@ -1069,7 +1069,7 @@ function buildReportHTML(template: typeof reportTemplates[0]): string {
   <div class="kpi"><label>Estimated Pages</label><div class="val">~12 pg</div></div>
 </div>
 
-<h2 style="font-size:15px;color:#2955A0;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:16px;">${template.name} — Summary Data</h2>
+<h2 style="font-size:15px;color:#12307E;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:16px;">${template.name} — Summary Data</h2>
 
 <table>
   <tr><th>Metric</th><th>Current</th><th>Target</th><th>Status</th></tr>
@@ -1081,20 +1081,20 @@ function buildReportHTML(template: typeof reportTemplates[0]): string {
   <tr><td>Asset Health Index</td><td>90.5 / 100</td><td>90.0 / 100</td><td>✓ On Target</td></tr>
 </table>
 
-<h2 style="font-size:15px;color:#2955A0;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:16px;">Plant-wise Breakdown</h2>
+<h2 style="font-size:15px;color:#12307E;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:16px;">Plant-wise Breakdown</h2>
 <table>
   <tr><th>Plant</th><th>State</th><th>Capacity (MW)</th><th>Generation (MWh)</th><th>CUF (%)</th><th>Availability (%)</th></tr>
-  <tr><td>Sakri Solar Park</td><td>Maharashtra</td><td>25</td><td>2,150</td><td>23.5</td><td>97.2</td></tr>
-  <tr><td>Sangli Solar Farm</td><td>Maharashtra</td><td>15</td><td>1,180</td><td>21.2</td><td>94.5</td></tr>
-  <tr><td>Osmanabad Solar Plant</td><td>Maharashtra</td><td>30</td><td>2,380</td><td>24.1</td><td>96.8</td></tr>
-  <tr><td>Latur Solar Station</td><td>Maharashtra</td><td>20</td><td>1,720</td><td>23.8</td><td>97.5</td></tr>
-  <tr><td>Devdaithan Solar Plant</td><td>Maharashtra</td><td>18</td><td>1,310</td><td>19.5</td><td>91.2</td></tr>
-  <tr><td>Beed Solar Park</td><td>Maharashtra</td><td>22</td><td>1,920</td><td>24.5</td><td>98.1</td></tr>
-  <tr><td>Wardha Solar Park</td><td>Maharashtra</td><td>28</td><td>2,120</td><td>20.8</td><td>93.5</td></tr>
+  <tr><td>Solar Park 01</td><td>Region North</td><td>25</td><td>2,150</td><td>23.5</td><td>97.2</td></tr>
+  <tr><td>Solar Park 02</td><td>Region North</td><td>15</td><td>1,180</td><td>21.2</td><td>94.5</td></tr>
+  <tr><td>Solar Park 03</td><td>Region North</td><td>30</td><td>2,380</td><td>24.1</td><td>96.8</td></tr>
+  <tr><td>Solar Park 04</td><td>Region North</td><td>20</td><td>1,720</td><td>23.8</td><td>97.5</td></tr>
+  <tr><td>Solar Park 07</td><td>Region North</td><td>18</td><td>1,310</td><td>19.5</td><td>91.2</td></tr>
+  <tr><td>Solar Park 05</td><td>Region North</td><td>22</td><td>1,920</td><td>24.5</td><td>98.1</td></tr>
+  <tr><td>Solar Park 09</td><td>Region North</td><td>28</td><td>2,120</td><td>20.8</td><td>93.5</td></tr>
 </table>
 
 <p class="footer">
-  Report generated by E-SAMMP · EESL Solar Asset Management &amp; Monitoring Platform ·
+  Report generated by SolarOps · Solar Asset Monitoring &amp; Analytics Suite ·
   This report contains confidential data intended for authorized recipients only. ·
   Tags: ${template.tags.join(", ")} · Recipients: ${template.recipients} · Last generated: ${template.lastGenerated}
 </p>
@@ -1228,7 +1228,7 @@ export function ReportsMIS() {
           <div className="px-6 py-2">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2.5">
-                <div className="p-1.5 bg-[#2955A0] rounded-lg">
+                <div className="p-1.5 bg-brand rounded-lg">
                   <FileBarChart className="w-4 h-4 text-white" />
                 </div>
                 <div>
@@ -1250,7 +1250,7 @@ export function ReportsMIS() {
                 
                 <Button 
                   size="sm"
-                  className="gap-2 bg-[#2955A0] hover:bg-[#1E4888] text-white shadow-md h-7 px-3 text-xs"
+                  className="gap-2 bg-brand hover:bg-brand-hover text-white shadow-md h-7 px-3 text-xs"
                   onClick={() => setViewMode("builder")}
                 >
                   <Wand2 className="w-3.5 h-3.5" />
@@ -1383,7 +1383,7 @@ export function ReportsMIS() {
                         whileHover={{ y: -4 }}
                         className="group"
                       >
-                        <Card className="border-2 border-slate-200 hover:border-[#2955A0] hover:shadow-xl transition-all cursor-pointer h-full">
+                        <Card className="border-2 border-slate-200 hover:border-brand hover:shadow-xl transition-all cursor-pointer h-full">
                           <CardHeader className="pb-3">
                             {/* Thumbnail Preview */}
                             <div className={`h-32 rounded-lg mb-4 ${categoryStyle.bg} ${categoryStyle.border} border-2 flex items-center justify-center relative overflow-hidden`}>
@@ -1391,7 +1391,7 @@ export function ReportsMIS() {
                               <Icon className={`w-12 h-12 ${categoryStyle.text} relative z-10`} />
                               
                               {/* Hover Actions */}
-                              <div className="absolute inset-0 bg-[#2955A0]/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-20">
+                              <div className="absolute inset-0 bg-brand/90 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 z-20">
                                 <Button
                                   size="sm"
                                   variant="secondary"
@@ -1511,7 +1511,7 @@ export function ReportsMIS() {
               
               {/* LEFT PANEL - Fields Palette */}
               <div className="w-64 bg-white border-r border-slate-200 flex flex-col shrink-0 shadow-sm min-h-0 overflow-hidden">
-                <div className="p-4 border-b border-slate-200 bg-gradient-to-r from-[#2955A0] to-[#2955A0]/90 shrink-0">
+                <div className="p-4 border-b border-slate-200 bg-gradient-to-r from-brand to-brand/90 shrink-0">
                   <div className="flex items-center gap-2 mb-2">
                     <Database className="w-5 h-5 text-white" />
                     <h2 className="text-sm font-bold text-white">Data Fields</h2>
@@ -1604,7 +1604,7 @@ export function ReportsMIS() {
                       <Save className="w-4 h-4" />
                       Save
                     </Button>
-                    <Button size="sm" className="gap-2 bg-[#2955A0]">
+                    <Button size="sm" className="gap-2 bg-brand">
                       <Play className="w-4 h-4" />
                       Generate Report
                     </Button>
@@ -1943,7 +1943,7 @@ export function ReportsMIS() {
 
               {/* RIGHT PANEL - Settings & Export */}
               <div className="w-64 bg-white border-l border-slate-200 flex flex-col shrink-0 shadow-sm min-h-0 overflow-hidden">
-                <div className="p-4 border-b border-slate-200 bg-gradient-to-r from-[#2955A0] to-[#2955A0]/90 shrink-0">
+                <div className="p-4 border-b border-slate-200 bg-gradient-to-r from-brand to-brand/90 shrink-0">
                   <div className="flex items-center gap-2 mb-2">
                     <Settings className="w-5 h-5 text-white" />
                     <h2 className="text-sm font-bold text-white">Settings & Export</h2>
@@ -2033,7 +2033,7 @@ export function ReportsMIS() {
 
                 {/* Save Actions */}
                 <div className="p-4 border-t border-slate-200 bg-slate-50 space-y-2 shrink-0">
-                  <Button className="w-full gap-2 bg-[#2955A0]">
+                  <Button className="w-full gap-2 bg-brand">
                     <Save className="w-4 h-4" />
                     Save as Template
                   </Button>
@@ -2057,7 +2057,7 @@ export function ReportsMIS() {
                     <p className="text-slate-600 mt-1">Automated report generation and distribution</p>
                   </div>
                   <Button 
-                    className="gap-2 bg-[#2955A0]"
+                    className="gap-2 bg-brand"
                     onClick={() => setScheduleDialogOpen(true)}
                   >
                     <Plus className="w-4 h-4" />
@@ -2473,7 +2473,7 @@ export function ReportsMIS() {
               <div>
                 <Label className="text-sm font-semibold mb-2 block">Email Recipients</Label>
                 <Input placeholder="Enter email addresses separated by commas" />
-                <p className="text-xs text-slate-600 mt-1">e.g., ops@eesl.in, finance@eesl.in</p>
+                <p className="text-xs text-slate-600 mt-1">e.g., ops@solarops.io, finance@solarops.io</p>
               </div>
 
               <div>
@@ -2503,7 +2503,7 @@ export function ReportsMIS() {
                   Cancel
                 </Button>
                 <Button 
-                  className="flex-1 bg-[#2955A0]"
+                  className="flex-1 bg-brand"
                   onClick={() => {
                     toast.success("Report schedule created successfully");
                     setScheduleDialogOpen(false);
@@ -2522,7 +2522,7 @@ export function ReportsMIS() {
             <DialogHeader className="shrink-0 border-b border-slate-100 pb-3">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <DialogTitle className="text-xl text-[#2955A0]">{selectedTemplate?.name}</DialogTitle>
+                  <DialogTitle className="text-xl text-brand-fg">{selectedTemplate?.name}</DialogTitle>
                   <DialogDescription className="mt-0.5">{selectedTemplate?.description}</DialogDescription>
                 </div>
                 <div className="flex gap-2 shrink-0">
@@ -2565,9 +2565,9 @@ export function ReportsMIS() {
         <Dialog open={generateDialogOpen} onOpenChange={(open) => { if (!isGenerating) setGenerateDialogOpen(open); }}>
           <DialogContent className="max-w-md">
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2 text-[#2955A0]">
+              <DialogTitle className="flex items-center gap-2 text-brand-fg">
                 {generateProgress < 100 ? (
-                  <><div className="w-5 h-5 border-2 border-[#2955A0] border-t-transparent rounded-full animate-spin" /> Generating Report…</>
+                  <><div className="w-5 h-5 border-2 border-brand border-t-transparent rounded-full animate-spin" /> Generating Report…</>
                 ) : (
                   <><CheckCircle className="w-5 h-5 text-emerald-600" /> Report Ready</>
                 )}
@@ -2578,7 +2578,7 @@ export function ReportsMIS() {
               <Progress value={generateProgress} className="h-2.5" />
               <div className="flex items-center justify-between text-sm">
                 <span className="text-slate-600">{generateStep}</span>
-                <span className="font-bold text-[#2955A0]">{generateProgress}%</span>
+                <span className="font-bold text-brand-fg">{generateProgress}%</span>
               </div>
               {generateProgress === 100 && (
                 <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3 text-sm text-emerald-800 flex items-center gap-2">
@@ -2590,7 +2590,7 @@ export function ReportsMIS() {
             {generateProgress === 100 && (
               <div className="flex justify-end gap-2">
                 <Button variant="outline" onClick={() => setGenerateDialogOpen(false)}>Close</Button>
-                <Button className="bg-[#2955A0] gap-2" onClick={() => { setGenerateDialogOpen(false); setPreviewDialogOpen(true); }}>
+                <Button className="bg-brand gap-2" onClick={() => { setGenerateDialogOpen(false); setPreviewDialogOpen(true); }}>
                   <Eye className="w-4 h-4" /> View Preview
                 </Button>
               </div>
